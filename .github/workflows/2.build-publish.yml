@@ -1,0 +1,28 @@
+name: 2. Build and Publish
+
+on:
+  push:
+    tags:
+      - "v*.*.*-*"
+  pull_request:
+    tags:
+      - "v*.*.*-*"
+  workflow_dispatch:
+
+jobs:
+  build_publish:
+    name: Build and Publish
+    runs-on: ubuntu-22.04
+    if: ${{ github.ref_type == 'tag' }}
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Trigger release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run 3.create-release.yml -r ${GITHUB_REF_NAME}

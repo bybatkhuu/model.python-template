@@ -1,0 +1,27 @@
+root = true
+
+[*]
+charset = utf-8
+trim_trailing_whitespace = true
+end_of_line = lf
+insert_final_newline = true
+
+[*.py]
+indent_style = space
+indent_size = 4
+
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
+
+[*.{js,json,sh}]
+indent_style = tab
+
+[*.md]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = false
+
+[*.conf]
+indent_style = tab
+indent_size = 4
