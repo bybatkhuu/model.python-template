@@ -60,14 +60,14 @@ export _VERSION=1.0.0
 mv -v ~/Downloads/model.python_template-${_VERSION}.zip . && \
     unzip model.python_template-${_VERSION}.zip && \
     rm -v model.python_template-${_VERSION}.zip && \
-    mv -v model.python_template-${_VERSION} model.python_template && \
-    cd model.python_template
+    mv -v model.python_template-${_VERSION} model_template && \
+    cd model_template
 ```
 
 **B.** Or clone the repository (for development: git + ssh key):
 
 ```sh
-git clone git@github.com:${_REPO_OWNER}/model.python_template.git && cd model.python_template
+git clone git@github.com:${_REPO_OWNER}/model.python_template.git model_template && cd model_template
 ```
 
 ### 3. Install python dependencies
