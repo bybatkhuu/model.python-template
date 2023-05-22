@@ -24,7 +24,7 @@ fi
 
 ## --- Variables --- ##
 # Load from envrionment variables:
-VERSION_FILENAME="${VERSION_FILENAME:-model/__version__.py}"
+VERSION_FILENAME="${VERSION_FILENAME:-model_template/__version__.py}"
 ## --- Variables --- ##
 
 

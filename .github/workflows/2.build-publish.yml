@@ -18,11 +18,9 @@ jobs:
       contents: read
       actions: write
     steps:
-      -
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@v3
-      -
-        name: Trigger release
+      - name: Trigger release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run 3.create-release.yml -r ${GITHUB_REF_NAME}

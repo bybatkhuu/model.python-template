@@ -478,9 +478,7 @@ dataset
 datasets
 model
 models
-log
 logs
-backup
 backups
 archive
 result
@@ -499,9 +497,7 @@ dataset/
 datasets/
 model/
 models/
-log/
 logs/
-backup/
 backups/
 archive/
 result/

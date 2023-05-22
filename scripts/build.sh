@@ -11,7 +11,6 @@ cd "${_PROJECT_DIR}" || exit 2
 # shellcheck disable=SC1091
 source "${_SCRIPT_DIR}/base.sh"
 
-exitIfNoDocker
 
 # Loading .env file:
 if [ -f ".env" ]; then
