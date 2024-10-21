@@ -43,6 +43,7 @@ changelog:
     - title: 👷 CI/CD
       labels:
         - ci
+        - cicd
         - ci/cd
         - build
         - deploy

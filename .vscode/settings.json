@@ -2,72 +2,67 @@
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.editor.highlightModifiedTabs": true,
 	"explorer.autoReveal": false,
-	"explorer.openEditors.visible": 0,
 	"git.autofetch": true,
 	"git.autofetchPeriod": 120,
 	"diffEditor.ignoreTrimWhitespace": false,
 	"editor.fontWeight": "500",
 	"editor.renderWhitespace": "all",
-	"editor.wordWrap": "on",
 	"editor.smoothScrolling": true,
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
-	"[markdown]":
-	{
+	"editor.tabSize": 4,
+	"[markdown]": {
 		"editor.insertSpaces": true,
 		"files.trimTrailingWhitespace": false
 	},
-	"[python]":
-	{
+	"[python]": {
 		"editor.defaultFormatter": "ms-python.black-formatter",
 		"editor.formatOnSave": true,
-		"editor.insertSpaces": true,
-		"editor.tabSize": 4
+		"editor.insertSpaces": true
 	},
-	"[yml]":
-	{
+	"[yaml]": {
 		"editor.formatOnSave": true,
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2
 	},
+	"[json][jsonc]": {
+		"editor.formatOnSave": true
+	},
 	"files.eol": "\n",
 	"files.trimTrailingWhitespace": true,
-	"files.associations":
-	{
+	"files.associations": {
 		"*.env": "dotenv",
 		"*.env.*": "dotenv",
-		"*.json.example": "json",
+		"*.json": "jsonc",
+		"*.json.example": "jsonc",
 		"requirements*.txt": "pip-requirements",
 		"*Dockerfile*": "dockerfile",
-		".dockerignore": "ignore",
 		"*.py.bak": "python",
-		"*.conf.template": "nginx"
+		"*.conf.template": "nginx",
+		".dockerignore": "ignore",
+		".gitignore": "ignore"
 	},
-	"files.watcherExclude":
-	{
-		"**/.git/**": true,
+	"files.watcherExclude": {
 		"**/.git/objects/**": true,
 		"**/.git/subtree-cache/**": true,
-		"**/.svn/**": true,
-		"**/.hg/**": true,
 		"**/.hg/store/**": true,
+		"**/.vscode-server/**": true,
+		"**/.idea/**": true,
+		"**/.ipynb_checkpoints/**": true,
+		"**/__pycache__/**": true,
 		"**/CVS/**": true,
 		"**/node_modules/*/**": true,
 		"**/bower_components/**": true,
-		"**/.vscode-server/**": true,
-		"**/.idea/**": true,
 		"**/env/**": true,
 		"**/venv/**": true,
 		"**/envs/**": true,
-		"**/__pycache__/**": true,
-		"**/.ipynb_checkpoints/**": true,
 		"**/dist/**": true,
 		"**/sdist/**": true,
 		"**/build/**": true,
 		"**/builds/**": true,
+		"**/log/**": true,
 		"**/logs/**": true,
 		"**/backups/**": true,
-		"**/archive/**": true,
 		"**/data/**": true,
 		"**/dataset/**": true,
 		"**/datasets/**": true,
@@ -76,12 +71,10 @@
 		"**/*.log": true,
 		"**/*.out": true,
 		"**/*.bak": true,
-		"**/.bak.*": true,
 		"**/.DS_Store": true,
 		"**/Thumbs.db": true
 	},
-	"files.exclude":
-	{
+	"files.exclude": {
 		"**/.git": false,
 		"**/.svn": false,
 		"**/.hg": false,
@@ -89,30 +82,31 @@
 		"**/.DS_Store": false,
 		"**/Thumbs.db": false
 	},
-	"search.exclude":
-	{
+	"search.showLineNumbers": true,
+	"search.useIgnoreFiles": false,
+	"search.exclude": {
+		"**/*.code-search": true,
 		"**/.git": true,
 		"**/.svn": true,
 		"**/.hg": true,
-		"**/CVS": true,
-		"**/node_modules": true,
-		"**/bower_components": true,
-		"**/*.code-search": true,
 		"**/.vscode": true,
 		"**/.vscode-server": true,
 		"**/.idea": true,
+		"**/.ipynb_checkpoints": true,
+		"**/__pycache__": true,
+		"**/CVS": true,
+		"**/node_modules": true,
+		"**/bower_components": true,
 		"**/env": true,
 		"**/venv": true,
 		"**/envs": true,
-		"**/__pycache__": true,
-		"**/.ipynb_checkpoints": true,
 		"**/dist": true,
 		"**/sdist": true,
 		"**/build": true,
 		"**/builds": true,
+		"**/log": true,
 		"**/logs": true,
 		"**/backups": true,
-		"**/archive": true,
 		"**/data": true,
 		"**/dataset": true,
 		"**/datasets": true,
@@ -121,14 +115,11 @@
 		"**/*.log": true,
 		"**/*.out": true,
 		"**/*.bak": true,
-		"**/.bak.*": true,
 		"**/.DS_Store": true,
 		"**/Thumbs.db": true
 	},
-	"git-graph.maxDepthOfRepoSearch": 4,
 	"python.languageServer": "Pylance",
-	"python.analysis.extraPaths":
-	[
+	"python.analysis.extraPaths": [
 		"${workspaceFolder}/model_template"
 	]
 }

@@ -1,3 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from .model_template import ModelTemplate, __version__
+try:
+    from .simple_model import *
+except ImportError:
+    from simple_model import *

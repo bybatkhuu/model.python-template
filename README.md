@@ -16,17 +16,18 @@ This is a template repo for AI/ML model module.
 
 ### 1. Prerequisites
 
-- Install **Python (>= v3.9)**:
-    - **[RECOMMENDED] Miniconda (v3)** - <https://docs.conda.io/en/latest/miniconda.html>
-    - *[OPTIONAL] venv* - <https://docs.python.org/3/library/venv.html>
+- Install **Python (>= v3.9)** and **pip (>= 23)**:
+    - **[RECOMMENDED] [Miniconda (v3)](https://docs.anaconda.com/miniconda)**
+    - *[arm64/aarch64] [Miniforge (v3)](https://github.com/conda-forge/miniforge)*
+    - *[Python virutal environment] [venv](https://docs.python.org/3/library/venv.html)*
 - *[OPTIONAL]* For **GPU (NVIDIA)**:
     - **NVIDIA GPU driver (>= v452.39)**
     - **NVIDIA CUDA (>= v11)** and **cuDNN (>= v8)**
 
-For **development** environment:
+For **DEVELOPMENT** environment:
 
-- Install **git** - <https://git-scm.com/downloads>
-- Setup an **SSH key** - <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh>
+- Install [**git**](https://git-scm.com/downloads)
+- Setup an [**SSH key**](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) ([video tutorial](https://www.youtube.com/watch?v=snCP3c7wXw0))
 
 ### 2. Download or clone the repository
 
@@ -38,164 +39,122 @@ mkdir -pv ~/workspaces/projects
 
 # Enter into projects directory:
 cd ~/workspaces/projects
-
-# Set repository owner:
-export _REPO_OWNER=[REPO_OWNER]
-# For example:
-export _REPO_OWNER=username
 ```
 
 **2.2.** Follow one of the below options **[A]** or **[B]**:
 
-**A.** Download source code from releases page:
-
-- Releases - <https://github.com/[REPO_OWNER]/model.python_template/releases>
+**A.** Clone the repository:
 
 ```sh
-# Set to downloaded version:
-export _VERSION=[VERSION]
-# For example:
-export _VERSION=1.0.0
-
-mv -v ~/Downloads/model.python_template-${_VERSION}.zip . && \
-    unzip model.python_template-${_VERSION}.zip && \
-    rm -v model.python_template-${_VERSION}.zip && \
-    mv -v model.python_template-${_VERSION} model_template && \
-    cd model_template
+git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
+    cd simple_model
 ```
 
-**B.** Or clone the repository (for development: git + ssh key):
+**B.** Download source code (for **offline** environment):
+
+1. Download archived **zip** file from [releases link](https://github.com/bybatkhuu/model.python-template/releases).
+2. Extract it into the project directory.
+3. Rename the extracted directory from **`model.python-template`** to **`simple_model`**.
+
+### 3. Install the module
+
+> [!NOTE]
+> Choose one of the following methods to install the module **[A ~ E]**:
+
+**A.** Install with **pip** in **editable** mode (for **DEVELOPMENT**):
 
 ```sh
-git clone git@github.com:${_REPO_OWNER}/model.python_template.git model_template && cd model_template
+pip install -e .
 ```
 
-### 3. Install python dependencies
+**B.** Build the **package** and install with **pip**:
 
-#### 3.1. Install base/common dependencies
+```sh
+# Install python build tool:
+pip install -U pip build
 
-```bash
-< ./requirements.txt grep -v '^#' | xargs -t -L 1 pip install --timeout 60 --no-cache-dir
+# Build python package:
+python -m build
+
+# Install from .whl file:
+pip install ./dist/simple_model-[VERSION]-py3-none-any.whl
+# Or install from .tar.gz file:
+pip install ./dist/simple_model-[VERSION].tar.gz
 ```
 
-#### 3.2. Install hardware specific dependencies
+**C.** Install from **pre-built package** files (for **PRODUCTION**):
 
-Follow the one of below instructions based on your environment (A is recommended for most cases):
+1. Download **`.whl`** or **`.tar.gz`** file from **releases** - <https://github.com/bybatkhuu/model.python-template/releases>
+2. Install with pip:
 
-**A.** For Intel/AMD **x86_64** CPU:
-
-```bash
-< ./requirements.amd64.txt grep -v '^#' | xargs -t -L 1 pip install --timeout 60 --no-cache-dir
+```sh
+# Install from .whl file:
+pip install ./simple_model-[VERSION]-py3-none-any.whl
+# Or install from .tar.gz file:
+pip install ./simple_model-[VERSION].tar.gz
 ```
 
-**B.** For **arm64/aarch64** CPU:
+**D.** Copy the **module** into the project directory (for **testing**):
 
-```bash
-< ./requirements.arm64.txt grep -v '^#' | xargs -t -L 1 pip install --timeout 60 --no-cache-dir
-```
+```sh
+# Install python dependencies:
+pip install -r requirements.txt
 
-**C.** For **NVIDIA GPU** and **x86_64** CPU:
-
-```bash
-< ./requirements.gpu.txt grep -v '^#' | xargs -t -L 1 pip install --timeout 60 --no-cache-dir
-```
-
-### 4. Install the module
-
-Follow the one of below instructions based on your situation (A and B recommended for most cases):
-
-**A.** Copy the **module** into the project directory [Recommended]:
-
-```bash
-# Copy the module source code to the project:
-cp -r model_template [PROJECT_DIR]
+# Copy the module source code into the project:
+cp -r simple_model [PROJECT_DIR]
 # For example:
-cp -r model_template /some/path/project/
+cp -r simple_model /some/path/project/
 ```
 
-**B.** Add module path to **PYTHONPATH**:
+**E.** Manually add module path into **PYTHONPATH** (not recommended):
 
-```bash
+```sh
 # Add current path to PYTHONPATH:
 export PYTHONPATH="${PWD}:${PYTHONPATH}"
 
 # Or add the module path to PYTHONPATH:
 export PYTHONPATH="[MODULE_PATH]:${PYTHONPATH}"
 # For example:
-export PYTHONPATH="/some/path/model_template:${PYTHONPATH}"
-```
-
-**C.** Install **wheel package** (Not recommended):
-
-Note: Not completed yet, because the GPU, CPU and ARM compatible wheel packages are not separated yet.
-
-```bash
-# Not implemented yet.
-
-# Build wheel package:
-pip install --upgrade pip setuptools wheel
-python setup.py bdist_wheel
-
-# Install wheel package:
-pip install ./dist/model_template-[VERSION]-py3-none-any.whl
-# For example:
-pip install ./dist/model_template-0.0.1-py3-none-any.whl
+export PYTHONPATH="/some/path/simple_model:${PYTHONPATH}"
 ```
 
 ## Usage/Examples
 
-### Simple example
+### Simple
 
 ```python
-from model_template import ModelTemplate
-```
-
-### Advanced example
-
-```python
-# Not implemented yet
+from simple_model import SimpleModel
 ```
 
 :thumbsup: :sparkles:
 
 ---
 
-## Configuration
-
-```yml
-```
-
-### Environment variables
-
-You can use the following environment variables to configure:
-
-[**`.env.example`**](.env.example)
-
-```sh
-```
-
-### Arguments
-
-You can use the following arguments to configure:
-
-```txt
-```
-
 ## Running Tests
 
 To run tests, run the following command:
 
 ```sh
-# Install test dependencies:
-pip install --upgrade pytest
+# Install python test dependencies:
+pip install -r ./requirements.test.txt
 
 # Run tests:
-pytest
+python -m pytest -sv
+```
+
+## Environment Variables
+
+You can use the following environment variables inside [**`.env.example`**](https://github.com/bybatkhuu/model.python-template/blob/main/.env.example) file:
+
+```sh
+# ENV=development
+# DEBUG=true
 ```
 
 ## Documentation
 
-...
+- [docs](https://github.com/bybatkhuu/model.python-template/blob/main/docs/README.md)
+- [scripts](https://github.com/bybatkhuu/model.python-template/blob/main/docs/scripts/README.md)
 
 ## Roadmap
 
