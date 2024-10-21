@@ -53,3 +53,12 @@ exitIfNotExists()
 		exit 1
 	fi
 }
+
+
+exitIfNoGit()
+{
+	if [ -z "$(which git)" ]; then
+		echoError "Git not found or not installed."
+		exit 1
+	fi
+}

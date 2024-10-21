@@ -10,11 +10,9 @@ cd "${_PROJECT_DIR}" || exit 2
 
 # Loading base script:
 # shellcheck disable=SC1091
-source "${_SCRIPT_DIR}/base.sh"
+source ./scripts/base.sh
 
-exitIfNoGit
-
-# Loading .env file:
+# Loading .env file (if exists):
 if [ -f ".env" ]; then
 	# shellcheck disable=SC1091
 	source .env
@@ -24,84 +22,113 @@ fi
 
 ## --- Variables --- ##
 # Load from envrionment variables:
-VERSION_FILENAME="${VERSION_FILENAME:-model_template/__version__.py}"
+VERSION_FILE_PATH="${VERSION_FILE_PATH:-simple_model/__version__.py}"
+
+
+_BUMP_TYPE=""
+
+# Flags:
+_IS_COMMIT=false
+_IS_TAG=false
+_IS_PUSH=false
 ## --- Variables --- ##
 
 
 ## --- Main --- ##
 main()
 {
-	echoInfo "Checking version..."
-	_old_version=""
-	if [ -n "${VERSION_FILENAME}" ] && [ -f "${VERSION_FILENAME}" ]; then
-
-		echoInfo "Found version file: '${VERSION_FILENAME}'"
-		_old_version=$(< "${VERSION_FILENAME}" grep "__version__ = " | awk -F' = ' '{print $2}' | tr -d '"') || exit 2
-
-	# Check if there are any tags matching the pattern "v*.*.*-*":
-	elif [ -n "$(git tag -l 'v*.*.*-*')" ]; then
-
-		echoInfo "Found version tag."
-		# Get the most recent tag which matches the pattern "v*.*.*-*":
-		_tag=$(git describe --tags --match "v*.*.*-*" --abbrev=0) || exit 2
-
-		# Strip the leading "v" character from the tag name (if present)
-		_old_version=${_tag#v}
-	else
-		echoWarn "Not found any version tags or file, using initial version."
-		_old_version="0.0.0-$(date -u '+%y%m%d')"
+	## --- Menu arguments --- ##
+	if [ -n "${1:-}" ]; then
+		for _input in "${@:-}"; do
+			case ${_input} in
+				-b=* | --bump-type=*)
+					_BUMP_TYPE="${_input#*=}"
+					shift;;
+				-c | --commit)
+					_IS_COMMIT=true
+					shift;;
+				-t | --tag)
+					_IS_TAG=true
+					shift;;
+				-p | --push)
+					_IS_PUSH=true
+					shift;;
+				*)
+					echoError "Failed to parsing input -> ${_input}"
+					echoInfo "USAGE: ${0}  -b=*, --bump-type=* [major | minor | patch] | -c, --commit | -t, --tag | -p, --push"
+					exit 1;;
+			esac
+		done
 	fi
-	echoOk "Old version: '${_old_version}'"
+	## --- Menu arguments --- ##
 
+
+	if [ -z "${_BUMP_TYPE:-}" ]; then
+		echoError "Bump type is empty! Use '-b=' or '--bump-type=' argument."
+		exit 1
+	fi
+
+	if [ "${_BUMP_TYPE}" != "major" ] && [ "${_BUMP_TYPE}" != "minor" ] && [ "${_BUMP_TYPE}" != "patch" ]; then
+		echo "Bump type '${_BUMP_TYPE}' is invalid, should be: 'major', 'minor' or 'patch'!"
+		exit 1
+	fi
+
+	if [ "${_IS_COMMIT}" == true ]; then
+		exitIfNoGit
+	fi
+
+
+	echoInfo "Checking current version..."
+	_current_version="$(./scripts/get-version.sh)"
+	echoOk "Current version: '${_current_version}'"
 
 	# Split the version string into its components:
-	_major=$(echo "${_old_version}" | cut -d. -f1)
-	_minor=$(echo "${_old_version}" | cut -d. -f2)
-	_patch=$(echo "${_old_version}" | cut -d. -f3 | cut -d- -f1)
+	_major=$(echo "${_current_version}" | cut -d. -f1)
+	_minor=$(echo "${_current_version}" | cut -d. -f2)
+	_patch=$(echo "${_current_version}" | cut -d. -f3)
 
-
-	# Checking bump type is empty:
-	_bump_type=${1:-}
-	if [ -z "${_bump_type:-}" ]; then
-		# Default to a patch bump:
-		# _bump_type="patch"
-
-		echoError "Bump type is empty!"
-		exit 1
-	fi
-
-	_new_version=${_old_version}
+	_new_version=${_current_version}
 	# Determine the new version based on the type of bump:
-	if [ "${_bump_type}" == "major" ]; then
-		_new_version="$((_major + 1)).0.0-$(date -u '+%y%m%d')"
-	elif [ "${_bump_type}" == "minor" ]; then
-		_new_version="${_major}.$((_minor + 1)).0-$(date -u '+%y%m%d')"
-	elif [ "${_bump_type}" == "patch" ]; then
-		_new_version="${_major}.${_minor}.$((_patch + 1))-$(date -u '+%y%m%d')"
-	else
-		echoError "Bump type '${_bump_type}' is invalid, should be: 'major', 'minor', 'patch'!"
-		exit 1
+	if [ "${_BUMP_TYPE}" == "major" ]; then
+		_new_version="$((_major + 1)).0.0"
+	elif [ "${_BUMP_TYPE}" == "minor" ]; then
+		_new_version="${_major}.$((_minor + 1)).0"
+	elif [ "${_BUMP_TYPE}" == "patch" ]; then
+		_new_version="${_major}.${_minor}.$((_patch + 1))"
 	fi
 
-	if git rev-parse "v${_new_version}" > /dev/null 2>&1; then
-		echoError "'v${_new_version}' tag is already exists."
-		exit 1
-	else
-		echoInfo "Bumping version to '${_new_version}'..."
-		if [ -n "${VERSION_FILENAME}" ] && [ -f "${VERSION_FILENAME}" ]; then
-			# Update the version file with the new version:
-			echo -e "# -*- coding: utf-8 -*-\n\n__version__ = \"${_new_version}\"" > "${VERSION_FILENAME}" || exit 2
+	echoInfo "Bumping version to '${_new_version}'..."
+	# Update the version file with the new version:
+	echo -e "# -*- coding: utf-8 -*-\n\n__version__ = \"${_new_version}\"" > "${VERSION_FILE_PATH}" || exit 2
+	echoOk "New version: '${_new_version}'"
 
-			# Commit the updated version file:
-			git add "${VERSION_FILENAME}" || exit 2
-			git commit -m ":bookmark: Bump version to ${_new_version}." || exit 2
-			git push || exit 2
+	if [ "${_IS_COMMIT}" == true ]; then
+		echoInfo "Committing bump version 'v${_new_version}'..."
+		# Commit the updated version file:
+		git add "${VERSION_FILE_PATH}" || exit 2
+		git commit -m ":bookmark: Bump version to '${_new_version}'." || exit 2
+		echoOk "Done."
+
+		if [ "${_IS_TAG}" == true ]; then
+			echoInfo "Tagging 'v${_new_version}'..."
+			if git rev-parse "v${_new_version}" > /dev/null 2>&1; then
+				echoError "'v${_new_version}' tag is already exists."
+				exit 1
+			fi
+			git tag "v${_new_version}" || exit 2
+			echoOk "Done."
 		fi
 
-		git tag "v${_new_version}" || exit 2
-		git push origin "v${_new_version}" || exit 2
+		if [ "${_IS_PUSH}" == true ]; then
+			echoInfo "Pushing 'v${_new_version}'..."
+			git push || exit 2
 
-		echoOk "New version: '${_new_version}'"
+			if [ "${_IS_TAG}" == true ]; then
+				# shellcheck disable=SC1083
+				git push "$(git rev-parse --abbrev-ref --symbolic-full-name @{upstream} | sed 's/\/.*//')" "v${_new_version}" || exit 2
+			fi
+			echoOk "Done."
+		fi
 	fi
 }
 
