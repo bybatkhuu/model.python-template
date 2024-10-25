@@ -1,2 +1,4 @@
 -r ./requirements.test.txt
+-r ./requirements.docs.txt
 -r ./requirements.build.txt
+jupyterlab>=4.2.5,<5.0.0

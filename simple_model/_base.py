@@ -23,6 +23,7 @@ from . import _utils as utils
 from .__version__ import __version__
 from .schemas import ModelConfigPM
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -70,7 +71,7 @@ class SimpleModel:
         ):
             self.load()
         else:
-            # Scikit-learn Linear Regression: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+            # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
             self.model = LinearRegression()
 
         logger.debug(

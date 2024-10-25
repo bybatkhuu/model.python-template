@@ -9,7 +9,7 @@ This document provides an overview and usage instructions for the following scri
 - [**`bump-version.sh`**](./5.bump-version.md)
 - [**`build.sh`**](./6.build.md)
 
-All the scripts are located in the [**`scripts`**](../../scripts) directory:
+All the scripts are located in the **`scripts`** directory:
 
 ```txt
 scripts/

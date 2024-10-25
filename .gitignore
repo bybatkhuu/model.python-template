@@ -486,6 +486,8 @@ result
 results
 output
 outputs
+site
+sites
 pythonpath
 *.bak
 *.pyc
@@ -507,4 +509,6 @@ result/
 results/
 output/
 outputs/
+site/
+sites/
 pythonpath/

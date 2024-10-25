@@ -1,0 +1,40 @@
+# Sitemap
+
+## Pages
+
+- [Home](../../index.md)
+- Getting Started
+    - [Prerequisites](../getting-started/prerequisites.md)
+    - [Installation](../getting-started/installation.md)
+    - [Configuration](../getting-started/configuration.md)
+    - [Examples](../getting-started/examples.md)
+    - [Error Codes](../getting-started/error-codes.md)
+- [API Documentation](../api-docs/index.md)
+- Development
+    - [Test](../dev/test.md)
+    - [Build](../dev/build.md)
+    - [Docs](../dev/docs.md)
+    - [CI/CD](../dev/cicd.md)
+    - [Scripts](../dev/scripts/index.md)
+        - [base.sh](../dev/scripts/1.base.md)
+        - [clean.sh](../dev/scripts/2.clean.md)
+        - [get-version.sh](../dev/scripts/3.get-version.md)
+        - [test.sh](../dev/scripts/4.test.md)
+        - [bump-version.sh](../dev/scripts/5.bump-version.md)
+        - [build.sh](../dev/scripts/6.build.md)
+    - [File Structure](../dev/file-structure.md)
+    - [Sitemap](../dev/sitemap.md)
+    - [Related Projects](../dev/related-projects.md)
+    - [Contributing](../dev/contributing.md)
+    - [Roadmap](../dev/roadmap.md)
+- Research
+    - [Reports](../research/reports.md)
+    - [Benchmarks](../research/benchmarks.md)
+    - [References](../research/references.md)
+- [Changelog](../changelog.md)
+- [Blog](../blog/index.md)
+- About
+    - [FAQ](../about/faq.md)
+    - [Authors](../about/authors.md)
+    - [Contact](../about/contact.md)
+    - [License](../about/license.md)
