@@ -7,6 +7,8 @@ This is a template repo for AI/ML model module.
 - AI/ML model
 - Python module/package
 - Jupyter notebook
+- Research
+- Project Structure
 - Template
 - CI/CD
 
@@ -52,7 +54,7 @@ git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
 
 **B.** Download source code (for **offline** environment):
 
-1. Download archived **zip** file from [releases link](https://github.com/bybatkhuu/model.python-template/releases).
+1. Download archived **zip** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
 2. Extract it into the project directory.
 3. Rename the extracted directory from **`model.python-template`** to **`simple_model`**.
 
@@ -84,7 +86,7 @@ pip install ./dist/simple_model-[VERSION].tar.gz
 
 **C.** Install from **pre-built package** files (for **PRODUCTION**):
 
-1. Download **`.whl`** or **`.tar.gz`** file from **releases** - <https://github.com/bybatkhuu/model.python-template/releases>
+1. Download **`.whl`** or **`.tar.gz`** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
 2. Install with pip:
 
 ```sh
@@ -122,13 +124,92 @@ export PYTHONPATH="/some/path/simple_model:${PYTHONPATH}"
 
 ### Simple
 
+[**`examples/simple/main.py`**](./examples/simple/main.py):
+
 ```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+## Standard libraries
+import sys
+import logging
+from typing import Any
+
+## Third-party libraries
+import numpy as np
+from numpy.typing import NDArray
+
+## Internal modules
 from simple_model import SimpleModel
+
+
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+
+if __name__ == "__main__":
+
+    # Pre-defined variables (for customizing and testing)
+    _model_dir = "./models"
+    _model_name = "linear_regression.v0.0.1-24"
+
+    _X_train = np.array([[1], [2], [3], [4], [5]])
+    _y_train = np.array([2, 4, 6, 8, 10])
+
+    _X_test = np.array([[6], [7], [8]])
+    _y_test = np.array([10, 14, 16])
+
+    # Create the model instance
+    _config = {"models_dir": _model_dir, "model_name": _model_name}
+    _model = SimpleModel(config=_config)
+
+    # Train or load the model
+    if not SimpleModel.is_model_files_exist(**_config):
+        _model.train(X=_X_train, y=_y_train)
+    else:
+        _model.load()
+
+    # Predict the target values
+    _y_pred: NDArray[Any] = _model.predict(X=_X_test)
+    logger.info(f"Predicted values for {_X_test.flatten()}: {_y_pred.flatten()}")
+
+    # Evaluate the model
+    _r2_score: float = _model.score(y_true=_y_test, y_pred=_y_pred)
+    logger.info(f"R^2 score: {_r2_score}")
+
+    _is_similar: bool = _model.is_similar(X=_X_test, y=_y_test)
+    logger.info(f"Is similar: {_is_similar}")
+
+    # Save the model
+    if _model.is_trained() and (not SimpleModel.is_model_files_exist(**_config)):
+        _model.save()
+
+    logger.info("Done!")
 ```
 
 :thumbsup: :sparkles:
 
 ---
+
+## Configuration
+
+[**`templates/configs/config.yml`**](./templates/configs/config.yml):
+
+```yaml
+simple_model:                                       # Just an example to group the configs (Not necessary)
+  models_dir: "models"                              # Directory where the models are saved
+  model_name: "linear_regression.v0.0.1-240101"     # Name of the model as sub-directory
+  threshold: 0.5                                    # Threshold for similarity check
+```
+
+### Environment Variables
+
+[**`.env.example`**](.env.example):
+
+```sh
+# ENV=development
+# DEBUG=true
+```
 
 ## Running Tests
 
@@ -136,29 +217,65 @@ To run tests, run the following command:
 
 ```sh
 # Install python test dependencies:
-pip install -r ./requirements.test.txt
+pip install -r ./requirements/requirements.test.txt
 
 # Run tests:
 python -m pytest -sv
 ```
 
-## Environment Variables
+## Build Package
 
-You can use the following environment variables inside [**`.env.example`**](https://github.com/bybatkhuu/model.python-template/blob/main/.env.example) file:
+To build the python package, run the following command:
 
 ```sh
-# ENV=development
-# DEBUG=true
+# Install python build dependencies:
+pip install -r ./requirements/requirements.build.txt
+
+# Build python package:
+python -m build
+```
+
+## Generate Docs
+
+To build the documentation, run the following command:
+
+```sh
+# Install python documentation dependencies:
+pip install -r ./requirements/requirements.docs.txt
+
+# Serve documentation locally (for development):
+mkdocs serve
+# Or build documentation:
+mkdocs build
 ```
 
 ## Documentation
 
-- [docs](https://github.com/bybatkhuu/model.python-template/blob/main/docs/README.md)
-- [scripts](https://github.com/bybatkhuu/model.python-template/blob/main/docs/scripts/README.md)
+- [Docs](./docs)
+- [Home](./docs/index.md)
 
-## Roadmap
+### Getting Started
 
-...
+- [Prerequisites](./docs/pages/getting-started/prerequisites.md)
+- [Installation](./docs/pages/getting-started/installation.md)
+- [Configuration](./docs/pages/getting-started/configuration.md)
+- [Examples](./docs/pages/getting-started/examples.md)
+- [Error Codes](./docs/pages/getting-started/error-codes.md)
+- [File Structure](./docs/pages/getting-started/file-structure.md)
+
+### API Documentation
+
+- [API Reference](./docs/pages/api-docs/index.md)
+
+### Development
+
+- [Test](./docs/pages/dev/test/index.md)
+- [Build](./docs/pages/dev/build.md)
+- [Docs](./docs/pages/dev/docs/index.md)
+- [CI/CD](./docs/pages/dev/cicd/index.md)
+- [Scripts](./docs/pages/dev/scripts/index.md)
+- [Sitemap](./docs/pages/dev/sitemap.md)
+- [Roadmap](./docs/pages/dev/roadmap.md)
 
 ---
 

@@ -62,11 +62,16 @@
 		"**/builds/**": true,
 		"**/log/**": true,
 		"**/logs/**": true,
+		"**/backup/**": true,
 		"**/backups/**": true,
 		"**/data/**": true,
 		"**/dataset/**": true,
 		"**/datasets/**": true,
 		"**/tmp/**": true,
+		"**/result/**": true,
+		"**/results/**": true,
+		"**/site/**": true,
+		"**/sites/**": true,
 		"**/*.pyc": true,
 		"**/*.log": true,
 		"**/*.out": true,
@@ -106,11 +111,16 @@
 		"**/builds": true,
 		"**/log": true,
 		"**/logs": true,
+		"**/backup": true,
 		"**/backups": true,
 		"**/data": true,
 		"**/dataset": true,
 		"**/datasets": true,
 		"**/tmp": true,
+		"**/site": true,
+		"**/sites": true,
+		"**/result": true,
+		"**/results": true,
 		"**/*.pyc": true,
 		"**/*.log": true,
 		"**/*.out": true,
@@ -120,6 +130,18 @@
 	},
 	"python.languageServer": "Pylance",
 	"python.analysis.extraPaths": [
-		"${workspaceFolder}/model_template"
+		"${workspaceFolder}/simple_model"
+	],
+	"yaml.schemas": {
+		"https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+	},
+	"yaml.customTags": [
+		"!ENV scalar",
+		"!ENV sequence",
+		"!relative scalar",
+		"tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+		"tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+		"tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
+		"tag:yaml.org,2002:python/object/apply:pymdownx.slugs.slugify mapping"
 	]
 }
