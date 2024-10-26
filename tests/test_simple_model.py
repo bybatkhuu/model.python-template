@@ -7,7 +7,10 @@ import pytest
 import numpy as np
 from numpy.typing import NDArray
 
-from simple_model import SimpleModel
+try:
+    from simple_model import SimpleModel
+except ImportError:
+    from src.simple_model import SimpleModel
 
 
 logger = logging.getLogger(__name__)

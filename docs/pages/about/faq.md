@@ -2,6 +2,6 @@
 
 This section contains frequently asked questions about this project.
 
-## Q1: What is the answer to the Ultimate Question of Life, the Universe, and Everything?
+## Q1: How do I get started with this project?
 
-The answer to the Ultimate Question of Life, the Universe, and Everything is 42.
+To get started with this project, follow the instructions in the [Getting Started](../getting-started/prerequisites.md) guide.

@@ -38,7 +38,7 @@ project/
 ├── templates/              # Template files (if any, e.g. config files, etc...) used in this project
 ├── tests/                  # Tests for this project
 |   ├── __init__.py             # Initialize the test module
-|   ├── conftest.py             # Configuration for pytest (e.g. fixtures, plugins, pre/post test hooks, etc...)
+|   ├── conftest.py             # Presets for pytest (e.g. fixtures, plugins, pre/post test hooks, etc...)
 |   ├── test_1.py               # Test case files
 |   ├── test_2.py
 |   └── ...
@@ -47,14 +47,16 @@ project/
 ├── .env.example            # Example environment variables file
 ├── .gitignore              # Files and directories to be ignored by git (e.g. data, models, results, etc...)
 ├── .markdownlint.json      # Markdown linting rules
-├── .environment.yml        # Conda environment file
+├── CHANGELOG.md            # List of changes for each version of the project
+├── environment.yml         # Conda environment file
 ├── LICENSE.txt             # License file for this project
 ├── Makefile                # Makefile for common commands and automation
+├── MANIFEST.in             # Manifest file for setuptools (to include/exclude files in the source distribution)
 ├── mkdocs.yml              # MkDocs configuration file
 ├── pyproject.toml          # PEP 518 configuration file for python packaging
 ├── pytest.ini              # Pytest configuration file
 ├── README.md               # Main README file for this project
 ├── requirements.txt        # Main python dependency requirements for this project
 ├── setup.cfg               # Configuration for setuptools
-└── setup.py                # Setup script for setuptools (old way of packaging)
+└── setup.py                # Setup script for setuptools (for backward compatibility)
 ```

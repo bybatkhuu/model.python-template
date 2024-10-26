@@ -1,6 +1,6 @@
 {
 	"simple_model": {
-		"models_dir": "models",
+		"models_dir": "./models",
 		"model_name": "linear_regression.v0.0.1-240101",
 		"threshold": 0.5
 	}

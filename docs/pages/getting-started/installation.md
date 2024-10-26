@@ -32,9 +32,12 @@ git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
 > [!NOTE]
 > Choose one of the following methods to install the module **[A ~ E]**:
 
-**A.** Install with **pip** in **editable** mode (for **DEVELOPMENT**):
+**A.** Install with **pip**:
 
 ```sh
+# Install directly from source:
+pip install .
+# Or install with **editable** mode (for **DEVELOPMENT**):
 pip install -e .
 ```
 
@@ -69,22 +72,22 @@ pip install ./simple_model-[VERSION].tar.gz
 
 ```sh
 # Install python dependencies:
-pip install -r requirements.txt
+pip install -r ./requirements.txt
 
 # Copy the module source code into the project:
-cp -r simple_model [PROJECT_DIR]
+cp -r ./src/simple_model [PROJECT_DIR]
 # For example:
-cp -r simple_model /some/path/project/
+cp -r ./src/simple_model /some/path/project/
 ```
 
 **E.** Manually add module path into **PYTHONPATH** (not recommended):
 
 ```sh
 # Add current path to PYTHONPATH:
-export PYTHONPATH="${PWD}:${PYTHONPATH}"
+export PYTHONPATH="${PWD}/src:${PYTHONPATH}"
 
 # Or add the module path to PYTHONPATH:
 export PYTHONPATH="[MODULE_PATH]:${PYTHONPATH}"
 # For example:
-export PYTHONPATH="/some/path/simple_model:${PYTHONPATH}"
+export PYTHONPATH="/some/path/simple_model/src:${PYTHONPATH}"
 ```

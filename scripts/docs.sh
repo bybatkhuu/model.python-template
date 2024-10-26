@@ -12,3 +12,42 @@ cd "${_PROJECT_DIR}" || exit 2
 source ./scripts/base.sh
 ## --- Base --- ##
 
+
+## --- Variables --- ##
+# Flags:
+_IS_BUILD=false
+## --- Variables --- ##
+
+
+## --- Main --- ##
+main()
+{
+	## --- Menu arguments --- ##
+	if [ -n "${1:-}" ]; then
+		for _input in "${@:-}"; do
+			case ${_input} in
+				-b | --build)
+					_IS_BUILD=true
+					shift;;
+				*)
+					echoError "Failed to parsing input -> ${_input}"
+					echoInfo "USAGE: ${0} -b, --build"
+					exit 1;;
+			esac
+		done
+	fi
+	## --- Menu arguments --- ##
+
+
+	if [ "${_IS_BUILD}" == false ]; then
+		echoInfo "Starting documentation server..."
+		mkdocs serve
+	else
+		echoInfo "Building documentation pages (HTML) into the 'site' directory..."
+		mkdocs build
+	fi
+	echoOk "Done."
+}
+
+main "${@:-}"
+## --- Main --- ##

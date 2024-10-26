@@ -31,7 +31,7 @@ if __name__ == "__main__":
     _y_test = np.array([10, 14, 16])
 
     # Create the model instance
-    _config = {"models_dir": _model_dir, "model_name": 213}
+    _config = {"models_dir": _model_dir, "model_name": _model_name}
     _model = SimpleModel(config=_config)
 
     # Train or load the model

@@ -63,9 +63,12 @@ git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
 > [!NOTE]
 > Choose one of the following methods to install the module **[A ~ E]**:
 
-**A.** Install with **pip** in **editable** mode (for **DEVELOPMENT**):
+**A.** Install with **pip**:
 
 ```sh
+# Install directly from source:
+pip install .
+# Or install with **editable** mode (for **DEVELOPMENT**):
 pip install -e .
 ```
 
@@ -100,24 +103,24 @@ pip install ./simple_model-[VERSION].tar.gz
 
 ```sh
 # Install python dependencies:
-pip install -r requirements.txt
+pip install -r ./requirements.txt
 
 # Copy the module source code into the project:
-cp -r simple_model [PROJECT_DIR]
+cp -r ./src/simple_model [PROJECT_DIR]
 # For example:
-cp -r simple_model /some/path/project/
+cp -r ./src/simple_model /some/path/project/
 ```
 
 **E.** Manually add module path into **PYTHONPATH** (not recommended):
 
 ```sh
 # Add current path to PYTHONPATH:
-export PYTHONPATH="${PWD}:${PYTHONPATH}"
+export PYTHONPATH="${PWD}/src:${PYTHONPATH}"
 
 # Or add the module path to PYTHONPATH:
 export PYTHONPATH="[MODULE_PATH]:${PYTHONPATH}"
 # For example:
-export PYTHONPATH="/some/path/simple_model:${PYTHONPATH}"
+export PYTHONPATH="/some/path/model.python-template/src:${PYTHONPATH}"
 ```
 
 ## Usage/Examples
@@ -197,7 +200,7 @@ if __name__ == "__main__":
 
 ```yaml
 simple_model:                                       # Just an example to group the configs (Not necessary)
-  models_dir: "models"                              # Directory where the models are saved
+  models_dir: "./models"                              # Directory where the models are saved
   model_name: "linear_regression.v0.0.1-240101"     # Name of the model as sub-directory
   threshold: 0.5                                    # Threshold for similarity check
 ```
@@ -217,10 +220,10 @@ To run tests, run the following command:
 
 ```sh
 # Install python test dependencies:
-pip install -r ./requirements/requirements.test.txt
+pip install -r ./requirements.test.txt
 
 # Run tests:
-python -m pytest -sv
+python -m pytest -sv -o log_cli=true
 ```
 
 ## Build Package
@@ -229,7 +232,7 @@ To build the python package, run the following command:
 
 ```sh
 # Install python build dependencies:
-pip install -r ./requirements/requirements.build.txt
+pip install -r ./requirements.build.txt
 
 # Build python package:
 python -m build
@@ -241,7 +244,7 @@ To build the documentation, run the following command:
 
 ```sh
 # Install python documentation dependencies:
-pip install -r ./requirements/requirements.docs.txt
+pip install -r ./requirements.docs.txt
 
 # Serve documentation locally (for development):
 mkdocs serve
@@ -252,7 +255,7 @@ mkdocs build
 ## Documentation
 
 - [Docs](./docs)
-- [Home](./docs/index.md)
+- [Home](./docs/README.md)
 
 ### Getting Started
 
@@ -261,25 +264,42 @@ mkdocs build
 - [Configuration](./docs/pages/getting-started/configuration.md)
 - [Examples](./docs/pages/getting-started/examples.md)
 - [Error Codes](./docs/pages/getting-started/error-codes.md)
-- [File Structure](./docs/pages/getting-started/file-structure.md)
 
-### API Documentation
-
-- [API Reference](./docs/pages/api-docs/index.md)
+### [API Documentation](./docs/pages/api-docs/README.md)
 
 ### Development
 
-- [Test](./docs/pages/dev/test/index.md)
+- [Test](./docs/pages/dev/test.md)
 - [Build](./docs/pages/dev/build.md)
-- [Docs](./docs/pages/dev/docs/index.md)
-- [CI/CD](./docs/pages/dev/cicd/index.md)
-- [Scripts](./docs/pages/dev/scripts/index.md)
+- [Docs](./docs/pages/dev/docs.md)
+- [CI/CD](./docs/pages/dev/cicd.md)
+- [Scripts](./docs/pages/dev/scripts/README.md)
+- [File Structure](./docs/pages/dev/file-structure.md)
 - [Sitemap](./docs/pages/dev/sitemap.md)
+- [Contributing](./docs/pages/dev/contributing.md)
 - [Roadmap](./docs/pages/dev/roadmap.md)
+
+### Research
+
+- [Reports](./docs/pages/research/reports.md)
+- [Benchmarks](./docs/pages/research/benchmarks.md)
+- [References](./docs/pages/research/references.md)
+
+### [Release Notes](./docs/pages/release-notes.md)
+
+### [Blog](./docs/pages/blog/README.md)
+
+### About
+
+- [FAQ](./docs/pages/about/faq.md)
+- [Authors](./docs/pages/about/authors.md)
+- [Contact](./docs/pages/about/contact.md)
+- [License](./docs/pages/about/license.md)
 
 ---
 
 ## References
 
+- <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html>
 - <https://packaging.python.org/en/latest/tutorials/packaging-projects>
 - <https://python-packaging.readthedocs.io/en/latest>

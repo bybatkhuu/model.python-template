@@ -17,7 +17,7 @@ fi
 
 ## --- Variables --- ##
 # Load from envrionment variables:
-VERSION_FILE_PATH="${VERSION_FILE_PATH:-simple_model/__version__.py}"
+VERSION_FILE_PATH="${VERSION_FILE_PATH:-src/simple_model/__version__.py}"
 ## --- Variables --- ##
 
 

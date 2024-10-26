@@ -8,7 +8,7 @@ This section provides information on how to develop or contribute to this projec
 - [Build](./build.md)
 - [Docs](./docs.md)
 - [CI/CD](./cicd.md)
-- [Scripts](./scripts/index.md)
+- [Scripts](./scripts/README.md)
     - [base.sh](./scripts/1.base.md)
     - [clean.sh](./scripts/2.clean.md)
     - [get-version.sh](./scripts/3.get-version.md)
