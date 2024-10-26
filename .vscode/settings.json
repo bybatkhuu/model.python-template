@@ -28,6 +28,9 @@
 	"[json][jsonc]": {
 		"editor.formatOnSave": true
 	},
+	"[toml]": {
+		"editor.formatOnSave": true
+	},
 	"files.eol": "\n",
 	"files.trimTrailingWhitespace": true,
 	"files.associations": {
@@ -130,7 +133,7 @@
 	},
 	"python.languageServer": "Pylance",
 	"python.analysis.extraPaths": [
-		"${workspaceFolder}/simple_model"
+		"${workspaceFolder}/src"
 	],
 	"yaml.schemas": {
 		"https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"

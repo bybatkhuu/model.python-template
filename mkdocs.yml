@@ -56,6 +56,7 @@ markdown_extensions:
   - pymdownx.superfences
 plugins:
   - search
+  - mkdocstrings
   # - blog:
   #     blog_dir: pages/blog
   #     post_date_format: medium
@@ -64,45 +65,48 @@ plugins:
   #     blog_toc: true
 nav:
   - Home:
-      - index.md
+      - README.md
   - Getting Started:
-      # - pages/getting-started/index.md
+      # - pages/getting-started/README.md
       - Prerequisites: pages/getting-started/prerequisites.md
       - Installation: pages/getting-started/installation.md
       - Configuration: pages/getting-started/configuration.md
       - Examples: pages/getting-started/examples.md
       - Error codes: pages/getting-started/error-codes.md
   - API Documentation:
-      - pages/api-docs/index.md
+      # - pages/api-docs/README.md
+      - SimpleModel: pages/api-docs/SimpleModel.md
+      - ModelConfigPM: pages/api-docs/ModelConfigPM.md
   - Development:
-      # - pages/dev/index.md
+      # - pages/dev/README.md
       - Test: pages/dev/test.md
       - Build: pages/dev/build.md
       - Docs: pages/dev/docs.md
       - CI/CD: pages/dev/cicd.md
       - Scripts:
-          - pages/dev/scripts/index.md
+          - pages/dev/scripts/README.md
           - base.sh: pages/dev/scripts/1.base.md
           - clean.sh: pages/dev/scripts/2.clean.md
           - get-version.sh: pages/dev/scripts/3.get-version.md
           - test.sh: pages/dev/scripts/4.test.md
           - bump-version.sh: pages/dev/scripts/5.bump-version.md
           - build.sh: pages/dev/scripts/6.build.md
+          - docs.sh: pages/dev/scripts/7.docs.md
       - File stucture: pages/dev/file-structure.md
       - Sitemap: pages/dev/sitemap.md
       - Related projects: pages/dev/related-projects.md
       - Contributing: pages/dev/contributing.md
       - Roadmap: pages/dev/roadmap.md
   - Research:
-      # - pages/research/index.md
+      # - pages/research/README.md
       - Reports: pages/research/reports.md
       - Benchmarks: pages/research/benchmarks.md
       - References: pages/research/references.md
-  - Changelog: pages/changelog.md
+  - Release notes: pages/release-notes.md
   - Blog:
-      - pages/blog/index.md
+      - pages/blog/README.md
   - About:
-      # - pages/about/index.md
+      # - pages/about/README.md
       - FAQ: pages/about/faq.md
       - Authors: pages/about/authors.md
       - Contact: pages/about/contact.md

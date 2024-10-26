@@ -4,7 +4,7 @@ To build the documentation, run the following command:
 
 ```sh
 # Install python documentation dependencies:
-pip install -r ./requirements/requirements.docs.txt
+pip install -r ./requirements.docs.txt
 
 # Serve documentation locally (for development):
 mkdocs serve
@@ -12,7 +12,14 @@ mkdocs serve
 mkdocs build
 ```
 
-## MkDocs
+## MkDocs Material
+
+### Installation
+
+```sh
+# Install mkdocs-material and mkdocstrings:
+pip install -U mkdocs-material mkdocstrings[python]
+```
 
 ### Commands
 
@@ -34,3 +41,4 @@ docs/
 
 - [MkDocs Documentation](https://www.mkdocs.org)
 - [MkDocs Material Documentation](https://squidfunk.github.io/mkdocs-material)
+- [mkdocstrings Documentation](https://mkdocstrings.github.io)

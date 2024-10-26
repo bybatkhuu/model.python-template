@@ -86,7 +86,7 @@ class SimpleModel:
 
         Args:
             models_dir (str): Location of the models (multiple models can be stored in this directory).
-            model_name (str): Name of the model which is also the model directory name.
+            model_name (str): Name of the model which is also the sub-directory name.
 
         Returns:
             bool: True if the model files exist, False otherwise.

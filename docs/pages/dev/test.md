@@ -4,10 +4,10 @@ To run tests, run the following command:
 
 ```sh
 # Install python test dependencies:
-pip install -r ./requirements/requirements.test.txt
+pip install -r ./requirements.test.txt
 
 # Run tests:
-python -m pytest -sv
+python -m pytest -sv -o log_cli=true
 # Or use the test script:
 ./scripts/test.sh -l -v -c
 ```
@@ -16,7 +16,7 @@ python -m pytest -sv
 
 ```sh
 # Install pytest:
-pip install -U pytest
+pip install -U pytest pytest-cov pytest-xdist pytest-benchmark
 
 # Run tests:
 python -m pytest
@@ -29,6 +29,7 @@ python -m pytest --help
 
 - [Pytest Documentation](https://docs.pytest.org/en/latest)
 - [Pytest Getting Started](https://docs.pytest.org/en/latest/getting-started.html)
+- [Pytest Fixtures](https://docs.pytest.org/en/stable/reference/fixtures.html)
 - Blogs:
     - <https://docs.pytest.org/en/latest/goodpractices.html>
     - <https://emimartin.me/pytest_best_practices>

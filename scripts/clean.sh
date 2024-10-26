@@ -54,7 +54,9 @@ main()
 	if [ "${_IS_ALL}" == true ]; then
 		rm -rfv ./build || exit 2
 		rm -rfv ./dist || exit 2
-		rm -rfv ./*.egg-info || exit 2
+		rm -rfv ./site || exit 2
+		find . -type d -name "*.egg-info" -exec rm -rfv {} + || exit 2
+		# rm -rfv ./*.egg-info || exit 2
 	fi
 
 	echoOk "Done."
