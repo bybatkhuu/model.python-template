@@ -23,14 +23,14 @@ git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
 
 **B.** Download source code (for **offline** environment):
 
-1. Download archived **zip** file from [releases link](https://github.com/bybatkhuu/model.python-template/releases).
+1. Download archived **zip** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
 2. Extract it into the project directory.
 3. Rename the extracted directory from **`model.python-template`** to **`simple_model`**.
 
-## 2. Install the module
+### 3. Install the module
 
 > [!NOTE]
-> Choose one of the following methods to install the module **[A ~ E]**:
+> Choose one of the following methods to install the module **[A ~ F]**:
 
 **A.** Install with **pip**:
 
@@ -41,7 +41,26 @@ pip install .
 pip install -e .
 ```
 
-**B.** Build the **package** and install with **pip**:
+**B.** Install from git repository (only works on **public** repo):
+
+```sh
+# Install directly from GitHub:
+pip install git+https://github.com/bybatkhuu/model.python-template.git
+```
+
+**C.** Install from **pre-built package** files (for **PRODUCTION**):
+
+1. Download **`.whl`** or **`.tar.gz`** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
+2. Install with pip:
+
+```sh
+# Install from .whl file:
+pip install ./simple_model-[VERSION]-py3-none-any.whl
+# Or install from .tar.gz file:
+pip install ./simple_model-[VERSION].tar.gz
+```
+
+**D.** Build the **package** and install with **pip**:
 
 ```sh
 # Install python build tool:
@@ -56,19 +75,7 @@ pip install ./dist/simple_model-[VERSION]-py3-none-any.whl
 pip install ./dist/simple_model-[VERSION].tar.gz
 ```
 
-**C.** Install from **pre-built package** files (for **PRODUCTION**):
-
-1. Download **`.whl`** or **`.tar.gz`** file from **releases** - <https://github.com/bybatkhuu/model.python-template/releases>
-2. Install with pip:
-
-```sh
-# Install from .whl file:
-pip install ./simple_model-[VERSION]-py3-none-any.whl
-# Or install from .tar.gz file:
-pip install ./simple_model-[VERSION].tar.gz
-```
-
-**D.** Copy the **module** into the project directory (for **testing**):
+**E.** Copy the **module** into the project directory (for **testing**):
 
 ```sh
 # Install python dependencies:
@@ -80,7 +87,7 @@ cp -r ./src/simple_model [PROJECT_DIR]
 cp -r ./src/simple_model /some/path/project/
 ```
 
-**E.** Manually add module path into **PYTHONPATH** (not recommended):
+**F.** Manually add module path into **PYTHONPATH** (not recommended):
 
 ```sh
 # Add current path to PYTHONPATH:
@@ -89,5 +96,5 @@ export PYTHONPATH="${PWD}/src:${PYTHONPATH}"
 # Or add the module path to PYTHONPATH:
 export PYTHONPATH="[MODULE_PATH]:${PYTHONPATH}"
 # For example:
-export PYTHONPATH="/some/path/simple_model/src:${PYTHONPATH}"
+export PYTHONPATH="/some/path/model.python-template/src:${PYTHONPATH}"
 ```
