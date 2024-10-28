@@ -4,7 +4,7 @@ To build the python package, run the following command:
 
 ```sh
 # Install python build dependencies:
-pip install -r ./requirements.build.txt
+pip install -r ./requirements/requirements.build.txt
 
 # Build python package:
 python -m build

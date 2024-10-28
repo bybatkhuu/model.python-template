@@ -1,5 +1,9 @@
 # Model Template (AI/ML) module
 
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bybatkhuu/model.python-template/2.build-publish.yml?logo=GitHub)](https://github.com/bybatkhuu/model.python-template/actions/workflows/2.build-publish.yml)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/bybatkhuu/model.python-template?logo=GitHub)](https://github.com/bybatkhuu/model.python-template/releases)
+
 This is a template repo for AI/ML model module.
 
 ## Features
@@ -61,25 +65,30 @@ git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
 ### 3. Install the module
 
 > [!NOTE]
-> Choose one of the following methods to install the module **[A ~ F]**:
+> Choose one of the following methods to install the module **[A ~ G]**:
 
 **A.** Install with **pip**:
 
 ```sh
-# Install directly from source:
+# Install directly from the source code:
 pip install .
-# Or install with **editable** mode (for **DEVELOPMENT**):
+# Or install with editable mode:
 pip install -e .
 ```
 
-**B.** Install from git repository (only works on **public** repo):
+**B.** Install for **DEVELOPMENT** environment:
 
 ```sh
-# Install directly from GitHub:
+pip install -r ./requirements/requirements.dev.txt
+```
+
+**C.** Install directly from git repository:
+
+```sh
 pip install git+https://github.com/bybatkhuu/model.python-template.git
 ```
 
-**C.** Install from **pre-built package** files (for **PRODUCTION**):
+**D.** Install from **pre-built package** files (for **PRODUCTION**):
 
 1. Download **`.whl`** or **`.tar.gz`** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
 2. Install with pip:
@@ -91,7 +100,7 @@ pip install ./simple_model-[VERSION]-py3-none-any.whl
 pip install ./simple_model-[VERSION].tar.gz
 ```
 
-**D.** Build the **package** and install with **pip**:
+**E.** Build the **package** and install with **pip**:
 
 ```sh
 # Install python build tool:
@@ -106,7 +115,7 @@ pip install ./dist/simple_model-[VERSION]-py3-none-any.whl
 pip install ./dist/simple_model-[VERSION].tar.gz
 ```
 
-**E.** Copy the **module** into the project directory (for **testing**):
+**F.** Copy the **module** into the project directory (for **testing**):
 
 ```sh
 # Install python dependencies:
@@ -118,7 +127,7 @@ cp -r ./src/simple_model [PROJECT_DIR]
 cp -r ./src/simple_model /some/path/project/
 ```
 
-**F.** Manually add module path into **PYTHONPATH** (not recommended):
+**G.** Manually add module path into **PYTHONPATH** (not recommended):
 
 ```sh
 # Add current path to PYTHONPATH:
@@ -134,7 +143,7 @@ export PYTHONPATH="/some/path/model.python-template/src:${PYTHONPATH}"
 
 ### Simple
 
-[**`examples/simple/main.py`**](./examples/simple/main.py):
+[**`examples/simple/main.py`**](https://github.com/bybatkhuu/model.python-template/blob/main/examples/simple/main.py):
 
 ```python
 #!/usr/bin/env python
@@ -203,7 +212,7 @@ if __name__ == "__main__":
 
 ## Configuration
 
-[**`templates/configs/config.yml`**](./templates/configs/config.yml):
+[**`templates/configs/config.yml`**](https://github.com/bybatkhuu/model.python-template/blob/main/templates/configs/config.yml):
 
 ```yaml
 simple_model:                                       # Just an example to group the configs (Not necessary)
@@ -214,7 +223,7 @@ simple_model:                                       # Just an example to group t
 
 ### Environment Variables
 
-[**`.env.example`**](.env.example):
+[**`.env.example`**](https://github.com/bybatkhuu/model.python-template/blob/main/.env.example):
 
 ```sh
 # ENV=development
@@ -227,10 +236,12 @@ To run tests, run the following command:
 
 ```sh
 # Install python test dependencies:
-pip install -r ./requirements.test.txt
+pip install -r ./requirements/requirements.test.txt
 
 # Run tests:
 python -m pytest -sv -o log_cli=true
+# Or use the test script:
+./scripts/test.sh -l -v -c
 ```
 
 ## Build Package
@@ -239,10 +250,12 @@ To build the python package, run the following command:
 
 ```sh
 # Install python build dependencies:
-pip install -r ./requirements.build.txt
+pip install -r ./requirements/requirements.build.txt
 
 # Build python package:
 python -m build
+# Or use the build script:
+./scripts/build.sh
 ```
 
 ## Generate Docs
@@ -251,57 +264,62 @@ To build the documentation, run the following command:
 
 ```sh
 # Install python documentation dependencies:
-pip install -r ./requirements.docs.txt
+pip install -r ./requirements/requirements.docs.txt
 
 # Serve documentation locally (for development):
 mkdocs serve
+# Or use the docs script:
+./scripts/docs.sh
+
 # Or build documentation:
 mkdocs build
+# Or use the docs script:
+./scripts/docs.sh -b
 ```
 
 ## Documentation
 
-- [Docs](./docs)
-- [Home](./docs/README.md)
+- [Docs](https://github.com/bybatkhuu/model.python-template/blob/main/docs)
+- [Home](https://github.com/bybatkhuu/model.python-template/blob/main/docs/README.md)
 
 ### Getting Started
 
-- [Prerequisites](./docs/pages/getting-started/prerequisites.md)
-- [Installation](./docs/pages/getting-started/installation.md)
-- [Configuration](./docs/pages/getting-started/configuration.md)
-- [Examples](./docs/pages/getting-started/examples.md)
-- [Error Codes](./docs/pages/getting-started/error-codes.md)
+- [Prerequisites](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/getting-started/prerequisites.md)
+- [Installation](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/getting-started/installation.md)
+- [Configuration](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/getting-started/configuration.md)
+- [Examples](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/getting-started/examples.md)
+- [Error Codes](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/getting-started/error-codes.md)
 
-### [API Documentation](./docs/pages/api-docs/README.md)
+### [API Documentation](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/api-docs/README.md)
 
 ### Development
 
-- [Test](./docs/pages/dev/test.md)
-- [Build](./docs/pages/dev/build.md)
-- [Docs](./docs/pages/dev/docs.md)
-- [CI/CD](./docs/pages/dev/cicd.md)
-- [Scripts](./docs/pages/dev/scripts/README.md)
-- [File Structure](./docs/pages/dev/file-structure.md)
-- [Sitemap](./docs/pages/dev/sitemap.md)
-- [Contributing](./docs/pages/dev/contributing.md)
-- [Roadmap](./docs/pages/dev/roadmap.md)
+- [Test](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/test.md)
+- [Build](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/build.md)
+- [Docs](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/docs.md)
+- [CI/CD](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/cicd.md)
+- [Scripts](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/scripts/README.md)
+- [File Structure](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/file-structure.md)
+- [Sitemap](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/sitemap.md)
+- [Contributing](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/contributing.md)
+- [Roadmap](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/roadmap.md)
 
 ### Research
 
-- [Reports](./docs/pages/research/reports.md)
-- [Benchmarks](./docs/pages/research/benchmarks.md)
-- [References](./docs/pages/research/references.md)
+- [Reports](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/research/reports.md)
+- [Benchmarks](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/research/benchmarks.md)
+- [References](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/research/references.md)
 
-### [Release Notes](./docs/pages/release-notes.md)
+### [Release Notes](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/release-notes.md)
 
-### [Blog](./docs/pages/blog/README.md)
+### [Blog](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/blog/README.md)
 
 ### About
 
-- [FAQ](./docs/pages/about/faq.md)
-- [Authors](./docs/pages/about/authors.md)
-- [Contact](./docs/pages/about/contact.md)
-- [License](./docs/pages/about/license.md)
+- [FAQ](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/about/faq.md)
+- [Authors](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/about/authors.md)
+- [Contact](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/about/contact.md)
+- [License](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/about/license.md)
 
 ---
 

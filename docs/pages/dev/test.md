@@ -4,7 +4,7 @@ To run tests, run the following command:
 
 ```sh
 # Install python test dependencies:
-pip install -r ./requirements.test.txt
+pip install -r ./requirements/requirements.test.txt
 
 # Run tests:
 python -m pytest -sv -o log_cli=true
