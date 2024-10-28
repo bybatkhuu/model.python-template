@@ -27,28 +27,33 @@ git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
 2. Extract it into the project directory.
 3. Rename the extracted directory from **`model.python-template`** to **`simple_model`**.
 
-### 3. Install the module
+### 2. Install the module
 
 > [!NOTE]
-> Choose one of the following methods to install the module **[A ~ F]**:
+> Choose one of the following methods to install the module **[A ~ G]**:
 
 **A.** Install with **pip**:
 
 ```sh
-# Install directly from source:
+# Install directly from the source code:
 pip install .
-# Or install with **editable** mode (for **DEVELOPMENT**):
+# Or install with editable mode:
 pip install -e .
 ```
 
-**B.** Install from git repository (only works on **public** repo):
+**B.** Install for **DEVELOPMENT** environment:
 
 ```sh
-# Install directly from GitHub:
+pip install -r ./requirements/requirements.dev.txt
+```
+
+**C.** Install directly from git repository:
+
+```sh
 pip install git+https://github.com/bybatkhuu/model.python-template.git
 ```
 
-**C.** Install from **pre-built package** files (for **PRODUCTION**):
+**D.** Install from **pre-built package** files (for **PRODUCTION**):
 
 1. Download **`.whl`** or **`.tar.gz`** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
 2. Install with pip:
@@ -60,7 +65,7 @@ pip install ./simple_model-[VERSION]-py3-none-any.whl
 pip install ./simple_model-[VERSION].tar.gz
 ```
 
-**D.** Build the **package** and install with **pip**:
+**E.** Build the **package** and install with **pip**:
 
 ```sh
 # Install python build tool:
@@ -75,7 +80,7 @@ pip install ./dist/simple_model-[VERSION]-py3-none-any.whl
 pip install ./dist/simple_model-[VERSION].tar.gz
 ```
 
-**E.** Copy the **module** into the project directory (for **testing**):
+**F.** Copy the **module** into the project directory (for **testing**):
 
 ```sh
 # Install python dependencies:
@@ -87,7 +92,7 @@ cp -r ./src/simple_model [PROJECT_DIR]
 cp -r ./src/simple_model /some/path/project/
 ```
 
-**F.** Manually add module path into **PYTHONPATH** (not recommended):
+**G.** Manually add module path into **PYTHONPATH** (not recommended):
 
 ```sh
 # Add current path to PYTHONPATH:

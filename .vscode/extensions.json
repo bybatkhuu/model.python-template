@@ -23,6 +23,8 @@
 		"emilast.logfilehighlighter",
 		"ibm.output-colorizer",
 		"wengerk.highlight-bad-chars",
-		"nhoizey.gremlins"
+		"nhoizey.gremlins",
+		"tamasfe.even-better-toml",
+		"jeff-hykin.better-dockerfile-syntax"
 	]
 }
