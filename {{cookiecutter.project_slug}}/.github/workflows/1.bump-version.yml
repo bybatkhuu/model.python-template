@@ -1,0 +1,30 @@
+name: 1. Bump Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump_type:
+        type: choice
+        description: "Choose bump version type:"
+        required: true
+        options: ["patch", "minor", "major"]
+
+jobs:
+  bump_version:
+    name: Bump Version
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Bump version
+        env:
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          ./scripts/bump-version.sh -b={% raw %}${{ inputs.bump_type }}
+          {% endraw %} -c -t -p

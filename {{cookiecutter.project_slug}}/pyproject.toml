@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=70.3.0,<80.0.0", "setuptools-scm>=8.0.4,<9.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{{cookiecutter.module_name}}"
+authors = [{ name = "{{cookiecutter.author_fullname}}", email = "{{cookiecutter.author_email}}" }]
+description = "{{cookiecutter.project_short_description}}"
+readme = "README.md"
+requires-python = ">=3.9,<4.0"
+keywords = [
+	"{{cookiecutter.module_name}}",
+	"model",
+	"module",
+	"template",
+	"ai/ml/dl",
+	"artificial-intelligence",
+	"machine-learning",
+	"deep-learning",
+]
+license = { file = "LICENSE.txt" }
+classifiers = [
+	"Development Status :: 4 - Beta",
+	"Intended Audience :: Developers",
+	"Topic :: Software Development :: Build Tools",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent",
+	"Programming Language :: Python :: 3.9",
+	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+	"Programming Language :: Python :: 3.12",
+	"Programming Language :: Python :: 3.13",
+]
+dynamic = ["version", "dependencies", "optional-dependencies"]
+
+# [tool.setuptools.packages.find]
+# where = ["src"]
+# include = ["{{cookiecutter.module_name}}*"]
+# namespaces = false
+
+[tool.setuptools.dynamic]
+version = { attr = "{{cookiecutter.module_name}}.__version__.__version__" }
+dependencies = { file = "./requirements.txt" }
+# optional-dependencies.gpu = { file = ["./requirements/requirements.gpu.txt"] }
+
+[project.urls]
+Homepage = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}"
+Documentation = "https://{{cookiecutter.repo_owner}}.github.io/{{cookiecutter.project_slug}}"
+Repository = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}.git"
+Issues = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/issues"
+Changelog = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/CHANGELOG.md"
