@@ -8,7 +8,8 @@ This document provides an overview and usage instructions for the following scri
 - [**`test.sh`**](./4.test.md)
 - [**`bump-version.sh`**](./5.bump-version.md)
 - [**`build.sh`**](./6.build.md)
-- [**`docs.sh`**](./7.docs.md)
+- [**`changelog.sh`**](./7.changelog.md)
+- [**`docs.sh`**](./8.docs.md)
 
 All the scripts are located in the **`scripts`** directory:
 
@@ -17,6 +18,7 @@ scripts/
 ├── base.sh
 ├── build.sh
 ├── bump-version.sh
+├── changelog.sh
 ├── clean.sh
 ├── docs.sh
 ├── get-version.sh

@@ -20,7 +20,8 @@
         - [test.sh](../dev/scripts/4.test.md)
         - [bump-version.sh](../dev/scripts/5.bump-version.md)
         - [build.sh](../dev/scripts/6.build.md)
-        - [docs.sh](../dev/scripts/7.docs.md)
+        - [changelog.sh](../dev/scripts/7.changelog.md)
+        - [docs.sh](../dev/scripts/8.docs.md)
     - [File Structure](../dev/file-structure.md)
     - [Sitemap](../dev/sitemap.md)
     - [Related Projects](../dev/related-projects.md)
@@ -31,7 +32,7 @@
     - [Benchmarks](../research/benchmarks.md)
     - [References](../research/references.md)
 - [Release Notes](../release-notes.md)
-- [Blog](../blog/README.md)
+- [Blog](../blog/index.md)
 - About
     - [FAQ](../about/faq.md)
     - [Authors](../about/authors.md)

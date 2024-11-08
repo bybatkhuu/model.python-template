@@ -56,7 +56,7 @@ git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
     cd simple_model
 ```
 
-**B.** Download source code (for **offline** environment):
+**B.** Download source code:
 
 1. Download archived **zip** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
 2. Extract it into the project directory.
@@ -65,9 +65,15 @@ git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
 ### 3. Install the module
 
 > [!NOTE]
-> Choose one of the following methods to install the module **[A ~ G]**:
+> Choose one of the following methods to install the module **[A ~ E]**:
 
-**A.** Install with **pip**:
+**A.** Install directly from **git** repository:
+
+```sh
+pip install git+https://github.com/bybatkhuu/model.python-template.git
+```
+
+**B.** Install from the downloaded **source code**:
 
 ```sh
 # Install directly from the source code:
@@ -76,16 +82,10 @@ pip install .
 pip install -e .
 ```
 
-**B.** Install for **DEVELOPMENT** environment:
+**C.** Install for **DEVELOPMENT** environment:
 
 ```sh
 pip install -r ./requirements/requirements.dev.txt
-```
-
-**C.** Install directly from git repository:
-
-```sh
-pip install git+https://github.com/bybatkhuu/model.python-template.git
 ```
 
 **D.** Install from **pre-built package** files (for **PRODUCTION**):
@@ -100,22 +100,7 @@ pip install ./simple_model-[VERSION]-py3-none-any.whl
 pip install ./simple_model-[VERSION].tar.gz
 ```
 
-**E.** Build the **package** and install with **pip**:
-
-```sh
-# Install python build tool:
-pip install -U pip build
-
-# Build python package:
-python -m build
-
-# Install from .whl file:
-pip install ./dist/simple_model-[VERSION]-py3-none-any.whl
-# Or install from .tar.gz file:
-pip install ./dist/simple_model-[VERSION].tar.gz
-```
-
-**F.** Copy the **module** into the project directory (for **testing**):
+**E.** Copy the **module** into the project directory (for **testing**):
 
 ```sh
 # Install python dependencies:
@@ -127,18 +112,6 @@ cp -r ./src/simple_model [PROJECT_DIR]
 cp -r ./src/simple_model /some/path/project/
 ```
 
-**G.** Manually add module path into **PYTHONPATH** (not recommended):
-
-```sh
-# Add current path to PYTHONPATH:
-export PYTHONPATH="${PWD}/src:${PYTHONPATH}"
-
-# Or add the module path to PYTHONPATH:
-export PYTHONPATH="[MODULE_PATH]:${PYTHONPATH}"
-# For example:
-export PYTHONPATH="/some/path/model.python-template/src:${PYTHONPATH}"
-```
-
 ## Usage/Examples
 
 ### Simple
@@ -146,9 +119,6 @@ export PYTHONPATH="/some/path/model.python-template/src:${PYTHONPATH}"
 [**`examples/simple/main.py`**](https://github.com/bybatkhuu/model.python-template/blob/main/examples/simple/main.py):
 
 ```python
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 ## Standard libraries
 import sys
 import logging
@@ -162,11 +132,11 @@ from numpy.typing import NDArray
 from simple_model import SimpleModel
 
 
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 if __name__ == "__main__":
+    logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
     # Pre-defined variables (for customizing and testing)
     _model_dir = "./models"
@@ -216,7 +186,7 @@ if __name__ == "__main__":
 
 ```yaml
 simple_model:                                       # Just an example to group the configs (Not necessary)
-  models_dir: "./models"                              # Directory where the models are saved
+  models_dir: "./models"                            # Directory where the models are saved
   model_name: "linear_regression.v0.0.1-240101"     # Name of the model as sub-directory
   threshold: 0.5                                    # Threshold for similarity check
 ```

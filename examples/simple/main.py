@@ -14,11 +14,11 @@ from numpy.typing import NDArray
 from simple_model import SimpleModel
 
 
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 if __name__ == "__main__":
+    logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
     # Pre-defined variables (for customizing and testing)
     _model_dir = "./models"

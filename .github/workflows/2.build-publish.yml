@@ -10,36 +10,16 @@ on:
       - "v*.*.*"
 
 jobs:
-  test:
-    name: 2.1. Test
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.9"
-      - name: Install dependencies
-        run: |
-          python -m pip install -U pip
-          python -m pip install -r ./requirements/requirements.test.txt
-      - name: Test with pytest
-        run: ./scripts/test.sh -l
-
   build_publish:
-    needs: test
-    name: 2.2. Build and Publish
+    name: Build and Publish
     runs-on: ubuntu-22.04
     permissions:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: "3.9"
       - name: Install dependencies

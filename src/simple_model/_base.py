@@ -19,9 +19,9 @@ else:
     from pydantic import validate_arguments as validate_call
 
 ## Internal modules
-from . import _utils as utils
 from .__version__ import __version__
-from .schemas import ModelConfigPM
+from . import _utils as utils
+from .config import ModelConfigPM
 
 
 logger = logging.getLogger(__name__)
@@ -31,12 +31,15 @@ class SimpleModel:
     """A simple wrapper around a Linear Regression model for demonstration.
 
     Attributes:
+        _MODEL_ARTIFACTS_DICT (Dict[str, str]): Dictionary containing the model artifacts.
+
         config (ModelConfigPM   ): Configuration for the model. Defaults to 'ModelConfigPM()'.
         model  (LinearRegression): Linear Regression model. Defaults to 'LinearRegression()'.
 
     Methods:
         is_model_files_exist (): Checks if the model files exist in the specified directory.
 
+        run                  (): Runs the Linear Regression model to train/predict values.
         train                (): Trains the Linear Regression model.
         predict              (): Predicts target values using the trained model.
         score                (): Calculates the R^2 (Euclidean distance) between the true and predicted values.
@@ -53,18 +56,26 @@ class SimpleModel:
     @validate_call
     def __init__(
         self,
-        config: Union[ModelConfigPM, Dict[str, Any]] = ModelConfigPM(),
+        config: Union[ModelConfigPM, Dict[str, Any], None] = None,
         auto_load: bool = False,
-    ):
-        """SimpleModel constructor method.
+        **kwargs: Any,
+    ) -> None:
+        """Initializer for the SimpleModel class.
 
         Args:
-            config    (Union[ModelConfigPM, Dict[str, Any]], optional): Configuration for the model. Defaults to 'ModelConfigPM()'.
-            auto_load (bool                                , optional): Indicates whether to load the model from the files. Defaults to False.
+            config    (Union[ModelConfigPM, Dict[str, Any], None], optional): Configuration for the model. Defaults to None.
+            auto_load (bool                                      , optional): Indicates whether to load the model from the files. Defaults to False.
+            **kwargs  (Any                                       , optional): Keyword arguments to update the configuration.
         """
 
         logger.debug(f"Initializing <{self.__class__.__name__}> model...")
+
+        if not config:
+            config = ModelConfigPM()
+
         self.config = config
+        if kwargs:
+            self.config = self.config.model_copy(update=kwargs)
 
         if auto_load and self.is_model_files_exist(
             models_dir=self.config.models_dir, model_name=self.config.modelName
@@ -105,6 +116,24 @@ class SimpleModel:
         return True
 
     ### STATIC METHODS ###
+
+    @validate_call(config={"arbitrary_types_allowed": True})
+    def run(self, X: NDArray[Any], y: Union[NDArray[Any], None] = None) -> NDArray[Any]:
+        """Runs the Linear Regression model to train/predict values.
+        (This method is a wrapper around the 'train' and 'predict' methods.)
+
+        Args:
+            X (NDArray[Any]             , required): Input features of shape (n_samples, n_features).
+            y (Union[NDArray[Any], None], optional): Target values of shape (n_samples,). Defaults to None.
+
+        Returns:
+            NDArray[Any]: Predicted target values of shape (n_samples,).
+        """
+
+        if (not self.is_trained()) and (not y):
+            self.train(X=X, y=y)
+
+        return self.predict(X=X)
 
     @validate_call(config={"arbitrary_types_allowed": True})
     def train(self, X: NDArray[Any], y: NDArray[Any]) -> None:
@@ -161,8 +190,8 @@ class SimpleModel:
         """Checks similarity between input features and target values.
 
         Args:
-            X         (NDArray[Any]                ): Input features of shape (n_samples, n_features).
-            y         (NDArray[Any]                ): Target values of shape (n_samples,).
+            X         (NDArray[Any]      , required): Input features of shape (n_samples, n_features).
+            y         (NDArray[Any]      , required): Target values of shape (n_samples,).
             threshold (Union[float, None], optional): Threshold value for the similarity score. Defaults to None.
 
         Returns:
