@@ -1,3 +1,3 @@
 # Contact
 
-You can contact us by email at [user@email.com](mailto:user@email.com).
+You can contact us by email at [batkhuu10@gmail.com](mailto:batkhuu10@gmail.com).
