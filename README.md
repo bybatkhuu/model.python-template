@@ -282,7 +282,7 @@ mkdocs build
 
 ### [Release Notes](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/release-notes.md)
 
-### [Blog](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/blog/README.md)
+### [Blog](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/blog/index.md)
 
 ### About
 
