@@ -10,6 +10,12 @@ cd "${_PROJECT_DIR}" || exit 2
 # Loading base script:
 # shellcheck disable=SC1091
 source ./scripts/base.sh
+
+
+if [ -z "$(which mkdocs)" ]; then
+	echoError "mkdocs not found or not installed."
+	exit 1
+fi
 ## --- Base --- ##
 
 
