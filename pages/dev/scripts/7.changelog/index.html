@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../4.test/">
+        <link rel="prev" href="../6.build/">
       
       
-        <link rel="next" href="../6.build/">
+        <link rel="next" href="../8.docs/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>bump-version.sh - Simple Model</title>
+        <title>changelog.sh - Simple Model</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bump-versionsh" class="md-skip">
+        <a href="#changelogsh" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              bump-version.sh
+              changelog.sh
             
           </span>
         </div>
@@ -1046,30 +1046,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    bump-version.sh
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../5.bump-version/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1078,35 +1058,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1137,10 +1088,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../7.changelog/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    changelog.sh
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1149,6 +1120,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1808,9 +1808,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      Usage
     </span>
   </a>
   
@@ -1834,32 +1834,37 @@
   
 
 
-<h1 id="bump-versionsh">bump-version.sh</h1>
-<p>This script is used to manage the versioning of the project. It allows you to increment the major, minor, or patch part of the version, as per <a href="https://semver.org">Semantic Versioning</a> rules.</p>
+<h1 id="changelogsh">changelog.sh</h1>
+<p>This script automates the generation and updating of a <code>CHANGELOG.md</code> file using release information fetched from GitHub. It facilitates updating the changelog based on the latest release, and optionally commits and pushes the changes to the Git repository if specified.</p>
 <p>The script carries out the following operations:</p>
 <ul>
-<li><strong>Loading base script</strong>: It sources the <code>base.sh</code> script, leveraging the utility functions defined there.</li>
-<li><strong>Loading environment variables</strong>: If a <code>.env</code> file is present in the root directory, the script loads the environment variables from this file.</li>
-<li><strong>Sets variables</strong>: Sets the <code>VERSION_FILE_PATH</code> and other variables. The <code>VERSION_FILE_PATH</code> variable is either loaded from the environment or defaults to <code>simple_model/__version__.py</code>.</li>
-<li><strong>Parses input arguments</strong>: It parses the <code>-b</code> or <code>--bump-type</code> argument for the type of version bump (<strong><code>major</code></strong>, <strong><code>minor</code></strong>, or <strong><code>patch</code></strong>) and <code>-p</code> or <code>--push-tag</code> to decide whether to push the tag to the Git repository or not.</li>
-<li><strong>Checks and increments the version</strong>: It uses <code>get-version.sh</code> to extract the current version from the file specified by <code>VERSION_FILE_PATH</code>. Based on the bump type, it increments the appropriate part of the version and writes the new version back to the file.</li>
-<li><strong>Commits and tags</strong>: If the <code>-p</code> or <code>--push-tag</code> flag was provided, it adds and commits the changes, pushes the changes, creates a new tag with the new version, and pushes the tag to the Git repository. It will prevent the operation if the tag already exists.</li>
+<li><strong>Load base script</strong>: Sources the <code>base.sh</code> script from the <code>scripts</code> directory to leverage utility functions.</li>
+<li><strong>Load environment variables</strong>: Loads environment variables from a <code>.env</code> file if it exists in the project root, which may override default values.</li>
+<li><strong>GitHub CLI check</strong>: Ensures that the GitHub CLI (<code>gh</code>) is installed and authenticated; if not, it prompts the user to log in.</li>
+<li><strong>Variables Setup</strong>: <code>CHANGELOG_FILE_PATH</code> specifies the path of the changelog file, defaulting to <code>CHANGELOG.md</code>.</li>
+<li><strong>Input Parsing</strong>:<ul>
+<li><strong>Flags</strong>:<ul>
+<li><code>-c</code> or <code>--commit</code>: Indicates whether to commit the changelog updates.</li>
+<li><code>-p</code> or <code>--push</code>: Indicates whether to push the changelog updates after committing.</li>
 </ul>
-<p><strong>Usage</strong>:</p>
-<p>To execute the bump version script, run the following command in the terminal:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./bump-version.sh<span class="w"> </span>-b<span class="o">=</span>&lt;bump_type&gt;<span class="w"> </span>-p
-</span></code></pre></div>
-<p>Replace <strong><code>&lt;bump_type&gt;</code></strong> with either <strong><code>major</code></strong>, <strong><code>minor</code></strong>, or <strong><code>patch</code></strong> to indicate which part of the version to increment. The <code>-p</code> or <code>--push-tag</code> flag tells the script to commit the changes and push the tag to the Git repository.</p>
-<p><strong>Examples</strong>:</p>
-<p>To bump the <strong><code>minor</code></strong> version and push the <strong>new tag</strong>, run:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./bump-version.sh<span class="w"> </span>-b<span class="o">=</span>minor<span class="w"> </span>-p
-</span></code></pre></div>
-<p>This script streamlines the versioning process, reducing the chances of errors and ensuring consistency in versioning.</p>
-<hr />
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://semver.org">https://semver.org</a></li>
+</li>
 </ul>
+</li>
+<li><strong>Changelog Update</strong>:<ul>
+<li><strong>Release Tag and Notes</strong>: Fetches the latest release tag and release notes using <code>gh release view</code>.</li>
+<li><strong>File Update</strong>: Adds or updates the changelog header, appending a new section for the latest release with its tag, release date, and notes.</li>
+<li><strong>File Commit and Push</strong> (optional):<ul>
+<li>Commits the changelog updates to the Git repository if <code>-c</code> is provided.</li>
+<li>Pushes the changes if <code>-p</code> is also provided.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>To execute <code>changelog.sh</code>, run:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./changelog.sh<span class="w"> </span>-c<span class="w"> </span>-p
+</span></code></pre></div>
 
 
 
@@ -1895,7 +1900,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../4.test/" class="md-footer__link md-footer__link--prev" aria-label="Previous: test.sh">
+          <a href="../6.build/" class="md-footer__link md-footer__link--prev" aria-label="Previous: build.sh">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1905,20 +1910,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                test.sh
+                build.sh
               </div>
             </div>
           </a>
         
         
           
-          <a href="../6.build/" class="md-footer__link md-footer__link--next" aria-label="Next: build.sh">
+          <a href="../8.docs/" class="md-footer__link md-footer__link--next" aria-label="Next: docs.sh">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                build.sh
+                docs.sh
               </div>
             </div>
             <div class="md-footer__button md-icon">
