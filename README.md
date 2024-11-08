@@ -65,7 +65,7 @@ pip install -r ./requirements.txt
 ### 4. Generate project with cookiecutter
 
 ```bash
-# Generate project (project name, project slug, repo owner, version, etc.):
+# Generate project:
 cookiecutter -f .
 # Or:
 ./scripts/build.sh
