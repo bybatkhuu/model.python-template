@@ -607,12 +607,14 @@ outputs
 site
 sites
 pythonpath
+model.python-template
 *.bak
 *.pyc
 version.py
 sample.py
 example.py
 test.py
+
 
 # Directories:
 data/
@@ -631,3 +633,4 @@ outputs/
 site/
 sites/
 pythonpath/
+model.python-template/
