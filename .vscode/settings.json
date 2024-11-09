@@ -135,8 +135,6 @@
 	"python.analysis.extraPaths": [
 		"${workspaceFolder}/src"
 	],
-	"python.testing.unittestEnabled": false,
-	"python.testing.pytestEnabled": true,
 	"yaml.schemas": {
 		"https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
 	},
