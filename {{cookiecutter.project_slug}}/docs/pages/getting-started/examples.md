@@ -5,9 +5,6 @@
 **`examples/simple/main.py`**:
 
 ```python
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 ## Standard libraries
 import sys
 import logging
@@ -21,11 +18,11 @@ from numpy.typing import NDArray
 from {{cookiecutter.module_name}} import SimpleModel
 
 
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 if __name__ == "__main__":
+    logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
     # Pre-defined variables (for customizing and testing)
     _model_dir = "./models"

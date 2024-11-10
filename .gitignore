@@ -607,6 +607,7 @@ outputs
 site
 sites
 pythonpath
+model-python-template
 model.python-template
 *.bak
 *.pyc
@@ -633,4 +634,5 @@ outputs/
 site/
 sites/
 pythonpath/
+model-python-template/
 model.python-template/

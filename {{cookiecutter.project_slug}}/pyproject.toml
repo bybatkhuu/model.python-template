@@ -3,34 +3,41 @@ requires = ["setuptools>=70.3.0,<80.0.0", "setuptools-scm>=8.0.4,<9.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "{{cookiecutter.module_name}}"
-authors = [{ name = "{{cookiecutter.author_fullname}}", email = "{{cookiecutter.author_email}}" }]
-description = "{{cookiecutter.project_short_description}}"
-readme = "README.md"
-requires-python = ">=3.9,<4.0"
-keywords = [
-	"{{cookiecutter.module_name}}",
-	"model",
-	"module",
-	"template",
-	"ai/ml/dl",
-	"artificial-intelligence",
-	"machine-learning",
-	"deep-learning",
-]
-license = { file = "LICENSE.txt" }
 classifiers = [
 	"Development Status :: 4 - Beta",
 	"Intended Audience :: Developers",
-	"Topic :: Software Development :: Build Tools",
-	"License :: OSI Approved :: MIT License",
-	"Operating System :: OS Independent",
+	"Topic :: Software Development :: Libraries",
+	{% if cookiecutter.license == "MIT License" %}"License :: OSI Approved :: MIT License",
+	{% elif cookiecutter.license == "Apache License 2.0" %}"License :: OSI Approved :: Apache Software License",
+	{% elif cookiecutter.license == "GNU GPLv3" %}"License :: OSI Approved :: GNU General Public License v3",
+	{% elif cookiecutter.license == "BSD License" %}"License :: OSI Approved :: BSD License",
+	{% elif cookiecutter.license == "ISC License" %}"License :: OSI Approved :: ISC License",
+	{% elif cookiecutter.license == "Proprietary License" %}"License :: OSI Approved :: Other/Proprietary License",
+	{% endif %}"Operating System :: OS Independent",
+	"Programming Language :: Python :: 3",
 	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: 3.10",
 	"Programming Language :: Python :: 3.11",
 	"Programming Language :: Python :: 3.12",
 	"Programming Language :: Python :: 3.13",
 ]
+name = "{{cookiecutter.module_name}}"
+authors = [
+	{ name = "{{cookiecutter.author_fullname}}", email = "{{cookiecutter.author_email}}" },
+]
+description = "{{cookiecutter.project_description}}"
+readme = "README.md"
+requires-python = ">={{cookiecutter.python_version}},<4.0"
+keywords = [
+	"{{cookiecutter.module_name}}",
+	"model",
+	"module",
+	"ai/ml/dl",
+	"artificial-intelligence",
+	"machine-learning",
+	"deep-learning",
+]
+license = { file = "LICENSE.txt" }
 dynamic = ["version", "dependencies", "optional-dependencies"]
 
 # [tool.setuptools.packages.find]
@@ -44,8 +51,8 @@ dependencies = { file = "./requirements.txt" }
 # optional-dependencies.gpu = { file = ["./requirements/requirements.gpu.txt"] }
 
 [project.urls]
-Homepage = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}"
-Documentation = "https://{{cookiecutter.repo_owner}}.github.io/{{cookiecutter.project_slug}}"
-Repository = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}.git"
-Issues = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/issues"
-Changelog = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/CHANGELOG.md"
+Homepage = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}"
+Documentation = "https://{{cookiecutter.repo_owner}}.github.io/{{cookiecutter.repo_name}}"
+Repository = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.git"
+Issues = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/issues"
+Changelog = "https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/CHANGELOG.md"

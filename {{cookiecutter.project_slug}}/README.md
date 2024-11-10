@@ -1,12 +1,14 @@
 # {{cookiecutter.project_name}}
 
-This is a {{cookiecutter.project_name}} project.
+{% if cookiecutter.license == "MIT License" %}[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit)
+{% elif cookiecutter.license == "Apache License 2.0" %}[![Apache License](https://img.shields.io/badge/License-Apache%202.0-red.svg)](https://choosealicense.com/licenses/apache-2.0)
+{% elif cookiecutter.license == "GNU GPLv3" %}[![GPLv3 License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://choosealicense.com/licenses/gpl-3.0)
+{% elif cookiecutter.license == "BSD License" %}[![BSD License](https://img.shields.io/badge/License-BSD-blue.svg)](https://choosealicense.com/licenses/bsd-3-clause-clear)
+{% elif cookiecutter.license == "ISC License" %}[![ISC License](https://img.shields.io/badge/License-ISC-blue.svg)](https://choosealicense.com/licenses/isc)
+{% endif %}{% if cookiecutter.license != "Proprietary License" %}[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/2.build-publish.yml?logo=GitHub)](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/actions/workflows/2.build-publish.yml)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}?logo=GitHub)](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases)
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/2.build-publish.yml?logo=GitHub)](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/actions/workflows/2.build-publish.yml)
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}?logo=GitHub)](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/releases)
-
-This is a template repo for AI/ML model module.
+{% endif %}{{cookiecutter.project_description}}
 
 ## Features
 
@@ -24,7 +26,7 @@ This is a template repo for AI/ML model module.
 
 ### 1. Prerequisites
 
-- Install **Python (>= v3.9)** and **pip (>= 23)**:
+- Install **Python (>= v{{cookiecutter.python_version}})** and **pip (>= 23)**:
     - **[RECOMMENDED] [Miniconda (v3)](https://docs.anaconda.com/miniconda)**
     - *[arm64/aarch64] [Miniforge (v3)](https://github.com/conda-forge/miniforge)*
     - *[Python virutal environment] [venv](https://docs.python.org/3/library/venv.html)*
@@ -54,22 +56,28 @@ cd ~/workspaces/projects
 **A.** Clone the repository:
 
 ```sh
-git clone git@github.com:{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}.git {{cookiecutter.module_name}} && \
+git clone git@github.com:{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.git {{cookiecutter.module_name}} && \
     cd {{cookiecutter.module_name}}
 ```
 
-**B.** Download source code (for **offline** environment):
+**B.** Download source code:
 
-1. Download archived **zip** file from [**releases**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/releases).
+1. Download archived **zip** file from [**releases**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases).
 2. Extract it into the project directory.
-3. Rename the extracted directory from **`{{cookiecutter.project_slug}}`** to **`{{cookiecutter.module_name}}`**.
+3. Rename the extracted directory from **`{{cookiecutter.repo_name}}`** to **`{{cookiecutter.module_name}}`**.
 
 ### 3. Install the module
 
 > [!NOTE]
-> Choose one of the following methods to install the module **[A ~ G]**:
+> Choose one of the following methods to install the module **[A ~ E]**:
 
-**A.** Install with **pip**:
+**A.** Install directly from **git** repository:
+
+```sh
+pip install git+https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.git
+```
+
+**B.** Install from the downloaded **source code**:
 
 ```sh
 # Install directly from the source code:
@@ -78,21 +86,15 @@ pip install .
 pip install -e .
 ```
 
-**B.** Install for **DEVELOPMENT** environment:
+**C.** Install for **DEVELOPMENT** environment:
 
 ```sh
 pip install -r ./requirements/requirements.dev.txt
 ```
 
-**C.** Install directly from git repository:
-
-```sh
-pip install git+https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}.git
-```
-
 **D.** Install from **pre-built package** files (for **PRODUCTION**):
 
-1. Download **`.whl`** or **`.tar.gz`** file from [**releases**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/releases).
+1. Download **`.whl`** or **`.tar.gz`** file from [**releases**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases).
 2. Install with pip:
 
 ```sh
@@ -102,22 +104,7 @@ pip install ./{{cookiecutter.module_name}}-[VERSION]-py3-none-any.whl
 pip install ./{{cookiecutter.module_name}}-[VERSION].tar.gz
 ```
 
-**E.** Build the **package** and install with **pip**:
-
-```sh
-# Install python build tool:
-pip install -U pip build
-
-# Build python package:
-python -m build
-
-# Install from .whl file:
-pip install ./dist/{{cookiecutter.module_name}}-[VERSION]-py3-none-any.whl
-# Or install from .tar.gz file:
-pip install ./dist/{{cookiecutter.module_name}}-[VERSION].tar.gz
-```
-
-**F.** Copy the **module** into the project directory (for **testing**):
+**E.** Copy the **module** into the project directory (for **testing**):
 
 ```sh
 # Install python dependencies:
@@ -129,28 +116,13 @@ cp -r ./src/{{cookiecutter.module_name}} [PROJECT_DIR]
 cp -r ./src/{{cookiecutter.module_name}} /some/path/project/
 ```
 
-**G.** Manually add module path into **PYTHONPATH** (not recommended):
-
-```sh
-# Add current path to PYTHONPATH:
-export PYTHONPATH="${PWD}/src:${PYTHONPATH}"
-
-# Or add the module path to PYTHONPATH:
-export PYTHONPATH="[MODULE_PATH]:${PYTHONPATH}"
-# For example:
-export PYTHONPATH="/some/path/{{cookiecutter.project_slug}}/src:${PYTHONPATH}"
-```
-
 ## Usage/Examples
 
 ### Simple
 
-[**`examples/simple/main.py`**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/examples/simple/main.py):
+[**`examples/simple/main.py`**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/examples/simple/main.py):
 
 ```python
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 ## Standard libraries
 import sys
 import logging
@@ -164,11 +136,11 @@ from numpy.typing import NDArray
 from {{cookiecutter.module_name}} import SimpleModel
 
 
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 if __name__ == "__main__":
+    logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
     # Pre-defined variables (for customizing and testing)
     _model_dir = "./models"
@@ -214,18 +186,18 @@ if __name__ == "__main__":
 
 ## Configuration
 
-[**`templates/configs/config.yml`**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/templates/configs/config.yml):
+[**`templates/configs/config.yml`**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/templates/configs/config.yml):
 
 ```yaml
 {{cookiecutter.module_name}}:                                       # Just an example to group the configs (Not necessary)
-  models_dir: "./models"                              # Directory where the models are saved
+  models_dir: "./models"                            # Directory where the models are saved
   model_name: "linear_regression.v0.0.1-240101"     # Name of the model as sub-directory
   threshold: 0.5                                    # Threshold for similarity check
 ```
 
 ### Environment Variables
 
-[**`.env.example`**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/.env.example):
+[**`.env.example`**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/.env.example):
 
 ```sh
 # ENV=development
@@ -281,47 +253,47 @@ mkdocs build
 
 ## Documentation
 
-- [Docs](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs)
-- [Home](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/README.md)
+- [Docs](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs)
+- [Home](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/README.md)
 
 ### Getting Started
 
-- [Prerequisites](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/getting-started/prerequisites.md)
-- [Installation](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/getting-started/installation.md)
-- [Configuration](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/getting-started/configuration.md)
-- [Examples](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/getting-started/examples.md)
-- [Error Codes](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/getting-started/error-codes.md)
+- [Prerequisites](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/getting-started/prerequisites.md)
+- [Installation](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/getting-started/installation.md)
+- [Configuration](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/getting-started/configuration.md)
+- [Examples](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/getting-started/examples.md)
+- [Error Codes](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/getting-started/error-codes.md)
 
-### [API Documentation](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/api-docs/README.md)
+### [API Documentation](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/api-docs/README.md)
 
 ### Development
 
-- [Test](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/dev/test.md)
-- [Build](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/dev/build.md)
-- [Docs](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/dev/docs.md)
-- [CI/CD](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/dev/cicd.md)
-- [Scripts](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/dev/scripts/README.md)
-- [File Structure](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/dev/file-structure.md)
-- [Sitemap](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/dev/sitemap.md)
-- [Contributing](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/dev/contributing.md)
-- [Roadmap](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/dev/roadmap.md)
+- [Test](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/test.md)
+- [Build](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/build.md)
+- [Docs](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/docs.md)
+- [CI/CD](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/cicd.md)
+- [Scripts](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/scripts/README.md)
+- [File Structure](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/file-structure.md)
+- [Sitemap](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/sitemap.md)
+- [Contributing](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/contributing.md)
+- [Roadmap](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/roadmap.md)
 
 ### Research
 
-- [Reports](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/research/reports.md)
-- [Benchmarks](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/research/benchmarks.md)
-- [References](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/research/references.md)
+- [Reports](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/research/reports.md)
+- [Benchmarks](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/research/benchmarks.md)
+- [References](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/research/references.md)
 
-### [Release Notes](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/release-notes.md)
+### [Release Notes](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/release-notes.md)
 
-### [Blog](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/blog/README.md)
+### [Blog](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/blog/index.md)
 
 ### About
 
-- [FAQ](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/about/faq.md)
-- [Authors](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/about/authors.md)
-- [Contact](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/about/contact.md)
-- [License](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}/blob/main/docs/pages/about/license.md)
+- [FAQ](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/about/faq.md)
+- [Authors](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/about/authors.md)
+- [Contact](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/about/contact.md)
+- [License](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/about/license.md)
 
 ---
 

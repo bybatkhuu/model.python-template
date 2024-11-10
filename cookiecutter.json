@@ -1,21 +1,26 @@
 {
-    "project_name": "Model Python Template",
-    "project_abbr": "ft",
-    "project_slug": "{{cookiecutter.project_name.lower().strip().replace(' ', '-').replace('_', '-').replace('.', '-')}}",
-    "project_short_description": "{{cookiecutter.project_name}} is a Python package for ...",
-    "module_name": "module_name",
-    "repo_owner": "username",
-    "github_owner": "{{cookiecutter.repo_owner}}",
-    "author_fullname": "Full Name",
-    "author_email": "user@email.com",
-    "version": "4.0.1-231017",
-    "open_source_license": [
-        "MIT license",
-        "BSD license",
-        "ISC license",
-        "Apache Software License 2.0",
-        "GNU General Public License v3",
-        "Not open source"
-    ],
-    "timezone": "UTC"
+	"project_name": "Model Python Template",
+	"project_slug": "{{cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-').strip()}}",
+	"project_abbr": "mpt",
+	"project_description": "This is a short description of the project.",
+	"module_name": "module_name",
+	"author_username": "username",
+	"author_fullname": "Full Name",
+	"author_email": "user@example.com",
+	"repo_owner": "{{cookiecutter.author_username}}",
+	"repo_name": "{{cookiecutter.project_slug}}",
+	"domain": "{{cookiecutter.project_abbr}}.example.com",
+	"python_version": "3.9",
+	"version": "0.0.1",
+	"language": "en",
+	"copyright_year": "2024",
+	"license": [
+		"MIT License",
+		"Apache License 2.0",
+		"GNU GPLv3",
+		"BSD License",
+		"ISC License",
+		"Proprietary License",
+		"No License"
+	]
 }

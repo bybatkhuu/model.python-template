@@ -10,14 +10,34 @@ on:
         options: ["patch", "minor", "major"]
 
 jobs:
+  test:
+    name: 1.1. Test
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "{{cookiecutter.python_version}}"
+      - name: Install dependencies
+        run: |
+          python -m pip install -U pip
+          python -m pip install -r ./requirements/requirements.test.txt
+      - name: Test with pytest
+        run: ./scripts/test.sh -l
+
   bump_version:
-    name: Bump Version
+    needs: test
+    name: 1.2. Bump Version
     runs-on: ubuntu-22.04
     permissions:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Bump version
@@ -26,5 +46,4 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          ./scripts/bump-version.sh -b={% raw %}${{ inputs.bump_type }}
-          {% endraw %} -c -t -p
+          ./scripts/bump-version.sh -b={% raw %}${{ inputs.bump_type }}{% endraw %} -c -t -p

@@ -1,3 +1,3 @@
 # Contributing
 
-This project is open to and encourages contributions!
+This project is encourages contributions!

@@ -6,7 +6,7 @@ hide:
 
 # Introduction
 
-This is a template repo for AI/ML model module.
+{{cookiecutter.project_description}}
 
 ## Features
 

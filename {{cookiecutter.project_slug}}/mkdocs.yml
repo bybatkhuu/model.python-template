@@ -1,10 +1,12 @@
-site_name: Simple Model
-repo_name: {{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}
-repo_url: https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.project_slug}}
+site_name: {{cookiecutter.project_name}}
+site_description: "{{cookiecutter.project_description}}"
+site_url: https://{{cookiecutter.domain}}
+repo_name: {{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}
+repo_url: https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}
 theme:
   name: material
   # name: readthedocs
-  language: en
+  language: {{cookiecutter.language}}
   font:
     text: Roboto
     code: Roboto Mono
@@ -57,12 +59,12 @@ markdown_extensions:
 plugins:
   - search
   - mkdocstrings
-  # - blog:
-  #     blog_dir: pages/blog
-  #     post_date_format: medium
-  #     archive_date_format: yyyy/MM
-  #     archive_url_date_format: yyyy/MM
-  #     blog_toc: true
+  - blog:
+      blog_dir: pages/blog
+      post_date_format: medium
+      archive_date_format: yyyy/MM
+      archive_url_date_format: yyyy/MM
+      blog_toc: true
 nav:
   - Home:
       - README.md
@@ -91,7 +93,8 @@ nav:
           - test.sh: pages/dev/scripts/4.test.md
           - bump-version.sh: pages/dev/scripts/5.bump-version.md
           - build.sh: pages/dev/scripts/6.build.md
-          - docs.sh: pages/dev/scripts/7.docs.md
+          - changelog.sh: pages/dev/scripts/7.changelog.md
+          - docs.sh: pages/dev/scripts/8.docs.md
       - File stucture: pages/dev/file-structure.md
       - Sitemap: pages/dev/sitemap.md
       - Related projects: pages/dev/related-projects.md
@@ -104,7 +107,7 @@ nav:
       - References: pages/research/references.md
   - Release notes: pages/release-notes.md
   - Blog:
-      - pages/blog/README.md
+      - pages/blog/index.md
   - About:
       # - pages/about/README.md
       - FAQ: pages/about/faq.md
