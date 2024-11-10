@@ -1786,7 +1786,7 @@
 <p>This script is used to retrieve the current version of the application from a specified version file.</p>
 <p>The script performs the following operations:</p>
 <ul>
-<li><code>VERSION_FILE_PATH</code> is either loaded from the environment or, if it's not present in the environment, it defaults to <code>simple_model/__version__.py</code>.</li>
+<li><code>VERSION_FILE_PATH</code> is either loaded from the environment or, if it's not present in the environment, it defaults to <code>src/simple_model/__version__.py</code>.</li>
 <li>It first checks if the <code>VERSION_FILE_PATH</code> variable is not empty and if the file exists. If these conditions are met, it retrieves the value of <code>__version__</code> from the file by using <code>grep</code>, <code>awk</code>, and <code>tr</code> commands. The <code>grep</code> command filters the line containing <code>__version__ =</code> , the <code>awk</code> command splits the line into two parts at <code>=</code>, and the <code>tr</code> command removes the quotes around the version. If these operations fail, it exits the script with status code <code>2</code>.</li>
 <li>If the <code>VERSION_FILE_PATH</code> variable is empty or the file does not exist, it sets the current version to <code>0.0.0</code>.</li>
 <li>Finally, it echoes the current version to the console.</li>
