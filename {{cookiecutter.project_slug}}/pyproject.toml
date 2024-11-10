@@ -3,6 +3,21 @@ requires = ["setuptools>=70.3.0,<80.0.0", "setuptools-scm>=8.0.4,<9.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
+name = "{{cookiecutter.module_name}}"
+authors = [{ name = "{{cookiecutter.author_fullname}}", email = "{{cookiecutter.author_email}}" }]
+description = "{{cookiecutter.project_description}}"
+readme = "README.md"
+requires-python = ">={{cookiecutter.python_version}},<4.0"
+keywords = [
+	"{{cookiecutter.module_name}}",
+	"model",
+	"module",
+	"ai/ml/dl",
+	"artificial-intelligence",
+	"machine-learning",
+	"deep-learning",
+]
+license = { file = "LICENSE.txt" }
 classifiers = [
 	"Development Status :: 4 - Beta",
 	"Intended Audience :: Developers",
@@ -21,23 +36,6 @@ classifiers = [
 	"Programming Language :: Python :: 3.12",
 	"Programming Language :: Python :: 3.13",
 ]
-name = "{{cookiecutter.module_name}}"
-authors = [
-	{ name = "{{cookiecutter.author_fullname}}", email = "{{cookiecutter.author_email}}" },
-]
-description = "{{cookiecutter.project_description}}"
-readme = "README.md"
-requires-python = ">={{cookiecutter.python_version}},<4.0"
-keywords = [
-	"{{cookiecutter.module_name}}",
-	"model",
-	"module",
-	"ai/ml/dl",
-	"artificial-intelligence",
-	"machine-learning",
-	"deep-learning",
-]
-license = { file = "LICENSE.txt" }
 dynamic = ["version", "dependencies", "optional-dependencies"]
 
 # [tool.setuptools.packages.find]

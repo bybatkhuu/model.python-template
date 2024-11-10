@@ -21,7 +21,7 @@
 		"editor.insertSpaces": true
 	},
 	"[yaml]": {
-		"editor.formatOnSave": true,
+		"editor.formatOnSave": false,
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2
 	},
@@ -29,7 +29,7 @@
 		"editor.formatOnSave": true
 	},
 	"[toml]": {
-		"editor.formatOnSave": true
+		"editor.formatOnSave": false
 	},
 	"files.eol": "\n",
 	"files.trimTrailingWhitespace": true,
