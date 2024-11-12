@@ -17,6 +17,22 @@ mkdocs build
 ./scripts/docs.sh -b
 ```
 
+## Diagrams
+
+Prerequisites:
+
+- Install [Graphviz](https://graphviz.org/download)
+
+To generate diagrams, run the following command:
+
+```sh
+# Install python documentation dependencies:
+pip install -r ./requirements.docs.txt
+
+# Generate diagrams:
+./scripts/diagrams.sh
+```
+
 ## MkDocs Material
 
 ### Installation

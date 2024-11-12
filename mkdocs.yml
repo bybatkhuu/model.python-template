@@ -79,6 +79,7 @@ nav:
       # - pages/api-docs/README.md
       - SimpleModel: pages/api-docs/SimpleModel.md
       - ModelConfigPM: pages/api-docs/ModelConfigPM.md
+      - Diagrams: pages/api-docs/diagrams.md
   - Development:
       # - pages/dev/README.md
       - Test: pages/dev/test.md
