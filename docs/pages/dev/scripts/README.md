@@ -10,6 +10,7 @@ This document provides an overview and usage instructions for the following scri
 - [**`build.sh`**](./6.build.md)
 - [**`changelog.sh`**](./7.changelog.md)
 - [**`docs.sh`**](./8.docs.md)
+- [**`diagrams.sh`**](./9.diagrams.md)
 
 All the scripts are located in the **`scripts`** directory:
 
@@ -20,6 +21,7 @@ scripts/
 ├── bump-version.sh
 ├── changelog.sh
 ├── clean.sh
+├── diagrams.sh
 ├── docs.sh
 ├── get-version.sh
 └── test.sh

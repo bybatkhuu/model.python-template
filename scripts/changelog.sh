@@ -19,7 +19,7 @@ fi
 
 
 if [ -z "$(which gh)" ]; then
-	echoError "gh not found or not installed."
+	echoError "'gh' not found or not installed."
 	exit 1
 fi
 
