@@ -16,7 +16,7 @@
         <link rel="prev" href="../7.changelog/">
       
       
-        <link rel="next" href="../../file-structure/">
+        <link rel="next" href="../9.diagrams/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -921,6 +921,8 @@
       
         
       
+        
+      
     
     
       
@@ -1135,6 +1137,27 @@
 
       </a>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.diagrams/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    diagrams.sh
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1789,15 +1812,17 @@
 <li><strong>Loading base script</strong>: Includes the <code>base.sh</code> script to gain access to its utility functions and environment variables.</li>
 <li><strong>Serving documentation</strong>: If no flags are set, runs <code>mkdocs serve</code> to start a local documentation server for live preview.</li>
 <li><strong>Building documentation</strong>: If the <code>-b</code> or <code>--build</code> flag is set, the script builds the documentation as static HTML files using <code>mkdocs build</code>, placing the output in the <code>site</code> directory.</li>
+<li><strong>Publishing documentation</strong>: If the <code>-p</code> or <code>--publish</code> flag is set, the script can be extended to publish the documentation to GitHub Pages.</li>
 </ul>
 <p><strong>Usage</strong>:</p>
 <p>To execute the documentation script, use the following command in the terminal:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./docs.sh<span class="w"> </span><span class="o">[</span>-b<span class="p">|</span>--build<span class="o">]</span>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./docs.sh<span class="w"> </span><span class="o">[</span>-b<span class="p">|</span>--build<span class="o">]</span><span class="w"> </span><span class="o">[</span>-p<span class="p">|</span>--publish<span class="o">]</span>
 </span></code></pre></div>
 <p><strong>Examples</strong>:</p>
 <ul>
 <li>To serve the documentation: <code>./docs.sh</code></li>
 <li>To build the documentation: <code>./docs.sh -b</code></li>
+<li>To publish the documentation: <code>./docs.sh -p</code></li>
 </ul>
 
 
@@ -1851,13 +1876,13 @@
         
         
           
-          <a href="../../file-structure/" class="md-footer__link md-footer__link--next" aria-label="Next: File stucture">
+          <a href="../9.diagrams/" class="md-footer__link md-footer__link--next" aria-label="Next: diagrams.sh">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                File stucture
+                diagrams.sh
               </div>
             </div>
             <div class="md-footer__button md-icon">
