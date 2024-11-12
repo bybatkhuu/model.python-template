@@ -95,6 +95,7 @@ nav:
           - build.sh: pages/dev/scripts/6.build.md
           - changelog.sh: pages/dev/scripts/7.changelog.md
           - docs.sh: pages/dev/scripts/8.docs.md
+          - diagrams.sh: pages/dev/scripts/9.diagrams.md
       - File stucture: pages/dev/file-structure.md
       - Sitemap: pages/dev/sitemap.md
       - Related projects: pages/dev/related-projects.md

@@ -13,7 +13,7 @@ source ./scripts/base.sh
 
 
 if [ -z "$(which python)" ]; then
-	echoError "Python not found or not installed."
+	echoError "'python' not found or not installed."
 	exit 1
 fi
 
@@ -62,16 +62,9 @@ main()
 	## --- Menu arguments --- ##
 
 
-	if [ "${_IS_TEST}" == true ]; then
-		if [ -z "$(which pytest)" ]; then
-			echoError "Pytest not found or not installed."
-			exit 1
-		fi
-	fi
-
 	if [ "${_IS_UPLOAD}" == true ]; then
 		if [ -z "$(which twine)" ]; then
-			echoError "Twine not found or not installed."
+			echoError "'twine' not found or not installed."
 			exit 1
 		fi
 	fi
