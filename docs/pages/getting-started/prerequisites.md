@@ -8,7 +8,7 @@
     - **NVIDIA GPU driver (>= v452.39)**
     - **NVIDIA CUDA (>= v11)** and **cuDNN (>= v8)**
 
-💻 For **DEVELOPMENT** environment:
+For **DEVELOPMENT** environment:
 
 - Install [**git**](https://git-scm.com/downloads)
 - Setup an [**SSH key**](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) ([video tutorial](https://www.youtube.com/watch?v=snCP3c7wXw0))
