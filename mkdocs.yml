@@ -1,6 +1,6 @@
 site_name: Simple Model
 site_description: "'simple_model' is a template module for python AI/ML model."
-site_url: https://mlpt.bybatkhuu.dev
+site_url: https://bybatkhuu.github.io/model.python-template
 repo_name: bybatkhuu/model.python-template
 repo_url: https://github.com/bybatkhuu/model.python-template
 theme:
