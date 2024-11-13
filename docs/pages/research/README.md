@@ -1,4 +1,4 @@
-# Research
+# 🔬 Research
 
 This section contains research papers, articles, result reports, and benchmarks related to this project.
 

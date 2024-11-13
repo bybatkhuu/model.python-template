@@ -1,4 +1,4 @@
-# Docs
+# 📝 Docs
 
 To build the documentation, run the following command:
 
@@ -27,7 +27,7 @@ To generate diagrams, run the following command:
 
 ```sh
 # Install python documentation dependencies:
-pip install -r ./requirements.docs.txt
+pip install -r ./requirements/requirements.docs.txt
 
 # Generate diagrams:
 ./scripts/diagrams.sh

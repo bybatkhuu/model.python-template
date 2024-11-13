@@ -1,4 +1,4 @@
-# Getting Started
+# 🐤 Getting Started
 
 This section will guide you through the process of setting up the library in your project.
 

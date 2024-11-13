@@ -1,4 +1,4 @@
-# Development
+# 💻 Development
 
 This section provides information on how to develop or contribute to this project.
 
