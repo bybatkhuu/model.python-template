@@ -1,4 +1,4 @@
-# Sitemap
+# 🗺️ Sitemap
 
 - [Home](../../README.md)
 - Getting Started
@@ -22,6 +22,7 @@
         - [build.sh](../dev/scripts/6.build.md)
         - [changelog.sh](../dev/scripts/7.changelog.md)
         - [docs.sh](../dev/scripts/8.docs.md)
+        - [diagrams.sh](../dev/scripts/9.diagrams.md)
     - [File Structure](../dev/file-structure.md)
     - [Sitemap](../dev/sitemap.md)
     - [Related Projects](../dev/related-projects.md)

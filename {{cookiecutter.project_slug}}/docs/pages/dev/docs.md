@@ -1,4 +1,4 @@
-# Docs
+# 📝 Docs
 
 To build the documentation, run the following command:
 
@@ -15,6 +15,22 @@ mkdocs serve
 mkdocs build
 # Or use the docs script:
 ./scripts/docs.sh -b
+```
+
+## Diagrams
+
+Prerequisites:
+
+- Install [Graphviz](https://graphviz.org/download)
+
+To generate diagrams, run the following command:
+
+```sh
+# Install python documentation dependencies:
+pip install -r ./requirements/requirements.docs.txt
+
+# Generate diagrams:
+./scripts/diagrams.sh
 ```
 
 ## MkDocs Material

@@ -1,8 +1,8 @@
-# Installation
+# 🛠 Installation
 
-## 1. Download or clone the repository
+## 1. 📥 Download or clone the repository
 
-**2.1.** Prepare projects directory (if not exists):
+**1.1.** Prepare projects directory (if not exists):
 
 ```sh
 # Create projects directory:
@@ -12,33 +12,33 @@ mkdir -pv ~/workspaces/projects
 cd ~/workspaces/projects
 ```
 
-**2.2.** Follow one of the below options **[A]** or **[B]**:
+**1.2.** Follow one of the below options **[A]** or **[B]**:
 
-**A.** Clone the repository:
+**OPTION A.** Clone the repository:
 
 ```sh
 git clone git@github.com:{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.git {{cookiecutter.module_name}} && \
     cd {{cookiecutter.module_name}}
 ```
 
-**B.** Download source code:
+**OPTION B.** Download source code:
 
 1. Download archived **zip** file from [**releases**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases).
 2. Extract it into the project directory.
 3. Rename the extracted directory from **`{{cookiecutter.repo_name}}`** to **`{{cookiecutter.module_name}}`**.
 
-## 2. Install the module
+## 2. 📦 Install the module
 
 > [!NOTE]
 > Choose one of the following methods to install the module **[A ~ E]**:
 
-**A.** Install directly from **git** repository:
+**OPTION A.** Install directly from **git** repository:
 
 ```sh
 pip install git+https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.git
 ```
 
-**B.** Install from the downloaded **source code**:
+**OPTION B.** Install from the downloaded **source code**:
 
 ```sh
 # Install directly from the source code:
@@ -47,13 +47,13 @@ pip install .
 pip install -e .
 ```
 
-**C.** Install for **DEVELOPMENT** environment:
+**OPTION C.** Install for **DEVELOPMENT** environment:
 
 ```sh
 pip install -r ./requirements/requirements.dev.txt
 ```
 
-**D.** Install from **pre-built package** files (for **PRODUCTION**):
+**OPTION D.** Install from **pre-built package** files (for **PRODUCTION**):
 
 1. Download **`.whl`** or **`.tar.gz`** file from [**releases**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases).
 2. Install with pip:
@@ -65,7 +65,7 @@ pip install ./{{cookiecutter.module_name}}-[VERSION]-py3-none-any.whl
 pip install ./{{cookiecutter.module_name}}-[VERSION].tar.gz
 ```
 
-**E.** Copy the **module** into the project directory (for **testing**):
+**OPTION E.** Copy the **module** into the project directory (for **testing**):
 
 ```sh
 # Install python dependencies:

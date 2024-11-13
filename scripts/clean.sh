@@ -31,7 +31,7 @@ main()
 					shift;;
 				*)
 					echoError "Failed to parsing input -> ${_input}"
-					echoInfo "USAGE: ${0} -a, --all"
+					echoInfo "USAGE: ${0}  -a, --all"
 					exit 1;;
 			esac
 		done

@@ -22,7 +22,7 @@ fi
 
 ## --- Variables --- ##
 # Load from envrionment variables:
-VERSION_FILE_PATH="${VERSION_FILE_PATH:-src/{{cookiecutter.module_name}}/__version__.py}"
+VERSION_FILE_PATH="${VERSION_FILE_PATH:-./src/{{cookiecutter.module_name}}/__version__.py}"
 
 
 _BUMP_TYPE=""

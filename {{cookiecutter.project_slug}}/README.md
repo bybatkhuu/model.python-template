@@ -10,7 +10,7 @@
 
 {% endif %}{{cookiecutter.project_description}}
 
-## Features
+## ✨ Features
 
 - AI/ML model
 - Python module/package
@@ -22,9 +22,9 @@
 
 ---
 
-## Installation
+## 🛠 Installation
 
-### 1. Prerequisites
+### 1. 🚧 Prerequisites
 
 - Install **Python (>= v{{cookiecutter.python_version}})** and **pip (>= 23)**:
     - **[RECOMMENDED] [Miniconda (v3)](https://docs.anaconda.com/miniconda)**
@@ -34,12 +34,12 @@
     - **NVIDIA GPU driver (>= v452.39)**
     - **NVIDIA CUDA (>= v11)** and **cuDNN (>= v8)**
 
-For **DEVELOPMENT** environment:
+💻 For **DEVELOPMENT** environment:
 
 - Install [**git**](https://git-scm.com/downloads)
 - Setup an [**SSH key**](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) ([video tutorial](https://www.youtube.com/watch?v=snCP3c7wXw0))
 
-### 2. Download or clone the repository
+### 2. 📥 Download or clone the repository
 
 **2.1.** Prepare projects directory (if not exists):
 
@@ -53,31 +53,31 @@ cd ~/workspaces/projects
 
 **2.2.** Follow one of the below options **[A]** or **[B]**:
 
-**A.** Clone the repository:
+**OPTION A.** Clone the repository:
 
 ```sh
 git clone git@github.com:{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.git {{cookiecutter.module_name}} && \
     cd {{cookiecutter.module_name}}
 ```
 
-**B.** Download source code:
+**OPTION B.** Download source code:
 
 1. Download archived **zip** file from [**releases**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases).
 2. Extract it into the project directory.
 3. Rename the extracted directory from **`{{cookiecutter.repo_name}}`** to **`{{cookiecutter.module_name}}`**.
 
-### 3. Install the module
+### 3. 📦 Install the module
 
 > [!NOTE]
 > Choose one of the following methods to install the module **[A ~ E]**:
 
-**A.** Install directly from **git** repository:
+**OPTION A.** Install directly from **git** repository:
 
 ```sh
 pip install git+https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.git
 ```
 
-**B.** Install from the downloaded **source code**:
+**OPTION B.** Install from the downloaded **source code**:
 
 ```sh
 # Install directly from the source code:
@@ -86,13 +86,13 @@ pip install .
 pip install -e .
 ```
 
-**C.** Install for **DEVELOPMENT** environment:
+**OPTION C.** Install for **DEVELOPMENT** environment:
 
 ```sh
 pip install -r ./requirements/requirements.dev.txt
 ```
 
-**D.** Install from **pre-built package** files (for **PRODUCTION**):
+**OPTION D.** Install from **pre-built package** files (for **PRODUCTION**):
 
 1. Download **`.whl`** or **`.tar.gz`** file from [**releases**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases).
 2. Install with pip:
@@ -104,7 +104,7 @@ pip install ./{{cookiecutter.module_name}}-[VERSION]-py3-none-any.whl
 pip install ./{{cookiecutter.module_name}}-[VERSION].tar.gz
 ```
 
-**E.** Copy the **module** into the project directory (for **testing**):
+**OPTION E.** Copy the **module** into the project directory (for **testing**):
 
 ```sh
 # Install python dependencies:
@@ -116,7 +116,7 @@ cp -r ./src/{{cookiecutter.module_name}} [PROJECT_DIR]
 cp -r ./src/{{cookiecutter.module_name}} /some/path/project/
 ```
 
-## Usage/Examples
+## 🚸 Usage/Examples
 
 ### Simple
 
@@ -180,11 +180,11 @@ if __name__ == "__main__":
     logger.info("Done!")
 ```
 
-:thumbsup: :sparkles:
+👍
 
 ---
 
-## Configuration
+## ⚙️ Configuration
 
 [**`templates/configs/config.yml`**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/templates/configs/config.yml):
 
@@ -195,7 +195,7 @@ if __name__ == "__main__":
   threshold: 0.5                                    # Threshold for similarity check
 ```
 
-### Environment Variables
+### 🌎 Environment Variables
 
 [**`.env.example`**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/.env.example):
 
@@ -204,7 +204,7 @@ if __name__ == "__main__":
 # DEBUG=true
 ```
 
-## Running Tests
+## 🧪 Running Tests
 
 To run tests, run the following command:
 
@@ -218,7 +218,7 @@ python -m pytest -sv -o log_cli=true
 ./scripts/test.sh -l -v -c
 ```
 
-## Build Package
+## 🏗️ Build Package
 
 To build the python package, run the following command:
 
@@ -232,7 +232,7 @@ python -m build
 ./scripts/build.sh
 ```
 
-## Generate Docs
+## 📝 Generate Docs
 
 To build the documentation, run the following command:
 
@@ -251,7 +251,7 @@ mkdocs build
 ./scripts/docs.sh -b
 ```
 
-## Documentation
+## 📚 Documentation
 
 - [Docs](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs)
 - [Home](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/README.md)
@@ -297,7 +297,7 @@ mkdocs build
 
 ---
 
-## References
+## 📑 References
 
 - <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html>
 - <https://packaging.python.org/en/latest/tutorials/packaging-projects>

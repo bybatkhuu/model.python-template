@@ -1,4 +1,4 @@
-# Configuration
+# ⚙️ Configuration
 
 **`templates/configs/config.yml`**:
 
@@ -9,7 +9,7 @@
   threshold: 0.5                                    # Threshold for similarity check
 ```
 
-## Environment Variables
+## 🌎 Environment Variables
 
 **`.env.example`**:
 

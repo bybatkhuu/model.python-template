@@ -8,7 +8,7 @@ hide:
 
 {{cookiecutter.project_description}}
 
-## Features
+## ✨ Features
 
 - AI/ML model
 - Python module/package

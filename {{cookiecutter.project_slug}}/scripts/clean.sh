@@ -31,7 +31,7 @@ main()
 					shift;;
 				*)
 					echoError "Failed to parsing input -> ${_input}"
-					echoInfo "USAGE: ${0} -a, --all"
+					echoInfo "USAGE: ${0}  -a, --all"
 					exit 1;;
 			esac
 		done
@@ -56,7 +56,6 @@ main()
 		rm -rfv ./dist || exit 2
 		rm -rfv ./site || exit 2
 		find . -type d -name "*.egg-info" -exec rm -rfv {} + || exit 2
-		# rm -rfv ./*.egg-info || exit 2
 	fi
 
 	echoOk "Done."

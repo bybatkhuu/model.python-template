@@ -13,7 +13,7 @@ source ./scripts/base.sh
 
 
 if [ -z "$(which mkdocs)" ]; then
-	echoError "mkdocs not found or not installed."
+	echoError "'mkdocs' not found or not installed."
 	exit 1
 fi
 ## --- Base --- ##
@@ -22,6 +22,7 @@ fi
 ## --- Variables --- ##
 # Flags:
 _IS_BUILD=false
+_IS_PUBLISH=false
 ## --- Variables --- ##
 
 
@@ -35,9 +36,12 @@ main()
 				-b | --build)
 					_IS_BUILD=true
 					shift;;
+				-p | --publish)
+					_IS_PUBLISH=true
+					shift;;
 				*)
 					echoError "Failed to parsing input -> ${_input}"
-					echoInfo "USAGE: ${0} -b, --build"
+					echoInfo "USAGE: ${0}  -b, --build | -p, --publish"
 					exit 1;;
 			esac
 		done
@@ -45,9 +49,17 @@ main()
 	## --- Menu arguments --- ##
 
 
+	if [ "${_IS_PUBLISH}" == true ]; then
+		exitIfNoGit
+	fi
+
+
 	if [ "${_IS_BUILD}" == false ]; then
 		echoInfo "Starting documentation server..."
 		mkdocs serve
+	elif [ "${_IS_PUBLISH}" == true ]; then
+		echoInfo "Publishing documentation pages to the GitHub Pages..."
+		mkdocs gh-deploy --force
 	else
 		echoInfo "Building documentation pages (HTML) into the 'site' directory..."
 		mkdocs build

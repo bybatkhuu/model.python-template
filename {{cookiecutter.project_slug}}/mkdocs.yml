@@ -1,6 +1,6 @@
 site_name: {{cookiecutter.project_name}}
 site_description: "{{cookiecutter.project_description}}"
-site_url: https://{{cookiecutter.domain}}
+site_url: https://{{cookiecutter.repo_owner}}.github.io/{{cookiecutter.repo_name}}
 repo_name: {{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}
 repo_url: https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}
 theme:
@@ -56,6 +56,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 plugins:
   - search
   - mkdocstrings
@@ -79,6 +82,7 @@ nav:
       # - pages/api-docs/README.md
       - SimpleModel: pages/api-docs/SimpleModel.md
       - ModelConfigPM: pages/api-docs/ModelConfigPM.md
+      - Diagrams: pages/api-docs/diagrams.md
   - Development:
       # - pages/dev/README.md
       - Test: pages/dev/test.md
@@ -95,6 +99,7 @@ nav:
           - build.sh: pages/dev/scripts/6.build.md
           - changelog.sh: pages/dev/scripts/7.changelog.md
           - docs.sh: pages/dev/scripts/8.docs.md
+          - diagrams.sh: pages/dev/scripts/9.diagrams.md
       - File stucture: pages/dev/file-structure.md
       - Sitemap: pages/dev/sitemap.md
       - Related projects: pages/dev/related-projects.md

@@ -13,12 +13,12 @@ source ./scripts/base.sh
 
 
 if [ -z "$(which python)" ]; then
-	echoError "Python not found or not installed."
+	echoError "'python' not found or not installed."
 	exit 1
 fi
 
 if [ -z "$(which pytest)" ]; then
-	echoError "Pytest not found or not installed."
+	echoError "'pytest' not found or not installed."
 	exit 1
 fi
 ## --- Base --- ##
@@ -50,7 +50,7 @@ main()
 					shift;;
 				*)
 					echoError "Failed to parsing input -> ${_input}"
-					echoInfo "USAGE: ${0} -l, --log | -c, --cov | -v, --verbose"
+					echoInfo "USAGE: ${0}  -l, --log | -c, --cov | -v, --verbose"
 					exit 1;;
 			esac
 		done
