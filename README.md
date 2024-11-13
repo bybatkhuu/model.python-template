@@ -24,7 +24,7 @@ This is a cookiecutter template for AI/ML model module projects.
     - *[arm64/aarch64] [Miniforge (v3)](https://github.com/conda-forge/miniforge)*
     - *[Python virutal environment] [venv](https://docs.python.org/3/library/venv.html)*
 
-💻 For **DEVELOPMENT** environment:
+For **DEVELOPMENT** environment:
 
 - Install [**git**](https://git-scm.com/downloads)
 - Setup an [**SSH key**](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) ([video tutorial](https://www.youtube.com/watch?v=snCP3c7wXw0))
