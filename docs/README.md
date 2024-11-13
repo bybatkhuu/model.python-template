@@ -4,11 +4,11 @@ hide:
 #   - toc
 ---
 
-# Introduction
+# 🎉 Introduction
 
 This is a template repo for AI/ML model module.
 
-## Features
+## ✨ Features
 
 - AI/ML model
 - Python module/package

@@ -1,4 +1,4 @@
-# Scripts
+# 🔨 Scripts
 
 This document provides an overview and usage instructions for the following scripts in this project:
 

@@ -94,41 +94,44 @@ main()
 		_OUTPUT_DIR="${OUTPUT_DIR}"
 	fi
 
-	_classess_dir="${_OUTPUT_DIR}/classes"
+	_classes_dir="${_OUTPUT_DIR}/classes"
 	_packages_dir="${_OUTPUT_DIR}/packages"
-	_flowchart_dir="${_OUTPUT_DIR}/flowcharts"
+	_cgraphs_dir="${_OUTPUT_DIR}/call-graphs"
 
-	if [ ! -d "${_classess_dir}" ]; then
-		mkdir -p "${_classess_dir}"
+	if [ ! -d "${_classes_dir}" ]; then
+		mkdir -vp "${_classes_dir}"
 	fi
 
 	if [ ! -d "${_packages_dir}" ]; then
-		mkdir -p "${_packages_dir}"
+		mkdir -vp "${_packages_dir}"
 	fi
 
-	if [ ! -d "${_flowchart_dir}" ]; then
-		mkdir -p "${_flowchart_dir}"
+	if [ ! -d "${_cgraphs_dir}" ]; then
+		mkdir -vp "${_cgraphs_dir}"
 	fi
 
 
 	echoInfo "Generating UML diagrams..."
-	pyreverse -d "${_OUTPUT_DIR}" -o html -p "${_MODULE_NAME}" "${_MODULE_DIR}"
-	pyreverse -d "${_OUTPUT_DIR}" -o pdf -p "${_MODULE_NAME}" "${_MODULE_DIR}"
-	pyreverse -d "${_OUTPUT_DIR}" -o png -p "${_MODULE_NAME}" "${_MODULE_DIR}"
-	pyreverse -d "${_OUTPUT_DIR}" -o svg -p "${_MODULE_NAME}" "${_MODULE_DIR}"
+	_cp_formats=("html" "pdf" "png" "svg")
+	for _cp_format in "${_cp_formats[@]}"; do
+		_tmp_class_path="${_OUTPUT_DIR}/classes_${_MODULE_NAME}.${_cp_format}"
+		_tmp_package_path="${_OUTPUT_DIR}/packages_${_MODULE_NAME}.${_cp_format}"
 
-	mv -vf "${_OUTPUT_DIR}/classes_${_MODULE_NAME}.html" "${_classess_dir}/"
-	mv -vf "${_OUTPUT_DIR}/classes_${_MODULE_NAME}.pdf" "${_classess_dir}/"
-	mv -vf "${_OUTPUT_DIR}/classes_${_MODULE_NAME}.png" "${_classess_dir}/"
-	mv -vf "${_OUTPUT_DIR}/classes_${_MODULE_NAME}.svg" "${_classess_dir}/"
+		echoInfo "Generating ['${_tmp_class_path}', '${_tmp_package_path}'] files..."
+		pyreverse -d "${_OUTPUT_DIR}" -o "${_cp_format}" -p "${_MODULE_NAME}" "${_MODULE_DIR}" || exit 2
+		mv -vf "${_tmp_class_path}" "${_classes_dir}/" || exit 2
+		mv -vf "${_tmp_package_path}" "${_packages_dir}/" || exit 2
+		echoOk "Done."
+	done
 
-	mv -vf "${_OUTPUT_DIR}/packages_${_MODULE_NAME}.html" "${_packages_dir}/"
-	mv -vf "${_OUTPUT_DIR}/packages_${_MODULE_NAME}.pdf" "${_packages_dir}/"
-	mv -vf "${_OUTPUT_DIR}/packages_${_MODULE_NAME}.png" "${_packages_dir}/"
-	mv -vf "${_OUTPUT_DIR}/packages_${_MODULE_NAME}.svg" "${_packages_dir}/"
+	_cgraph_formats=("png" "svg")
+	for _cgraph_format in "${_cgraph_formats[@]}"; do
+		_cgraph_path="${_cgraphs_dir}/cgraph_${_MODULE_NAME}.${_cgraph_format}"
 
-	code2flow -o "${_flowchart_dir}/flowchart_${_MODULE_NAME}.png" "${_MODULE_DIR}"
-	code2flow -o "${_flowchart_dir}/flowchart_${_MODULE_NAME}.svg" "${_MODULE_DIR}"
+		echoInfo "Generating '${_cgraph_path}' file..."
+		code2flow -o "${_cgraph_path}" "${_MODULE_DIR}" || exit 2
+		echoOk "Done."
+	done
 	echoOk "Done."
 }
 

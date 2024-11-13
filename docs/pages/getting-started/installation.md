@@ -1,8 +1,8 @@
-# Installation
+# 🛠 Installation
 
-## 1. Download or clone the repository
+## 1. 📥 Download or clone the repository
 
-**2.1.** Prepare projects directory (if not exists):
+**1.1.** Prepare projects directory (if not exists):
 
 ```sh
 # Create projects directory:
@@ -12,33 +12,33 @@ mkdir -pv ~/workspaces/projects
 cd ~/workspaces/projects
 ```
 
-**2.2.** Follow one of the below options **[A]** or **[B]**:
+**1.2.** Follow one of the below options **[A]** or **[B]**:
 
-**A.** Clone the repository:
+**OPTION A.** Clone the repository:
 
 ```sh
 git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
     cd simple_model
 ```
 
-**B.** Download source code:
+**OPTION B.** Download source code:
 
 1. Download archived **zip** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
 2. Extract it into the project directory.
 3. Rename the extracted directory from **`model.python-template`** to **`simple_model`**.
 
-## 2. Install the module
+## 2. 📦 Install the module
 
 > [!NOTE]
 > Choose one of the following methods to install the module **[A ~ E]**:
 
-**A.** Install directly from **git** repository:
+**OPTION A.** Install directly from **git** repository:
 
 ```sh
 pip install git+https://github.com/bybatkhuu/model.python-template.git
 ```
 
-**B.** Install from the downloaded **source code**:
+**OPTION B.** Install from the downloaded **source code**:
 
 ```sh
 # Install directly from the source code:
@@ -47,13 +47,13 @@ pip install .
 pip install -e .
 ```
 
-**C.** Install for **DEVELOPMENT** environment:
+**OPTION C.** Install for **DEVELOPMENT** environment:
 
 ```sh
 pip install -r ./requirements/requirements.dev.txt
 ```
 
-**D.** Install from **pre-built package** files (for **PRODUCTION**):
+**OPTION D.** Install from **pre-built package** files (for **PRODUCTION**):
 
 1. Download **`.whl`** or **`.tar.gz`** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
 2. Install with pip:
@@ -65,7 +65,7 @@ pip install ./simple_model-[VERSION]-py3-none-any.whl
 pip install ./simple_model-[VERSION].tar.gz
 ```
 
-**E.** Copy the **module** into the project directory (for **testing**):
+**OPTION E.** Copy the **module** into the project directory (for **testing**):
 
 ```sh
 # Install python dependencies:

@@ -41,7 +41,7 @@ main()
 					shift;;
 				*)
 					echoError "Failed to parsing input -> ${_input}"
-					echoInfo "USAGE: ${0} -b, --build | -p, --publish"
+					echoInfo "USAGE: ${0}  -b, --build | -p, --publish"
 					exit 1;;
 			esac
 		done

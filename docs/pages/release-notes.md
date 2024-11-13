@@ -4,7 +4,7 @@ hide:
 #   - toc
 ---
 
-# Release Notes
+# 📌 Release Notes
 
 ## v0.0.1 (2024-01-01)
 

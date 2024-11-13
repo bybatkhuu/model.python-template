@@ -54,7 +54,7 @@ main()
 					shift;;
 				*)
 					echoError "Failed to parsing input -> ${_input}"
-					echoInfo "USAGE: ${0} -c, --disable-clean | -t, --test | -u, --upload | -p, --production"
+					echoInfo "USAGE: ${0}  -c, --disable-clean | -t, --test | -u, --upload | -p, --production"
 					exit 1;;
 			esac
 		done

@@ -1,4 +1,4 @@
-# Diagrams
+# 🖼️ Diagrams
 
 This page contains diagrams that illustrate the architecture of the module.
 
@@ -10,6 +10,6 @@ This page contains diagrams that illustrate the architecture of the module.
 
 [![Simple Model - Package Diagram](../../diagrams/packages/packages_simple_model.png "Simple Model - Package Diagram")](https://github.com/bybatkhuu/model.python-template/blob/main/docs/diagrams/packages/packages_simple_model.png)
 
-## Flowchart
+## Call Graph
 
-[![Simple Model - Flowchart](../../diagrams/flowcharts/flowchart_simple_model.png "Simple Model - Flowchart")](https://github.com/bybatkhuu/model.python-template/blob/main/docs/diagrams/flowcharts/flowchart_simple_model.png)
+[![Simple Model - Call Graph](../../diagrams/call-graphs/cgraph_simple_model.png "Simple Model - Call Graph")](https://github.com/bybatkhuu/model.python-template/blob/main/docs/diagrams/call-graphs/cgraph_simple_model.png)

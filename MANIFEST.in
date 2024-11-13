@@ -21,6 +21,7 @@ exclude scripts/**
 exclude templates/**
 exclude tests/**
 exclude __init__.py
+exclude .coverage
 exclude .editorconfig
 exclude .env
 exclude .env.example

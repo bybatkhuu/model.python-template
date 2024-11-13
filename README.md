@@ -6,7 +6,7 @@
 
 This is a template repo for AI/ML model module.
 
-## Features
+## ✨ Features
 
 - AI/ML model
 - Python module/package
@@ -18,9 +18,9 @@ This is a template repo for AI/ML model module.
 
 ---
 
-## Installation
+## 🛠 Installation
 
-### 1. Prerequisites
+### 1. 🚧 Prerequisites
 
 - Install **Python (>= v3.9)** and **pip (>= 23)**:
     - **[RECOMMENDED] [Miniconda (v3)](https://docs.anaconda.com/miniconda)**
@@ -30,12 +30,12 @@ This is a template repo for AI/ML model module.
     - **NVIDIA GPU driver (>= v452.39)**
     - **NVIDIA CUDA (>= v11)** and **cuDNN (>= v8)**
 
-For **DEVELOPMENT** environment:
+💻 For **DEVELOPMENT** environment:
 
 - Install [**git**](https://git-scm.com/downloads)
 - Setup an [**SSH key**](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) ([video tutorial](https://www.youtube.com/watch?v=snCP3c7wXw0))
 
-### 2. Download or clone the repository
+### 2. 📥 Download or clone the repository
 
 **2.1.** Prepare projects directory (if not exists):
 
@@ -49,31 +49,31 @@ cd ~/workspaces/projects
 
 **2.2.** Follow one of the below options **[A]** or **[B]**:
 
-**A.** Clone the repository:
+**OPTION A.** Clone the repository:
 
 ```sh
 git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
     cd simple_model
 ```
 
-**B.** Download source code:
+**OPTION B.** Download source code:
 
 1. Download archived **zip** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
 2. Extract it into the project directory.
 3. Rename the extracted directory from **`model.python-template`** to **`simple_model`**.
 
-### 3. Install the module
+### 3. 📦 Install the module
 
 > [!NOTE]
 > Choose one of the following methods to install the module **[A ~ E]**:
 
-**A.** Install directly from **git** repository:
+**OPTION A.** Install directly from **git** repository:
 
 ```sh
 pip install git+https://github.com/bybatkhuu/model.python-template.git
 ```
 
-**B.** Install from the downloaded **source code**:
+**OPTION B.** Install from the downloaded **source code**:
 
 ```sh
 # Install directly from the source code:
@@ -82,13 +82,13 @@ pip install .
 pip install -e .
 ```
 
-**C.** Install for **DEVELOPMENT** environment:
+**OPTION C.** Install for **DEVELOPMENT** environment:
 
 ```sh
 pip install -r ./requirements/requirements.dev.txt
 ```
 
-**D.** Install from **pre-built package** files (for **PRODUCTION**):
+**OPTION D.** Install from **pre-built package** files (for **PRODUCTION**):
 
 1. Download **`.whl`** or **`.tar.gz`** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
 2. Install with pip:
@@ -100,7 +100,7 @@ pip install ./simple_model-[VERSION]-py3-none-any.whl
 pip install ./simple_model-[VERSION].tar.gz
 ```
 
-**E.** Copy the **module** into the project directory (for **testing**):
+**OPTION E.** Copy the **module** into the project directory (for **testing**):
 
 ```sh
 # Install python dependencies:
@@ -112,7 +112,7 @@ cp -r ./src/simple_model [PROJECT_DIR]
 cp -r ./src/simple_model /some/path/project/
 ```
 
-## Usage/Examples
+## 🚸 Usage/Examples
 
 ### Simple
 
@@ -176,11 +176,11 @@ if __name__ == "__main__":
     logger.info("Done!")
 ```
 
-:thumbsup: :sparkles:
+👍
 
 ---
 
-## Configuration
+## ⚙️ Configuration
 
 [**`templates/configs/config.yml`**](https://github.com/bybatkhuu/model.python-template/blob/main/templates/configs/config.yml):
 
@@ -191,7 +191,7 @@ simple_model:                                       # Just an example to group t
   threshold: 0.5                                    # Threshold for similarity check
 ```
 
-### Environment Variables
+### 🌎 Environment Variables
 
 [**`.env.example`**](https://github.com/bybatkhuu/model.python-template/blob/main/.env.example):
 
@@ -200,7 +200,7 @@ simple_model:                                       # Just an example to group t
 # DEBUG=true
 ```
 
-## Running Tests
+## 🧪 Running Tests
 
 To run tests, run the following command:
 
@@ -214,7 +214,7 @@ python -m pytest -sv -o log_cli=true
 ./scripts/test.sh -l -v -c
 ```
 
-## Build Package
+## 🏗️ Build Package
 
 To build the python package, run the following command:
 
@@ -228,7 +228,7 @@ python -m build
 ./scripts/build.sh
 ```
 
-## Generate Docs
+## 📝 Generate Docs
 
 To build the documentation, run the following command:
 
@@ -247,7 +247,7 @@ mkdocs build
 ./scripts/docs.sh -b
 ```
 
-## Documentation
+## 📚 Documentation
 
 - [Docs](https://github.com/bybatkhuu/model.python-template/blob/main/docs)
 - [Home](https://github.com/bybatkhuu/model.python-template/blob/main/docs/README.md)
@@ -293,7 +293,7 @@ mkdocs build
 
 ---
 
-## References
+## 📑 References
 
 - <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html>
 - <https://packaging.python.org/en/latest/tutorials/packaging-projects>
