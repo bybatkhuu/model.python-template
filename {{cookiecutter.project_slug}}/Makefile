@@ -1,4 +1,4 @@
-.PHONY: help clean get-version test bump-version build docs changelog diagrams example all
+.PHONY: help clean get-version test bump-version build docs changelog diagrams run-example all
 
 help:
 	@echo "make help         -- show this help"
@@ -10,7 +10,7 @@ help:
 	@echo "make docs         -- build documentation"
 	@echo "make changelog    -- update changelog"
 	@echo "make diagrams     -- generate diagrams"
-	@echo "make example      -- run example script"
+	@echo "make run-example  -- run example script"
 	@echo "make all          -- clean, get-version, test, build"
 
 clean:
@@ -37,7 +37,7 @@ changelog:
 diagrams:
 	./scripts/diagrams.sh $(MAKEFLAGS)
 
-example:
+run-example:
 	python ./examples/simple/main.py
 
 all: clean get-version test build
