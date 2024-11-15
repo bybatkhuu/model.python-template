@@ -1,6 +1,6 @@
 # ⚙️ Configuration
 
-**`templates/configs/config.yml`**:
+[**`templates/configs/config.yml`**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/templates/configs/config.yml):
 
 ```yaml
 {{cookiecutter.module_name}}:                                       # Just an example to group the configs (Not necessary)
@@ -11,7 +11,7 @@
 
 ## 🌎 Environment Variables
 
-**`.env.example`**:
+[**`.env.example`**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/.env.example):
 
 ```sh
 # ENV=development
