@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-# Third-party modules and packages are imported in here
+# External modules and packages are imported in here
