@@ -1,6 +1,6 @@
 # ⚙️ Configuration
 
-**`templates/configs/config.yml`**:
+[**`templates/configs/config.yml`**](https://github.com/bybatkhuu/model.python-template/blob/main/templates/configs/config.yml):
 
 ```yaml
 simple_model:                                       # Just an example to group the configs (Not necessary)
@@ -11,7 +11,7 @@ simple_model:                                       # Just an example to group t
 
 ## 🌎 Environment Variables
 
-**`.env.example`**:
+[**`.env.example`**](https://github.com/bybatkhuu/model.python-template/blob/main/.env.example):
 
 ```sh
 # ENV=development

@@ -2,7 +2,7 @@
 
 ## Simple
 
-**`examples/simple/main.py`**:
+[**`examples/simple/main.py`**](https://github.com/bybatkhuu/model.python-template/blob/main/examples/simple/main.py):
 
 ```python
 ## Standard libraries
