@@ -26,7 +26,7 @@ exclude .editorconfig
 exclude .env
 exclude .env.example
 exclude .gitignore
-exclude .gitsubmodules
+exclude .gitmodules
 exclude .ipynb_checkpoints
 exclude .markdownlint.json
 exclude .DS_Store
