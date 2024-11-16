@@ -63,7 +63,7 @@ git clone git@github.com:{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.
 **OPTION B.** Download source code:
 
 1. Download archived **zip** file from [**releases**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases).
-2. Extract it into the project directory.
+2. Extract it into the projects directory.
 3. Rename the extracted directory from **`{{cookiecutter.repo_name}}`** to **`{{cookiecutter.module_name}}`**.
 
 ### 3. 📦 Install the module
