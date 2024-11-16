@@ -59,7 +59,7 @@ git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
 **OPTION B.** Download source code:
 
 1. Download archived **zip** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
-2. Extract it into the project directory.
+2. Extract it into the projects directory.
 3. Rename the extracted directory from **`model.python-template`** to **`simple_model`**.
 
 ### 3. 📦 Install the module
@@ -199,6 +199,8 @@ simple_model:                                       # Just an example to group t
 # ENV=development
 # DEBUG=true
 ```
+
+---
 
 ## 🧪 Running Tests
 
