@@ -52,6 +52,8 @@
 		"**/.vscode-server/**": true,
 		"**/.idea/**": true,
 		"**/.ipynb_checkpoints/**": true,
+		"**/.pytest_cache/**": true,
+		"**/.benchmarks/**": true,
 		"**/__pycache__/**": true,
 		"**/CVS/**": true,
 		"**/node_modules/*/**": true,
@@ -81,6 +83,7 @@
 		"**/*.log": true,
 		"**/*.out": true,
 		"**/*.bak": true,
+		"**/.coverage*": true,
 		"**/.DS_Store": true,
 		"**/Thumbs.db": true
 	},
@@ -103,6 +106,8 @@
 		"**/.vscode-server": true,
 		"**/.idea": true,
 		"**/.ipynb_checkpoints": true,
+		"**/.pytest_cache": true,
+		"**/.benchmarks": true,
 		"**/__pycache__": true,
 		"**/CVS": true,
 		"**/node_modules": true,
@@ -132,6 +137,7 @@
 		"**/*.log": true,
 		"**/*.out": true,
 		"**/*.bak": true,
+		"**/.coverage*": true,
 		"**/.DS_Store": true,
 		"**/Thumbs.db": true
 	},
