@@ -1,6 +1,6 @@
 {
 	"project_name": "Model Python Template",
-	"project_slug": "{{cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-').strip()}}",
+	"project_slug": "{{cookiecutter.project_name.strip().lower().replace(' ', '-').replace('_', '-')}}",
 	"project_description": "This is a short description of the project.",
 	"module_name": "module_name",
 	"author_username": "username",

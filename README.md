@@ -43,7 +43,7 @@ cd ~/workspaces/projects
 
 **2.2.** Follow one of the below options **[A]**, **[B]** or **[C]**:
 
-**OPTION A.** Clone the repository (for **public**: git + https):
+**OPTION A.** Clone the repository:
 
 ```sh
 git clone https://github.com/bybatkhuu/model.python-template.git && \
@@ -59,7 +59,7 @@ git clone git@github.com:bybatkhuu/model.python-template.git && \
     git checkout cookiecutter
 ```
 
-**OPTION C.** Or download source code.
+**OPTION C.** Download source code from cookiecutter branch.
 
 ### 3. 📦 Install cookiecutter
 
