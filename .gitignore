@@ -488,8 +488,6 @@ results/
 output/
 outputs/
 model.python-template/
-model-python-template/
-{{cookiecutter.project_slug}}/
 
 # Files:
 log
@@ -506,8 +504,6 @@ results
 output
 outputs
 model.python-template
-model-python-template
-{{cookiecutter.project_slug}}
 *.bak
 version.py
 sample.py
