@@ -472,6 +472,7 @@ zsdoc/data
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
+
 # Directories:
 log/
 logs/
@@ -486,6 +487,9 @@ result/
 results/
 output/
 outputs/
+model.python-template/
+model-python-template/
+{{cookiecutter.project_slug}}/
 
 # Files:
 log
@@ -501,6 +505,9 @@ result
 results
 output
 outputs
+model.python-template
+model-python-template
+{{cookiecutter.project_slug}}
 *.bak
 version.py
 sample.py
