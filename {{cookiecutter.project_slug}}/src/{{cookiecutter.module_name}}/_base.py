@@ -299,7 +299,7 @@ class SimpleModel:
     def config(self, config: Union[ModelConfigPM, Dict[str, Any]]) -> None:
         if (not isinstance(config, ModelConfigPM)) and (not isinstance(config, dict)):
             raise TypeError(
-                f"`config` attribute type {type(config)} is invalid, must be a <class 'ModelConfigPM'>. or <dict>"
+                f"`config` attribute type {type(config)} is invalid, must be a <class 'ModelConfigPM'> or <dict>"
             )
 
         if isinstance(config, dict):

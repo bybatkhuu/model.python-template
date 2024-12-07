@@ -204,6 +204,8 @@ if __name__ == "__main__":
 # DEBUG=true
 ```
 
+---
+
 ## 🧪 Running Tests
 
 To run tests, run the following command:

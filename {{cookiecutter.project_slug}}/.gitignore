@@ -472,44 +472,40 @@ zsdoc/data
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
-# Files:
-data
-dataset
-datasets
-model
-models
-log
-logs
-backup
-backups
-result
-results
-output
-outputs
-site
-sites
-pythonpath
-*.bak
-*.pyc
-version.py
-sample.py
-example.py
-test.py
 
 # Directories:
+log/
+logs/
+backup/
+backups/
 data/
 dataset/
 datasets/
 model/
 models/
-log/
-logs/
-backup/
-backups/
 result/
 results/
 output/
 outputs/
-site/
-sites/
-pythonpath/
+{{cookiecutter.project_slug}}/
+
+# Files:
+log
+logs
+backup
+backups
+data
+dataset
+datasets
+model
+models
+result
+results
+output
+outputs
+{{cookiecutter.project_slug}}
+*.bak
+version.py
+sample.py
+example.py
+test.py
