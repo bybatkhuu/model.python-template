@@ -606,7 +606,6 @@ results/
 output/
 outputs/
 model.python-template/
-model-python-template/
 
 # Files:
 log
@@ -623,7 +622,6 @@ results
 output
 outputs
 model.python-template
-model-python-template
 *.bak
 version.py
 sample.py

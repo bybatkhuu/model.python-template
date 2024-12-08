@@ -1,6 +1,6 @@
 {
 	"project_name": "Model Python Template",
-	"project_slug": "{{cookiecutter.project_name.strip().lower().replace(' ', '-').replace('_', '-')}}",
+	"project_slug": "model.python-template",
 	"project_description": "This is a short description of the project.",
 	"module_name": "module_name",
 	"author_username": "username",
@@ -11,7 +11,7 @@
 	"python_version": "3.9",
 	"version": "0.0.0",
 	"language": "en",
-	"copyright_year": "2024",
+	"copyright_year": "2025",
 	"license": [
 		"MIT License",
 		"Apache License 2.0",
