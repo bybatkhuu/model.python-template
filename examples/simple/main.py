@@ -2,8 +2,10 @@
 # -*- coding: utf-8 -*-
 
 ## Standard libraries
+import os
 import sys
 import logging
+import pathlib
 from typing import Any
 
 ## Third-party libraries
@@ -21,7 +23,12 @@ if __name__ == "__main__":
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
     # Pre-defined variables (for customizing and testing)
-    _model_dir = "./models"
+    _this_file_dir = pathlib.Path(__file__).parent.resolve()
+    _models_dir = str(_this_file_dir.parent.parent / "models")
+
+    if not os.path.isdir(_models_dir):
+        os.makedirs(_models_dir, exist_ok=True)
+
     _model_name = "linear_regression.v0.0.1-24"
 
     _X_train = np.array([[1], [2], [3], [4], [5]])
@@ -31,7 +38,7 @@ if __name__ == "__main__":
     _y_test = np.array([10, 14, 16])
 
     # Create the model instance
-    _config = {"models_dir": _model_dir, "model_name": _model_name}
+    _config = {"models_dir": _models_dir, "model_name": _model_name}
     _model = SimpleModel(config=_config)
 
     # Train or load the model
