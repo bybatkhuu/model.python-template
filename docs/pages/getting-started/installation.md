@@ -2,6 +2,9 @@
 
 ## 1. 📥 Download or clone the repository
 
+> [!TIP]
+> Skip this step, if you're going to install the module directly from **git** repository.
+
 **1.1.** Prepare projects directory (if not exists):
 
 ```sh
@@ -17,15 +20,21 @@ cd ~/workspaces/projects
 **OPTION A.** Clone the repository:
 
 ```sh
-git clone git@github.com:bybatkhuu/model.python-template.git simple_model && \
-    cd simple_model
+git clone https://github.com/bybatkhuu/model.python-template.git && \
+    cd model.python-template
 ```
 
-**OPTION B.** Download source code:
+**OPTION B.** Clone the repository (for **DEVELOPMENT**: git + ssh key):
+
+```sh
+git clone git@github.com:bybatkhuu/model.python-template.git && \
+    cd model.python-template
+```
+
+**OPTION C.** Download source code:
 
 1. Download archived **zip** file from [**releases**](https://github.com/bybatkhuu/model.python-template/releases).
 2. Extract it into the projects directory.
-3. Rename the extracted directory from **`model.python-template`** to **`simple_model`**.
 
 ## 2. 📦 Install the module
 
