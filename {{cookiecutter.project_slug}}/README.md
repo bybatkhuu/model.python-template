@@ -41,6 +41,9 @@
 
 ### 2. 📥 Download or clone the repository
 
+> [!TIP]
+> Skip this step, if you're going to install the module directly from **git** repository.
+
 **2.1.** Prepare projects directory (if not exists):
 
 ```sh
@@ -56,15 +59,21 @@ cd ~/workspaces/projects
 **OPTION A.** Clone the repository:
 
 ```sh
-git clone git@github.com:{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.git {{cookiecutter.module_name}} && \
-    cd {{cookiecutter.module_name}}
+git clone https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.git && \
+    cd {{cookiecutter.repo_name}}
 ```
 
-**OPTION B.** Download source code:
+**OPTION B.** Clone the repository (for **DEVELOPMENT**: git + ssh key):
+
+```sh
+git clone git@github.com:{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.git && \
+    cd {{cookiecutter.repo_name}}
+```
+
+**OPTION C.** Download source code:
 
 1. Download archived **zip** file from [**releases**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases).
 2. Extract it into the projects directory.
-3. Rename the extracted directory from **`{{cookiecutter.repo_name}}`** to **`{{cookiecutter.module_name}}`**.
 
 ### 3. 📦 Install the module
 
