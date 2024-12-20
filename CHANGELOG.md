@@ -1,5 +1,22 @@
 # Changelog
 
+## v0.0.4 (2024-12-20)
+
+<!-- Release notes generated using configuration in .github/release.yml at v0.0.4 -->
+
+## What's Changed
+### 🐛 Fixes
+* Refactor model directory handling and update documentation by @bybatkhuu in https://github.com/bybatkhuu/model.python-template/pull/17
+### 📝 Documentation
+* Enhance documentation headers with emoji for improved readability by @bybatkhuu in https://github.com/bybatkhuu/model.python-template/pull/13
+* Update README and installation documentation for improved cloning instructions by @bybatkhuu in https://github.com/bybatkhuu/model.python-template/pull/15
+* Update README for clarity and usage instructions by @bybatkhuu in https://github.com/bybatkhuu/model.python-template/pull/16
+### 🔨 Scripts
+* Update VSCode settings and clarify Makefile target names by @bybatkhuu in https://github.com/bybatkhuu/model.python-template/pull/14
+
+
+**Full Changelog**: https://github.com/bybatkhuu/model.python-template/compare/v0.0.3...v0.0.4
+
 ## v0.0.3 (2024-11-12)
 
 <!-- Release notes generated using configuration in .github/release.yml at v0.0.3 -->
