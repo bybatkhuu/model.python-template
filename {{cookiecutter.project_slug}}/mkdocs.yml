@@ -10,7 +10,10 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+  logo: assets/images/logo.png
+  favicon: assets/images/logo.png
   icon:
+    # logo: fontawesome/brands/python
     repo: fontawesome/brands/github
   features:
     - navigation.indexes

@@ -6,7 +6,7 @@
 {% elif cookiecutter.license == "BSD License" %}[![BSD License](https://img.shields.io/badge/License-BSD-blue.svg)](https://choosealicense.com/licenses/bsd-3-clause-clear)
 {% elif cookiecutter.license == "ISC License" %}[![ISC License](https://img.shields.io/badge/License-ISC-blue.svg)](https://choosealicense.com/licenses/isc)
 {% endif %}{% if cookiecutter.license != "Proprietary License" %}[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/2.build-publish.yml?logo=GitHub)](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/actions/workflows/2.build-publish.yml)
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}?logo=GitHub)](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}?logo=GitHub&color=blue)](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases)
 
 {% endif %}{{cookiecutter.project_description}}
 
@@ -24,7 +24,7 @@
 
 - You can use this template repository as reference to create a new repository with the same structure or clone the repository to start a new project. It will help you to organize your project structure and files. It works out of the box for most of the AI/ML projects.
 - You can customize (remove, modify or add) the files and directories as needed to meet your project requirements.
-- If you want to use the template repository directly, just click the **[Use this template](https://github.com/new?template_name={{cookiecutter.repo_owner}}&template_owner={{cookiecutter.repo_name}})** button and follow the instructions.
+- If you want to use the template repository directly, just click the **[Use this template](https://github.com/new?template_name={{cookiecutter.repo_name}}&template_owner={{cookiecutter.repo_owner}})** button and follow the instructions.
 - You can use **cookiecutter** to generate a new project from **[cookiecutter](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/tree/cookiecutter)** branch:
 
     ```sh
@@ -151,8 +151,10 @@ cp -r ./src/{{cookiecutter.module_name}} /some/path/project/
 
 ```python
 ## Standard libraries
+import os
 import sys
 import logging
+import pathlib
 from typing import Any
 
 ## Third-party libraries
@@ -170,7 +172,12 @@ if __name__ == "__main__":
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
     # Pre-defined variables (for customizing and testing)
-    _model_dir = "./models"
+    _this_file_dir = pathlib.Path(__file__).parent.resolve()
+    _models_dir = str(_this_file_dir.parent.parent / "models")
+
+    if not os.path.isdir(_models_dir):
+        os.makedirs(_models_dir, exist_ok=True)
+
     _model_name = "linear_regression.v0.0.1-24"
 
     _X_train = np.array([[1], [2], [3], [4], [5]])
@@ -180,7 +187,7 @@ if __name__ == "__main__":
     _y_test = np.array([10, 14, 16])
 
     # Create the model instance
-    _config = {"models_dir": _model_dir, "model_name": _model_name}
+    _config = {"models_dir": _models_dir, "model_name": _model_name}
     _model = SimpleModel(config=_config)
 
     # Train or load the model
