@@ -68,7 +68,7 @@ mkdir -pv ~/workspaces/projects
 cd ~/workspaces/projects
 ```
 
-**2.2.** Follow one of the below options **[A]** or **[B]**:
+**2.2.** Follow one of the below options **[A]**, **[B]** or **[C]**:
 
 **OPTION A.** Clone the repository:
 
