@@ -487,6 +487,7 @@ result/
 results/
 output/
 outputs/
+.benchmarks/
 {{cookiecutter.project_slug}}/
 
 # Files:
@@ -503,6 +504,7 @@ result
 results
 output
 outputs
+.benchmarks
 {{cookiecutter.project_slug}}
 *.bak
 version.py
