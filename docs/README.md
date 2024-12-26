@@ -6,7 +6,7 @@ hide:
 
 # Introduction
 
-This is a template repository for AI/ML model module.
+This is a template repository for AI/ML model projects.
 
 ## ✨ Features
 
