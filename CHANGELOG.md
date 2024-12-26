@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.0.0 (2024-12-26)
+
+<!-- Release notes generated using configuration in .github/release.yml at v1.0.0 -->
+
+## What's Changed
+### 📝 Documentation
+* Refactor README and update logging configuration by @bybatkhuu in https://github.com/bybatkhuu/model.python-template/pull/19
+### 💬 Other
+* Update pre-commit configuration and dependencies by @bybatkhuu in https://github.com/bybatkhuu/model.python-template/pull/18
+
+
+**Full Changelog**: https://github.com/bybatkhuu/model.python-template/compare/v0.0.4...v1.0.0
+
 ## v0.0.4 (2024-12-20)
 
 <!-- Release notes generated using configuration in .github/release.yml at v0.0.4 -->
