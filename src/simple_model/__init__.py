@@ -5,4 +5,8 @@ from .config import ModelConfigPM
 from ._base import SimpleModel
 
 
-__all__ = ["SimpleModel", "ModelConfigPM", "__version__"]
+__all__ = [
+    "SimpleModel",
+    "ModelConfigPM",
+    "__version__",
+]

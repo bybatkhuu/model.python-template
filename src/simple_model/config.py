@@ -1,19 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import pydantic
-from pydantic import BaseModel, constr, Field
-
-if "2.0.0" <= pydantic.__version__:
-    from pydantic import ConfigDict
+from pydantic import BaseModel, constr, Field, ConfigDict
 
 
 class ExtraBaseModel(BaseModel):
-    if "2.0.0" <= pydantic.__version__:
-        model_config = ConfigDict(extra="allow")
-    else:
-
-        class Config:
-            extra = "allow"
+    model_config = ConfigDict(extra="allow")
 
 
 class ModelConfigPM(ExtraBaseModel):
