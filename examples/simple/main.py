@@ -20,7 +20,12 @@ logger = logging.getLogger(__name__)
 
 
 if __name__ == "__main__":
-    logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+    logging.basicConfig(
+        stream=sys.stdout,
+        level=logging.INFO,
+        datefmt="%Y-%m-%d %H:%M:%S %z",
+        format="[%(asctime)s | %(levelname)s | %(filename)s:%(lineno)d]: %(message)s",
+    )
 
     # Pre-defined variables (for customizing and testing)
     _this_file_dir = pathlib.Path(__file__).parent.resolve()
@@ -62,4 +67,4 @@ if __name__ == "__main__":
     if _model.is_trained() and (not SimpleModel.is_model_files_exist(**_config)):
         _model.save()
 
-    logger.info("Done!")
+    logger.info("Done!\n")
