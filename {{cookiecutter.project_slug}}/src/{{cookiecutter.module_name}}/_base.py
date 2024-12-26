@@ -8,15 +8,10 @@ import pprint
 from typing import Any, Dict, Union
 
 ## Third-party libraries
-import pydantic
 from numpy.typing import NDArray
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
-
-if "2.0.0" <= pydantic.__version__:
-    from pydantic import validate_call
-else:
-    from pydantic import validate_arguments as validate_call
+from pydantic import validate_call
 
 ## Internal modules
 from .__version__ import __version__
@@ -305,10 +300,7 @@ class SimpleModel:
         if isinstance(config, dict):
             config = ModelConfigPM(**config)
         elif isinstance(config, ModelConfigPM):
-            if "2.0.0" <= pydantic.__version__:
-                config = config.model_copy(deep=True)
-            else:
-                config = config.copy(deep=True)
+            config = config.model_copy(deep=True)
 
         self.__config = config
 
@@ -320,7 +312,7 @@ class SimpleModel:
         try:
             return self.__model
         except AttributeError:
-            raise AttributeError("`model` attribute is not set.")
+            raise AttributeError("`model` attribute is not set!")
 
     @model.setter
     def model(self, model: LinearRegression) -> None:

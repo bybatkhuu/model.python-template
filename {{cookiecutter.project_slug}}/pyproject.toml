@@ -46,6 +46,9 @@ dynamic = ["version", "dependencies", "optional-dependencies"]
 [tool.setuptools.dynamic]
 version = { attr = "{{cookiecutter.module_name}}.__version__.__version__" }
 dependencies = { file = "./requirements.txt" }
+optional-dependencies.extra = { file = [
+	"./requirements/requirements.extra.txt",
+] }
 # optional-dependencies.gpu = { file = ["./requirements/requirements.gpu.txt"] }
 
 [project.urls]

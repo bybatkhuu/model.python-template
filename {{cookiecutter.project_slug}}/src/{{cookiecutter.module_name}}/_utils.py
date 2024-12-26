@@ -4,12 +4,7 @@ import os
 import errno
 import logging
 
-import pydantic
-
-if "2.0.0" <= pydantic.__version__:
-    from pydantic import validate_call, constr
-else:
-    from pydantic import validate_call as validate_call, constr
+from pydantic import validate_call, constr
 
 from ._consts import WarnEnum
 

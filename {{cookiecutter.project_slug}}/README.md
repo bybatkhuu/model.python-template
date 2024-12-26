@@ -13,11 +13,18 @@
 ## ✨ Features
 
 - AI/ML model
-- Python module/package
 - Jupyter notebook
 - Research
+- Python module/package
 - Project Structure
-- Template
+- Boilerplate/Template
+- Best Practices
+- Configuration
+- Test
+- Build
+- Documentation
+- Scripts
+- Examples
 - CI/CD
 
 ## 🧩 Template
@@ -60,7 +67,7 @@
 ### 2. 📥 Download or clone the repository
 
 > [!TIP]
-> Skip this step, if you're going to install the module directly from **git** repository.
+> Skip this step, if you're going to install the package directly from **GitHub** repository.
 
 **2.1.** Prepare projects directory (if not exists):
 
@@ -93,12 +100,12 @@ git clone git@github.com:{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.
 1. Download archived **zip** file from [**releases**](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/releases).
 2. Extract it into the projects directory.
 
-### 3. 📦 Install the module
+### 3. 📦 Install the package
 
 > [!NOTE]
-> Choose one of the following methods to install the module **[A ~ E]**:
+> Choose one of the following methods to install the package **[A ~ E]**:
 
-**OPTION A.** Install directly from **git** repository:
+**OPTION A.** Install directly from **GitHub** repository:
 
 ```sh
 pip install git+https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}.git
@@ -169,7 +176,12 @@ logger = logging.getLogger(__name__)
 
 
 if __name__ == "__main__":
-    logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+    logging.basicConfig(
+        stream=sys.stdout,
+        level=logging.INFO,
+        datefmt="%Y-%m-%d %H:%M:%S %z",
+        format="[%(asctime)s | %(levelname)s | %(filename)s:%(lineno)d]: %(message)s",
+    )
 
     # Pre-defined variables (for customizing and testing)
     _this_file_dir = pathlib.Path(__file__).parent.resolve()
@@ -211,7 +223,7 @@ if __name__ == "__main__":
     if _model.is_trained() and (not SimpleModel.is_model_files_exist(**_config)):
         _model.save()
 
-    logger.info("Done!")
+    logger.info("Done!\n")
 ```
 
 👍

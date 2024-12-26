@@ -11,11 +11,18 @@ hide:
 ## ✨ Features
 
 - AI/ML model
-- Python module/package
 - Jupyter notebook
 - Research
+- Python module/package
 - Project Structure
-- Template
+- Boilerplate/Template
+- Best Practices
+- Configuration
+- Test
+- Build
+- Documentation
+- Scripts
+- Examples
 - CI/CD
 
 ## 🧩 Template
