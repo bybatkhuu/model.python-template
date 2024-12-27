@@ -7,7 +7,10 @@
     - [Configuration](../getting-started/configuration.md)
     - [Examples](../getting-started/examples.md)
     - [Error Codes](../getting-started/error-codes.md)
-- [API Documentation](../api-docs/README.md)
+- API Documentation
+    - [SimpleModel](../api-docs/SimpleModel.md)
+    - [ModelConfigPM](../api-docs/ModelConfigPM.md)
+    - [Diagrams](../api-docs/diagrams.md)
 - Development
     - [Test](../dev/test.md)
     - [Build](../dev/build.md)
