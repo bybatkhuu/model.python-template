@@ -23,7 +23,7 @@ from {{cookiecutter.module_name}} import SimpleModel
 logger = logging.getLogger(__name__)
 
 
-if __name__ == "__main__":
+def main() -> None:
     logging.basicConfig(
         stream=sys.stdout,
         level=logging.INFO,
@@ -32,8 +32,8 @@ if __name__ == "__main__":
     )
 
     # Pre-defined variables (for customizing and testing)
-    _this_file_dir = pathlib.Path(__file__).parent.resolve()
-    _models_dir = str(_this_file_dir.parent.parent / "models")
+    _parent_dir = pathlib.Path(__file__).parent.resolve()
+    _models_dir = str(_parent_dir.parent.parent / "models")
 
     if not os.path.isdir(_models_dir):
         os.makedirs(_models_dir, exist_ok=True)
@@ -72,4 +72,9 @@ if __name__ == "__main__":
         _model.save()
 
     logger.info("Done!\n")
+    return
+
+
+if __name__ == "__main__":
+    main()
 ```
