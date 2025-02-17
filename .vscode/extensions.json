@@ -8,7 +8,6 @@
 		"ms-azuretools.vscode-docker",
 		"ms-toolsai.datawrangler",
 		"njpwerner.autodocstring",
-		"charliermarsh.ruff",
 		"editorconfig.editorconfig",
 		"hediet.vscode-drawio",
 		"mikestead.dotenv",
