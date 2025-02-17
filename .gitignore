@@ -1,6 +1,6 @@
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
-# Created by https://www.toptal.com/developers/gitignore/api/zsh,windows,visualstudiocode,vim,sublimetext,pythonvanilla,python,macos,linux,jupyternotebooks,jetbrains+all,jetbrains,git,powershell
-# Edit at https://www.toptal.com/developers/gitignore?templates=zsh,windows,visualstudiocode,vim,sublimetext,pythonvanilla,python,macos,linux,jupyternotebooks,jetbrains+all,jetbrains,git,powershell
+# Created by https://www.toptal.com/developers/gitignore/api/zsh,windows,visualstudiocode,vim,sublimetext,pythonvanilla,python,powershell,macos,linux,jupyternotebooks,jetbrains+all,jetbrains,git,obsidian
+# Edit at https://www.toptal.com/developers/gitignore?templates=zsh,windows,visualstudiocode,vim,sublimetext,pythonvanilla,python,powershell,macos,linux,jupyternotebooks,jetbrains+all,jetbrains,git,obsidian
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -249,6 +249,10 @@ Temporary Items
 ### macOS Patch ###
 # iCloud generated files
 *.icloud
+
+### Obsidian ###
+# config dir
+.obsidian/
 
 ### PowerShell ###
 # Exclude packaged modules
@@ -586,16 +590,16 @@ zsdoc/data
 /tests/_output/*
 !/tests/_output/.gitkeep
 
-# End of https://www.toptal.com/developers/gitignore/api/zsh,windows,visualstudiocode,vim,sublimetext,pythonvanilla,python,macos,linux,jupyternotebooks,jetbrains+all,jetbrains,git,powershell
+# End of https://www.toptal.com/developers/gitignore/api/zsh,windows,visualstudiocode,vim,sublimetext,pythonvanilla,python,powershell,macos,linux,jupyternotebooks,jetbrains+all,jetbrains,git,obsidian
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
-
 
 # Directories:
 log/
 logs/
 backup/
 backups/
+tmp/
 data/
 dataset/
 datasets/
@@ -613,6 +617,7 @@ log
 logs
 backup
 backups
+tmp
 data
 dataset
 datasets
