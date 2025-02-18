@@ -4,4 +4,4 @@
 -r ./requirements.docs.txt
 -r ./requirements.extra.txt
 pre-commit>=4.0.1,<5.0.0
-jupyterlab>=4.2.5,<5.0.0
+jupyterlab>=4.0.13,<5.0.0
