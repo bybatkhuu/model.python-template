@@ -162,7 +162,7 @@ def main() -> None:
         format="[%(asctime)s | %(levelname)s | %(filename)s:%(lineno)d]: %(message)s",
     )
 
-    # Pre-defined variables (for customizing and testing)
+    ## Pre-defined variables (for customizing and testing)
     _parent_dir = pathlib.Path(__file__).parent.resolve()
     _models_dir = str(_parent_dir.parent.parent / "models")
 
@@ -177,32 +177,36 @@ def main() -> None:
     _X_test = np.array([[6], [7], [8]])
     _y_test = np.array([10, 14, 16])
 
-    # Create the model instance
+    ## Main example ##
+    logger.info("Creating and training a simple model...")
+
+    ## Create the model instance
     _config = {"models_dir": _models_dir, "model_name": _model_name}
     _model = SimpleModel(config=_config)
 
-    # Train or load the model
+    ## Train or load the model
     if not SimpleModel.is_model_files_exist(**_config):
         _model.train(X=_X_train, y=_y_train)
     else:
         _model.load()
 
-    # Predict the target values
+    ## Predict the target values
     _y_pred: NDArray[Any] = _model.predict(X=_X_test)
     logger.info(f"Predicted values for {_X_test.flatten()}: {_y_pred.flatten()}")
 
-    # Evaluate the model
+    ## Evaluate the model
     _r2_score: float = _model.score(y_true=_y_test, y_pred=_y_pred)
     logger.info(f"R^2 score: {_r2_score}")
 
     _is_similar: bool = _model.is_similar(X=_X_test, y=_y_test)
     logger.info(f"Is similar: {_is_similar}")
 
-    # Save the model
+    ## Save the model
     if _model.is_trained() and (not SimpleModel.is_model_files_exist(**_config)):
         _model.save()
 
     logger.info("Done!\n")
+    ## Main example ##
     return
 
 
