@@ -95,7 +95,6 @@ nav:
       - Test: pages/dev/test.md
       - Build: pages/dev/build.md
       - Docs: pages/dev/docs.md
-      - CI/CD: pages/dev/cicd.md
       - Scripts:
           - pages/dev/scripts/README.md
           - base.sh: pages/dev/scripts/1.base.md
@@ -107,6 +106,12 @@ nav:
           - changelog.sh: pages/dev/scripts/7.changelog.md
           - docs.sh: pages/dev/scripts/8.docs.md
           - diagrams.sh: pages/dev/scripts/9.diagrams.md
+      - CI/CD:
+          - pages/dev/cicd/README.md
+          - 1.bump-version.yml: pages/dev/cicd/1.bump-version.md
+          - 2.build-publish.yml: pages/dev/cicd/2.build-publish.md
+          - 3.update-changelog.yml: pages/dev/cicd/3.update-changelog.md
+          - publish-docs.yml: pages/dev/cicd/publish-docs.md
       - File stucture: pages/dev/file-structure.md
       - Sitemap: pages/dev/sitemap.md
       - Related projects: pages/dev/related-projects.md
