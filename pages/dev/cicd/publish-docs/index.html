@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://bybatkhuu.github.io/model.python-template/pages/dev/scripts/6.build/">
+        <link rel="canonical" href="https://bybatkhuu.github.io/model.python-template/pages/dev/cicd/publish-docs/">
       
       
-        <link rel="prev" href="../5.bump-version/">
+        <link rel="prev" href="../3.update-changelog/">
       
       
-        <link rel="next" href="../7.changelog/">
+        <link rel="next" href="../../file-structure/">
       
       
       <link rel="icon" href="../../../../assets/images/logo.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>build.sh - Simple Model</title>
+        <title>publish-docs.yml - Simple Model</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#buildsh" class="md-skip">
+        <a href="#publish-docs" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              build.sh
+              publish-docs.yml
             
           </span>
         </div>
@@ -909,8 +909,6 @@
                 
   
   
-    
-  
   
   
     
@@ -944,16 +942,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../scripts/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -971,7 +969,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_4">
             <span class="md-nav__icon md-icon"></span>
             Scripts
@@ -987,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1.base/" class="md-nav__link">
+      <a href="../../scripts/1.base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1009,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2.clean/" class="md-nav__link">
+      <a href="../../scripts/2.clean/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1031,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.get-version/" class="md-nav__link">
+      <a href="../../scripts/3.get-version/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1053,7 +1051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4.test/" class="md-nav__link">
+      <a href="../../scripts/4.test/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1075,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../5.bump-version/" class="md-nav__link">
+      <a href="../../scripts/5.bump-version/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1094,19 +1092,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../scripts/6.build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,7 +1105,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1129,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../7.changelog/" class="md-nav__link">
+      <a href="../../scripts/7.changelog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1151,7 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../8.docs/" class="md-nav__link">
+      <a href="../../scripts/8.docs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1173,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../9.diagrams/" class="md-nav__link">
+      <a href="../../scripts/9.diagrams/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1200,6 +1188,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1223,16 +1213,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cicd/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1250,7 +1240,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
             CI/CD
@@ -1266,7 +1256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cicd/1.bump-version/" class="md-nav__link">
+      <a href="../1.bump-version/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1288,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cicd/2.build-publish/" class="md-nav__link">
+      <a href="../2.build-publish/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1310,7 +1300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cicd/3.update-changelog/" class="md-nav__link">
+      <a href="../3.update-changelog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1329,10 +1319,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../cicd/publish-docs/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    publish-docs.yml
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1342,6 +1353,137 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trigger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jobs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-publish-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Publish Docs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripts-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripts Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1993,6 +2135,125 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trigger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jobs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-publish-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Publish Docs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripts-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripts Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,30 +2271,62 @@
   
 
 
-<h1 id="buildsh">🏗️ build.sh</h1>
-<p>This script is used to build a Python project and optionally run tests and publish the package. It also includes a cleaning operation to clear the build directories.</p>
-<p>This script has the following key features:</p>
+<h1 id="publish-docs">📝 Publish Docs</h1>
+<h2 id="overview">Overview</h2>
+<p>This GitHub Action automates the process of publishing documentation using <strong>MkDocs</strong> whenever changes are pushed to the <code>main</code> branch. It ensures that the latest documentation is deployed automatically.</p>
+<h2 id="how-it-works">How It Works</h2>
+<p>The workflow is triggered when changes are made to:</p>
 <ul>
-<li><strong>Loading base script</strong>: Includes the <code>base.sh</code> script to gain access to its utility functions.</li>
-<li><strong>Checking for required tools</strong>: It verifies if Python and the build package are installed on the system. If tests are not disabled, it also checks if pytest is installed. If uploading is enabled, it checks for the presence of Twine.</li>
-<li><strong>Command-line argument parsing</strong>: It parses <code>-c</code> or <code>--disable-clean</code> to disable cleaning the build directories, <code>-t</code> or <code>--test</code> to enable running tests, <code>-u</code> or <code>--upload</code> to enable publishing the package, and <code>-p</code> or <code>--production</code> to switch the package repository from staging (default) to production.</li>
-<li><strong>Clean operation</strong>: Cleans the build directories before and after building (if enabled). If <code>-c</code> or <code>--disable-clean</code> is passed, the script will not clean the build directories.</li>
-<li><strong>Testing operation</strong>: Runs pytest tests if enabled by <code>-t</code> or <code>--test</code> flag.</li>
-<li><strong>Build operation</strong>: Builds a Python package using the Python build package.</li>
-<li><strong>Publishing operation</strong>: Publishes the built package to a PyPi repository using Twine if the <code>-u</code> or <code>--upload</code> flag is passed. Defaults to the TestPyPi (staging) repository, but can be switched to the production (PyPi) repository using the <code>-p</code> or <code>--production</code> flag.</li>
+<li>The <code>docs/</code> directory.</li>
+<li>The <code>mkdocs.yml</code> configuration file.</li>
 </ul>
-<p><strong>Usage</strong>:</p>
-<p>To execute the build script with the different flags, use the following commands:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./build.sh<span class="w"> </span><span class="o">[</span>-c<span class="p">|</span>--disable-clean<span class="o">]</span><span class="w"> </span><span class="o">[</span>-t<span class="p">|</span>--test<span class="o">]</span><span class="w"> </span><span class="o">[</span>-u<span class="p">|</span>--upload<span class="o">]</span><span class="w"> </span><span class="o">[</span>-p<span class="p">|</span>--production<span class="o">]</span>
+<h2 id="workflow-configuration">Workflow Configuration</h2>
+<h3 id="trigger"><strong>Trigger</strong></h3>
+<ul>
+<li><strong>Triggered by:</strong><ul>
+<li>A push event to the <code>main</code> branch that modifies documentation files.</li>
+</ul>
+</li>
+</ul>
+<h3 id="jobs"><strong>Jobs</strong></h3>
+<h4 id="1-publish-docs"><strong>1. Publish Docs</strong></h4>
+<p>This job builds and deploys the documentation using MkDocs.</p>
+<ul>
+<li><strong>Runs on:</strong> <code>ubuntu-22.04</code></li>
+<li><strong>Permissions:</strong> <code>contents: write</code></li>
+<li><strong>Steps:</strong><ol>
+<li><strong>Checkout the repository</strong> (with full history for proper deployment tracking).</li>
+<li><strong>Set up Python 3.9</strong></li>
+<li><strong>Install dependencies</strong> from <code>requirements/requirements.docs.txt</code></li>
+<li><strong>Publish the documentation</strong> using <code>mkdocs gh-deploy --force</code></li>
+</ol>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>This workflow runs automatically when changes are pushed to the <code>main</code> branch. However, you can manually deploy the documentation by running the following command locally:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdocs<span class="w"> </span>gh-deploy<span class="w"> </span>--force
 </span></code></pre></div>
-<p><strong>Examples</strong>:</p>
+<h2 id="environment-variables">Environment Variables</h2>
 <ul>
-<li>To build without cleaning: <code>./build.sh -c</code></li>
-<li>To build with running tests: <code>./build.sh -t</code></li>
-<li>To build and publish to the staging repository: <code>./build.sh -u</code></li>
-<li>To build and publish to the production repository: <code>./build.sh -u -p</code></li>
+<li><strong><code>GITHUB_TOKEN</code></strong>: Used for authentication and deploying the documentation.</li>
 </ul>
-<p>This script is particularly beneficial for developers, streamlining the build, testing, and publishing process. It provides a one-stop solution for all the build needs of a Python project, reducing chances of errors and ensuring consistency.</p>
+<h2 id="scripts-used">Scripts Used</h2>
+<ul>
+<li><strong><code>mkdocs.yml</code></strong>: Configuration file for MkDocs.</li>
+<li><strong>Files in <code>docs/</code></strong>: Documentation content.</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Ensure that <code>mkdocs</code> and required dependencies are correctly installed in <code>requirements.docs.txt</code>.</li>
+<li>The workflow ensures that documentation updates occur only when relevant files are modified.</li>
+<li>The changes are committed and published automatically to GitHub Pages.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li>If the workflow fails, ensure that <code>mkdocs</code> is properly installed and configured.</li>
+<li>If deployment issues occur, verify that GitHub Actions has the required <code>contents: write</code> permission.</li>
+<li>Check logs for any issues related to Git authentication or MkDocs execution.</li>
+</ul>
 
 
 
@@ -2069,7 +2362,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../5.bump-version/" class="md-footer__link md-footer__link--prev" aria-label="Previous: bump-version.sh">
+          <a href="../3.update-changelog/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3.update-changelog.yml">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2079,20 +2372,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                bump-version.sh
+                3.update-changelog.yml
               </div>
             </div>
           </a>
         
         
           
-          <a href="../7.changelog/" class="md-footer__link md-footer__link--next" aria-label="Next: changelog.sh">
+          <a href="../../file-structure/" class="md-footer__link md-footer__link--next" aria-label="Next: File stucture">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                changelog.sh
+                File stucture
               </div>
             </div>
             <div class="md-footer__button md-icon">
