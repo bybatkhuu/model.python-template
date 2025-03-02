@@ -40,5 +40,5 @@ This is a template repository for AI/ML model projects.
     pip install cookiecutter
 
     # Generate a new project from the cookiecutter template:
-    cookiecutter -f .
+    cookiecutter -f ./model.python-template
     ```

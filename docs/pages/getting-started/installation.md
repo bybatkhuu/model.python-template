@@ -2,8 +2,7 @@
 
 ## 1. 📥 Download or clone the repository
 
-> [!TIP]
-> Skip this step, if you're going to install the module directly from **git** repository.
+[TIP] Skip this step, if you're going to install the module directly from **git** repository.
 
 **1.1.** Prepare projects directory (if not exists):
 
@@ -38,8 +37,7 @@ git clone git@github.com:bybatkhuu/model.python-template.git && \
 
 ## 2. 📦 Install the module
 
-> [!NOTE]
-> Choose one of the following methods to install the module **[A ~ E]**:
+[NOTE] Choose one of the following methods to install the module **[A ~ E]**:
 
 **OPTION A.** Install directly from **git** repository:
 
