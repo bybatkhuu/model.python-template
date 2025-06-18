@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.0.0 (2025-06-18)
+
+<!-- Release notes generated using configuration in .github/release.yml at v2.0.0 -->
+
+## What's Changed
+### 💥 Breaking Changes
+* :boom: update environment configuration and dependencies by @bybatkhuu in https://github.com/bybatkhuu/model.python-template/pull/20
+
+
+**Full Changelog**: https://github.com/bybatkhuu/model.python-template/compare/v1.0.0...v2.0.0
+
 ## v1.0.0 (2024-12-26)
 
 <!-- Release notes generated using configuration in .github/release.yml at v1.0.0 -->
