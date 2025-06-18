@@ -6,4 +6,3 @@ This section provides information on the API documentation for this project.
 
 - [SimpleModel](./SimpleModel.md)
 - [ModelConfigPM](./ModelConfigPM.md)
-- [Diagrams](./diagrams.md)
