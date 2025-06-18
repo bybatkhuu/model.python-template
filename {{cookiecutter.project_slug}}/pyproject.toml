@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=70.3.0,<80.0.0", "setuptools-scm>=8.0.4,<9.0.0"]
+requires = ["setuptools>=70.3.0,<81.0.0", "setuptools-scm>=8.0.4,<9.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -17,20 +17,13 @@ keywords = [
 	"machine-learning",
 	"deep-learning",
 ]
-license = { file = "LICENSE.txt" }
+license-files = ["LICEN[CS]E*"]
 classifiers = [
 	"Development Status :: 4 - Beta",
 	"Intended Audience :: Developers",
 	"Topic :: Software Development :: Libraries",
-	{% if cookiecutter.license == "MIT License" %}"License :: OSI Approved :: MIT License",
-	{% elif cookiecutter.license == "Apache License 2.0" %}"License :: OSI Approved :: Apache Software License",
-	{% elif cookiecutter.license == "GNU GPLv3" %}"License :: OSI Approved :: GNU General Public License v3",
-	{% elif cookiecutter.license == "BSD License" %}"License :: OSI Approved :: BSD License",
-	{% elif cookiecutter.license == "ISC License" %}"License :: OSI Approved :: ISC License",
-	{% elif cookiecutter.license == "Proprietary License" %}"License :: OSI Approved :: Other/Proprietary License",
-	{% endif %}"Operating System :: OS Independent",
+	"Operating System :: OS Independent",
 	"Programming Language :: Python :: 3",
-	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: 3.10",
 	"Programming Language :: Python :: 3.11",
 	"Programming Language :: Python :: 3.12",

@@ -8,28 +8,24 @@ _SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 _PROJECT_DIR="$(cd "${_SCRIPT_DIR}/.." >/dev/null 2>&1 && pwd)"
 cd "${_PROJECT_DIR}" || exit 2
 
-# Loading base script:
-# shellcheck disable=SC1091
-source ./scripts/base.sh
-
 
 if [ -z "$(which dot)" ]; then
-	echoError "'graphiz' not found or not installed."
+	echo "[ERROR]: 'graphiz' not found or not installed."
 	exit 1
 fi
 
 if [ -z "$(which python)" ]; then
-	echoError "'python' not found or not installed."
+	echo "[ERROR]: 'python' not found or not installed."
 	exit 1
 fi
 
 if [ -z "$(which pyreverse)" ]; then
-	echoError "'pylint' not found or not installed."
+	echo "[ERROR]: 'pylint' not found or not installed."
 	exit 1
 fi
 
 if [ -z "$(which code2flow)" ]; then
-	echoError "'code2flow' not found or not installed."
+	echo "[ERROR]: 'code2flow' not found or not installed."
 	exit 1
 fi
 
@@ -72,8 +68,8 @@ main()
 					_OUTPUT_DIR="${_input#*=}"
 					shift;;
 				*)
-					echoError "Failed to parsing input -> ${_input}"
-					echoInfo "USAGE: ${0}  -m=*, --module-name=* [{{cookiecutter.module_name}}] | -d=*, --module-dir=* [./src/{{cookiecutter.module_name}}] | -o=*, --output-dir=* [./docs/diagrams]"
+					echo "[ERROR]: Failed to parsing input -> ${_input}"
+					echo "[INFO]: USAGE: ${0}  -m=*, --module-name=* [my_module01] | -d=*, --module-dir=* [./src/my_module01] | -o=*, --output-dir=* [./docs/diagrams]"
 					exit 1;;
 			esac
 		done
@@ -112,28 +108,28 @@ main()
 	fi
 
 
-	echoInfo "Generating UML diagrams..."
+	echo "[INFO]: Generating UML diagrams..."
 	_cp_formats=("html" "pdf" "png" "svg")
 	for _cp_format in "${_cp_formats[@]}"; do
 		_tmp_class_path="${_OUTPUT_DIR}/classes_${_MODULE_NAME}.${_cp_format}"
 		_tmp_package_path="${_OUTPUT_DIR}/packages_${_MODULE_NAME}.${_cp_format}"
 
-		echoInfo "Generating ['${_tmp_class_path}', '${_tmp_package_path}'] files..."
+		echo "[INFO]: Generating ['${_tmp_class_path}', '${_tmp_package_path}'] files..."
 		pyreverse -d "${_OUTPUT_DIR}" -o "${_cp_format}" -p "${_MODULE_NAME}" "${_MODULE_DIR}" || exit 2
 		mv -vf "${_tmp_class_path}" "${_classes_dir}/" || exit 2
 		mv -vf "${_tmp_package_path}" "${_packages_dir}/" || exit 2
-		echoOk "Done."
+		echo "[OK]: Done."
 	done
 
 	_cgraph_formats=("png" "svg")
 	for _cgraph_format in "${_cgraph_formats[@]}"; do
 		_cgraph_path="${_cgraphs_dir}/cgraph_${_MODULE_NAME}.${_cgraph_format}"
 
-		echoInfo "Generating '${_cgraph_path}' file..."
+		echo "[INFO]: Generating '${_cgraph_path}' file..."
 		code2flow -o "${_cgraph_path}" "${_MODULE_DIR}" || exit 2
-		echoOk "Done."
+		echo "[OK]: Done."
 	done
-	echoOk "Done."
+	echo "[OK]: Done."
 }
 
 main "${@:-}"

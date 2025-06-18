@@ -2,7 +2,6 @@
 
 This document provides an overview and usage instructions for the following scripts in this project:
 
-- [**`base.sh`**](./1.base.md)
 - [**`clean.sh`**](./2.clean.md)
 - [**`get-version.sh`**](./3.get-version.md)
 - [**`test.sh`**](./4.test.md)
@@ -16,7 +15,6 @@ All the scripts are located in the **`scripts`** directory:
 
 ```txt
 scripts/
-├── base.sh
 ├── build.sh
 ├── bump-version.sh
 ├── changelog.sh
