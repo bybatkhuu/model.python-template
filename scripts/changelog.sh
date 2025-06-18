@@ -8,9 +8,6 @@ _SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 _PROJECT_DIR="$(cd "${_SCRIPT_DIR}/.." >/dev/null 2>&1 && pwd)"
 cd "${_PROJECT_DIR}" || exit 2
 
-# Loading base script:
-# shellcheck disable=SC1091
-source ./scripts/base.sh
 
 # Loading .env file (if exists):
 if [ -f ".env" ]; then
@@ -20,12 +17,12 @@ fi
 
 
 if [ -z "$(which gh)" ]; then
-	echoError "'gh' not found or not installed."
+	echo "[ERROR]: 'gh' not found or not installed."
 	exit 1
 fi
 
 if ! gh auth status >/dev/null 2>&1; then
-    echoError "You need to login: gh auth login"
+    echo "[ERROR]: You need to login: gh auth login"
     exit 1
 fi
 ## --- Base --- ##
@@ -56,8 +53,8 @@ main()
 					_IS_PUSH=true
 					shift;;
 				*)
-					echoError "Failed to parsing input -> ${_input}"
-					echoInfo "USAGE: ${0}  -c, --commit | -p, --push"
+					echo "[ERROR]: Failed to parsing input -> ${_input}"
+					echo "[INFO]: USAGE: ${0}  -c, --commit | -p, --push"
 					exit 1;;
 			esac
 		done
@@ -66,11 +63,14 @@ main()
 
 
 	if [ "${_IS_COMMIT}" == true ]; then
-		exitIfNoGit
+		if [ -z "$(which git)" ]; then
+			echo "[ERROR]: 'git' not found or not installed!"
+			exit 1
+		fi
 	fi
 
 
-	echoInfo "Updating changelog..."
+	echo "[INFO]: Updating changelog..."
 	_title="# Changelog"
 	_release_tag=$(gh release view --json tagName -q ".tagName")
 	_release_notes=$(gh release view --json body -q ".body")
@@ -81,18 +81,18 @@ main()
 
 	# shellcheck disable=SC2086
 	echo -e "${_title}\n\n## ${_release_tag} ($(date '+%Y-%m-%d'))\n\n${_release_notes}\n\n$(tail -n +3 ${CHANGELOG_FILE_PATH})" > "${CHANGELOG_FILE_PATH}"
-	echoOk "Updated changelog version: '${_release_tag}'"
+	echo "[OK]: Updated changelog version: '${_release_tag}'"
 
 	if [ "${_IS_COMMIT}" == true ]; then
-		echoInfo "Committing changelog version '${_release_tag}'..."
+		echo "[INFO]: Committing changelog version '${_release_tag}'..."
 		git add "${CHANGELOG_FILE_PATH}" || exit 2
 		git commit -m ":memo: Update changelog version '${_release_tag}'." || exit 2
-		echoOk "Done."
+		echo "[OK]: Done."
 
 		if [ "${_IS_PUSH}" == true ]; then
-			echoInfo "Pushing '${_release_tag}'..."
+			echo "[INFO]: Pushing '${_release_tag}'..."
 			git push || exit 2
-			echoOk "Done."
+			echo "[OK]: Done."
 		fi
 	fi
 
