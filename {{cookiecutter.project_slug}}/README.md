@@ -306,7 +306,7 @@ mkdocs build
 - [Build](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/build.md)
 - [Docs](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/docs.md)
 - [Scripts](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/scripts/README.md)
-- [CI/CD](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/cicd.md)
+- [CI/CD](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/cicd/README.md)
 - [File Structure](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/file-structure.md)
 - [Sitemap](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/sitemap.md)
 - [Contributing](https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}/blob/main/docs/pages/dev/contributing.md)
