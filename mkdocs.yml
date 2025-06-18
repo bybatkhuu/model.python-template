@@ -89,7 +89,6 @@ nav:
       # - pages/api-docs/README.md
       - SimpleModel: pages/api-docs/SimpleModel.md
       - ModelConfigPM: pages/api-docs/ModelConfigPM.md
-      - Diagrams: pages/api-docs/diagrams.md
   - Development:
       # - pages/dev/README.md
       - Test: pages/dev/test.md
@@ -97,7 +96,6 @@ nav:
       - Docs: pages/dev/docs.md
       - Scripts:
           - pages/dev/scripts/README.md
-          - base.sh: pages/dev/scripts/1.base.md
           - clean.sh: pages/dev/scripts/2.clean.md
           - get-version.sh: pages/dev/scripts/3.get-version.md
           - test.sh: pages/dev/scripts/4.test.md
@@ -112,6 +110,7 @@ nav:
           - 2.build-publish.yml: pages/dev/cicd/2.build-publish.md
           - 3.update-changelog.yml: pages/dev/cicd/3.update-changelog.md
           - publish-docs.yml: pages/dev/cicd/publish-docs.md
+      - Diagrams: pages/dev/diagrams.md
       - File stucture: pages/dev/file-structure.md
       - Sitemap: pages/dev/sitemap.md
       - Related projects: pages/dev/related-projects.md
