@@ -8,18 +8,14 @@ _SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 _PROJECT_DIR="$(cd "${_SCRIPT_DIR}/.." >/dev/null 2>&1 && pwd)"
 cd "${_PROJECT_DIR}" || exit 2
 
-# Loading base script:
-# shellcheck disable=SC1091
-source ./scripts/base.sh
-
 
 if [ -z "$(which python)" ]; then
-	echoError "'python' not found or not installed."
+	echo "[ERROR]: 'python' not found or not installed."
 	exit 1
 fi
 
 if [ -z "$(which pytest)" ]; then
-	echoError "'pytest' not found or not installed."
+	echo "[ERROR]: 'pytest' not found or not installed."
 	exit 1
 fi
 ## --- Base --- ##
@@ -50,8 +46,8 @@ main()
 					_IS_VERBOSE=true
 					shift;;
 				*)
-					echoError "Failed to parsing input -> ${_input}"
-					echoInfo "USAGE: ${0}  -l, --log | -c, --cov | -v, --verbose"
+					echo "[ERROR]: Failed to parsing input -> ${_input}"
+					echo "[INFO]: USAGE: ${0}  -l, --log | -c, --cov | -v, --verbose"
 					exit 1;;
 			esac
 		done
@@ -61,7 +57,7 @@ main()
 
 	if [ "${_IS_COVERAGE}" == true ]; then
 		if ! python -c "import pytest_cov" &> /dev/null; then
-			echoError "'pytest-cov' python package is not installed."
+			echo "[ERROR]: 'pytest-cov' python package is not installed."
 			exit 1
 		fi
 	fi
@@ -82,10 +78,10 @@ main()
 		_verbose_param="-svv"
 	fi
 
-	echoInfo "Running test..."
+	echo "[INFO]: Running test..."
 	# shellcheck disable=SC2086
 	python -m pytest -v ${_coverage_param} ${_logging_param} ${_verbose_param} || exit 2
-	echoOk "Done."
+	echo "[OK]: Done."
 }
 
 main "${@:-}"

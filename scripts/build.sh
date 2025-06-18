@@ -8,18 +8,14 @@ _SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 _PROJECT_DIR="$(cd "${_SCRIPT_DIR}/.." >/dev/null 2>&1 && pwd)"
 cd "${_PROJECT_DIR}" || exit 2
 
-# Loading base script:
-# shellcheck disable=SC1091
-source ./scripts/base.sh
-
 
 if [ -z "$(which python)" ]; then
-	echoError "'python' not found or not installed."
+	echo "[ERROR]: 'python' not found or not installed."
 	exit 1
 fi
 
 if ! python -c "import build" &> /dev/null; then
-	echoError "'build' python package is not installed."
+	echo "[ERROR]: 'build' python package is not installed."
 	exit 1
 fi
 ## --- Base --- ##
@@ -54,8 +50,8 @@ main()
 					_IS_STAGING=false
 					shift;;
 				*)
-					echoError "Failed to parsing input -> ${_input}"
-					echoInfo "USAGE: ${0}  -c, --disable-clean | -t, --test | -u, --upload | -p, --production"
+					echo "[ERROR]: Failed to parsing input -> ${_input}"
+					echo "[INFO]: USAGE: ${0}  -c, --disable-clean | -t, --test | -u, --upload | -p, --production"
 					exit 1;;
 			esac
 		done
@@ -65,7 +61,7 @@ main()
 
 	if [ "${_IS_UPLOAD}" == true ]; then
 		if [ -z "$(which twine)" ]; then
-			echoError "'twine' not found or not installed."
+			echo "[ERROR]: 'twine' not found or not installed."
 			exit 1
 		fi
 	fi
@@ -80,20 +76,20 @@ main()
 	fi
 
 
-	echoInfo "Building package..."
+	echo "[INFO]: Building package..."
 	# python setup.py sdist bdist_wheel || exit 2
 	python -m build || exit 2
-	echoOk "Done."
+	echo "[OK]: Done."
 
 	if [ "${_IS_UPLOAD}" == true ]; then
-		echoInfo "Publishing package..."
+		echo "[INFO]: Publishing package..."
 		python -m twine check dist/* || exit 2
 		if [ "${_IS_STAGING}" == true ]; then
 			python -m twine upload --repository testpypi dist/* || exit 2
 		else
 			python -m twine upload dist/* || exit 2
 		fi
-		echoOk "Done."
+		echo "[OK]: Done."
 
 		if [ "${_IS_CLEAN}" == true ]; then
 			./scripts/clean.sh || exit 2

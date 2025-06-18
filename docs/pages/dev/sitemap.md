@@ -10,13 +10,11 @@
 - API Documentation
     - [SimpleModel](../api-docs/SimpleModel.md)
     - [ModelConfigPM](../api-docs/ModelConfigPM.md)
-    - [Diagrams](../api-docs/diagrams.md)
 - Development
     - [Test](../dev/test.md)
     - [Build](../dev/build.md)
     - [Docs](../dev/docs.md)
     - [Scripts](../dev/scripts/README.md)
-        - [base.sh](../dev/scripts/1.base.md)
         - [clean.sh](../dev/scripts/2.clean.md)
         - [get-version.sh](../dev/scripts/3.get-version.md)
         - [test.sh](../dev/scripts/4.test.md)
@@ -30,6 +28,7 @@
         - [2.build-publish.yml](../dev/cicd/2.build-publish.md)
         - [3.update-changelog.yml](../dev/cicd/3.update-changelog.md)
         - [publish-docs.yml](../dev/cicd/publish-docs.md)
+    - [Diagrams](../dev/diagrams.md)
     - [File Structure](../dev/file-structure.md)
     - [Sitemap](../dev/sitemap.md)
     - [Related Projects](../dev/related-projects.md)
