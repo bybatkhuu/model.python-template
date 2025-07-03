@@ -54,15 +54,15 @@ main()
 	fi
 
 
-	if [ "${_IS_BUILD}" == false ]; then
-		echo "[INFO]: Starting documentation server..."
-		mkdocs serve
+	if [ "${_IS_BUILD}" == true ]; then
+		echo "[INFO]: Building documentation pages (HTML) into the 'site' directory..."
+		mkdocs build
 	elif [ "${_IS_PUBLISH}" == true ]; then
 		echo "[INFO]: Publishing documentation pages to the GitHub Pages..."
 		mkdocs gh-deploy --force
 	else
-		echo "[INFO]: Building documentation pages (HTML) into the 'site' directory..."
-		mkdocs build
+		echo "[INFO]: Starting documentation server..."
+		mkdocs serve
 	fi
 	echo "[OK]: Done."
 }
