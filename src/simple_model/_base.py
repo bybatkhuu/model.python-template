@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
-
 ## Standard libraries
 import logging
 import os
-import pickle
+import pickle  # nosec
 import pprint
-from typing import Any, Dict, Union
+from typing import Any
 
 ## Third-party libraries
 from numpy.typing import NDArray
@@ -51,7 +49,7 @@ class SimpleModel:
     @validate_call
     def __init__(
         self,
-        config: Union[ModelConfigPM, Dict[str, Any], None] = None,
+        config: ModelConfigPM | dict[str, Any] | None = None,
         auto_load: bool = False,
         **kwargs: Any,
     ) -> None:
@@ -113,7 +111,7 @@ class SimpleModel:
     ### STATIC METHODS ###
 
     @validate_call(config={"arbitrary_types_allowed": True})
-    def run(self, X: NDArray[Any], y: Union[NDArray[Any], None] = None) -> NDArray[Any]:
+    def run(self, X: NDArray[Any], y: NDArray[Any] | None = None) -> NDArray[Any]:
         """Runs the Linear Regression model to train/predict values.
         (This method is a wrapper around the 'train' and 'predict' methods.)
 
@@ -121,11 +119,19 @@ class SimpleModel:
             X (NDArray[Any]             , required): Input features of shape (n_samples, n_features).
             y (Union[NDArray[Any], None], optional): Target values of shape (n_samples,). Defaults to None.
 
+        Raises:
+            RuntimeError: If the model is not trained and target values are not provided.
+
         Returns:
             NDArray[Any]: Predicted target values of shape (n_samples,).
         """
 
-        if (not self.is_trained()) and (not y):
+        if not self.is_trained():
+            if y is None:
+                raise RuntimeError(
+                    f"'{self.config.modelName}' model is not trained, can not run model without target values!"
+                )
+
             self.train(X=X, y=y)
 
         return self.predict(X=X)
@@ -180,7 +186,7 @@ class SimpleModel:
 
     @validate_call(config={"arbitrary_types_allowed": True})
     def is_similar(
-        self, X: NDArray[Any], y: NDArray[Any], threshold: Union[float, None] = None
+        self, X: NDArray[Any], y: NDArray[Any], threshold: float | None = None
     ) -> bool:
         """Checks similarity between input features and target values.
 
@@ -272,7 +278,7 @@ class SimpleModel:
             _model_filename = SimpleModel._MODEL_ARTIFACTS_DICT["model_filename"]
             _model_path = os.path.join(_model_dir, _model_filename)
             with open(_model_path, "rb") as _model_file:
-                self.model = pickle.load(_model_file)
+                self.model = pickle.load(_model_file)  # nosec
 
         except Exception:
             logger.error(f"Failed to load '{self.config.modelName}' model files.")
@@ -291,7 +297,7 @@ class SimpleModel:
         return self.__config
 
     @config.setter
-    def config(self, config: Union[ModelConfigPM, Dict[str, Any]]) -> None:
+    def config(self, config: ModelConfigPM | dict[str, Any]) -> None:
         if (not isinstance(config, ModelConfigPM)) and (not isinstance(config, dict)):
             raise TypeError(
                 f"`config` attribute type {type(config)} is invalid, must be a <class 'ModelConfigPM'> or <dict>"
