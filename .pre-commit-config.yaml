@@ -18,10 +18,10 @@ exclude: |
     | site/
     | site-packages/
     | node_modules/
-    | models/
     | logs/
     | data/
     | datasets/
+    | models/
   )$
 
 repos:
@@ -98,6 +98,14 @@ repos:
       - id: detect-secrets
         name: "🔐 detect-secrets - Detect secrets in code"
 
+  # --- Shell scripts ---
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.11.0.1
+    hooks:
+      - id: shellcheck
+        name: "🐚 shellcheck - Lint shell scripts"
+        files: \.sh$
+
   # --- Jupyter notebooks ---
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.9.1
@@ -108,15 +116,14 @@ repos:
       - id: nbqa-flake8
         args: ["--max-line-length=120"]
 
-  # --- Shell scripts ---
-  - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.11.0.1
-    hooks:
-      - id: shellcheck
-        name: "🐚 shellcheck - Lint shell scripts"
-        files: \.sh$
-
   # --- Python ---
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        name: "🐍 black - Format python code"
+        files: \.pyi?$
+
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.20.0
     hooks:
@@ -125,12 +132,13 @@ repos:
         entry: "pyupgrade --py310-plus"
         files: \.pyi?$
 
-  - repo: https://github.com/psf/black
-    rev: 25.1.0
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.3.0
     hooks:
-      - id: black
-        name: "🐍 black - Format python code"
+      - id: flake8
+        name: "🐍 flake8 - Lint python code"
         files: \.pyi?$
+        args: ["--max-line-length=120"]
 
   - repo: https://github.com/PyCQA/bandit
     rev: 1.8.6
@@ -139,14 +147,6 @@ repos:
         name: "🐍 bandit - Find python security issues"
         files: \.pyi?$
         args: ["--skip=B101"] # skip assert-use warning
-
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.3.0
-    hooks:
-      - id: flake8
-        name: "🐍 flake8 - Lint python code"
-        files: \.pyi?$
-        args: ["--max-line-length=120"]
 
   - repo: https://github.com/RobertCraigie/pyright-python
     rev: v1.1.404
