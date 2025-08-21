@@ -10,7 +10,8 @@ class ModelConfigPM(ExtraBaseModel):
 
     Attributes:
         models_dir (str  ): Directory where models are stored. Defaults to "models".
-        modelName  (str  ): Name of the model which is also the sub-directory name. Defaults to "linear_regression.v0.0.1-240101".
+        modelName  (str  ): Name of the model which is also the sub-directory name.
+                                Defaults to "linear_regression.v0.0.1-250101".
         threshold  (float): Threshold value for the similarity score. Defaults to None.
     """
 
@@ -18,7 +19,7 @@ class ModelConfigPM(ExtraBaseModel):
         default="./models", min_length=2, max_length=1023
     )
     modelName: constr(strip_whitespace=True) = Field(  # type: ignore
-        default="linear_regression.v0.0.1-240101",
+        default="linear_regression.v0.0.1-250101",
         min_length=2,
         max_length=128,
         alias="model_name",

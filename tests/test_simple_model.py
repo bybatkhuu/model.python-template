@@ -33,7 +33,7 @@ def test_init(model: SimpleModel) -> None:
     assert isinstance(model.config, ModelConfigPM)
     assert isinstance(model.config, BaseModel)
     assert model.config.models_dir == "./models"
-    assert model.config.modelName == "linear_regression.v0.0.1-240101"
+    assert model.config.modelName == "linear_regression.v0.0.1-250101"
     assert model.config.threshold == 0.5
 
     logger.info("Done: Initialization of 'SimpleModel'.")

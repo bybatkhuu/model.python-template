@@ -4,11 +4,13 @@ default_language_version:
 exclude: |
   (?x)^(
       \.git/
-    | __pycache__/
     | \.benchmarks/
     | \.pytest_cache/
+    | \.coverage
     | \.venv/
     | \.env/
+    | \*.egg-info/
+    | __pycache__/
     | venv/
     | env/
     | build/
@@ -16,7 +18,10 @@ exclude: |
     | site/
     | site-packages/
     | node_modules/
-    | .coverage
+    | models/
+    | logs/
+    | data/
+    | datasets/
   )$
 
 repos:
@@ -24,7 +29,7 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
-      # Common File Checks
+      # Common Checks
       - id: check-json
         name: "📄 check-json - Validate JSON files"
         files: \.json$
@@ -93,6 +98,16 @@ repos:
       - id: detect-secrets
         name: "🔐 detect-secrets - Detect secrets in code"
 
+  # --- Jupyter notebooks ---
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.9.1
+    hooks:
+      - id: nbqa-black
+      - id: nbqa-pyupgrade
+        args: [--py310-plus]
+      - id: nbqa-flake8
+        args: ["--max-line-length=120"]
+
   # --- Shell scripts ---
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.11.0.1
@@ -124,6 +139,14 @@ repos:
         name: "🐍 bandit - Find python security issues"
         files: \.pyi?$
         args: ["--skip=B101"] # skip assert-use warning
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.3.0
+    hooks:
+      - id: flake8
+        name: "🐍 flake8 - Lint python code"
+        files: \.pyi?$
+        args: ["--max-line-length=120"]
 
   - repo: https://github.com/RobertCraigie/pyright-python
     rev: v1.1.404

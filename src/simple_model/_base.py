@@ -1,17 +1,17 @@
-## Standard libraries
+# Standard libraries
 import logging
 import os
 import pickle  # nosec
 import pprint
 from typing import Any
 
-## Third-party libraries
+# Third-party libraries
 from numpy.typing import NDArray
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from pydantic import validate_call
 
-## Internal modules
+# Internal modules
 from .__version__ import __version__
 from . import _utils as utils
 from .config import ModelConfigPM
@@ -56,9 +56,10 @@ class SimpleModel:
         """Initializer for the SimpleModel class.
 
         Args:
-            config    (Union[ModelConfigPM, Dict[str, Any], None], optional): Configuration for the model. Defaults to None.
-            auto_load (bool                                      , optional): Indicates whether to load the model from the files. Defaults to False.
-            **kwargs  (Any                                       , optional): Keyword arguments to update the configuration.
+            config    (ModelConfigPM | dict[str, Any] | None, optional): Configuration for the model. Defaults to None.
+            auto_load (bool                                 , optional):
+                Indicates whether to load the model from the files. Defaults to False.
+            **kwargs  (Any                                  , optional): Keyword arguments to update the configuration.
         """
 
         logger.debug(f"Initializing <{self.__class__.__name__}> model...")
@@ -82,7 +83,7 @@ class SimpleModel:
             f"Initalized <{self.__class__.__name__}> model with version: '{__version__}'."
         )
 
-    ### STATIC METHODS ###
+    # STATIC METHODS
     @staticmethod
     @validate_call
     def is_model_files_exist(models_dir: str, model_name: str) -> bool:
@@ -108,7 +109,7 @@ class SimpleModel:
 
         return True
 
-    ### STATIC METHODS ###
+    # STATIC METHODS
 
     @validate_call(config={"arbitrary_types_allowed": True})
     def run(self, X: NDArray[Any], y: NDArray[Any] | None = None) -> NDArray[Any]:
@@ -191,9 +192,9 @@ class SimpleModel:
         """Checks similarity between input features and target values.
 
         Args:
-            X         (NDArray[Any]      , required): Input features of shape (n_samples, n_features).
-            y         (NDArray[Any]      , required): Target values of shape (n_samples,).
-            threshold (Union[float, None], optional): Threshold value for the similarity score. Defaults to None.
+            X         (NDArray[Any], required): Input features of shape (n_samples, n_features).
+            y         (NDArray[Any], required): Target values of shape (n_samples,).
+            threshold (float | None, optional): Threshold value for the similarity score. Defaults to None.
 
         Returns:
             bool: True if the similarity score is greater than or equal to the threshold, False otherwise.
@@ -285,8 +286,8 @@ class SimpleModel:
             raise
         logger.info(f"Successfully loaded '{self.config.modelName}' model files.")
 
-    ### ATTRIBUTES ###
-    ## config ##
+    # ATTRIBUTES
+    # config
     @property
     def config(self) -> ModelConfigPM:
         try:
@@ -310,9 +311,9 @@ class SimpleModel:
 
         self.__config = config
 
-    ## config ##
+    # config
 
-    ## model ##
+    # model
     @property
     def model(self) -> LinearRegression:
         try:
@@ -329,10 +330,10 @@ class SimpleModel:
 
         self.__model = model
 
-    ## model ##
-    ### ATTRIBUTES ###
+    # model
+    # ATTRIBUTES
 
-    ## METHOD OVERRIDING ##
+    # METHOD OVERRIDING
     def __str__(self):
         _self_dict = utils.clean_obj_dict(self.__dict__, self.__class__.__name__)
         _self_str = f"{self.__class__.__name__}: {pprint.pformat(_self_dict)}"
@@ -342,7 +343,7 @@ class SimpleModel:
         _self_repr = utils.obj_to_repr(self)
         return _self_repr
 
-    ## METHOD OVERRIDING ##
+    # METHOD OVERRIDING
 
 
 __all__ = ["SimpleModel"]
