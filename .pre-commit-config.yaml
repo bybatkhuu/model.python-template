@@ -111,9 +111,15 @@ repos:
     rev: 1.9.1
     hooks:
       - id: nbqa-black
+        name: "📓 nbqa-black - Format Jupyter notebooks"
+        files: \.ipynb$
       - id: nbqa-pyupgrade
+        name: "📓 nbqa-pyupgrade - Upgrade Jupyter notebook syntax"
+        files: \.ipynb$
         args: [--py310-plus]
       - id: nbqa-flake8
+        name: "📓 nbqa-flake8 - Lint Jupyter notebooks"
+        files: \.ipynb$
         args: ["--max-line-length=120"]
 
   # --- Python ---
