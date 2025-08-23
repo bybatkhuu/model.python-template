@@ -28,7 +28,7 @@ The workflow is triggered when changes are made to:
 
 This job builds and deploys the documentation using MkDocs.
 
-- **Runs on:** `ubuntu-22.04`
+- **Runs on:** `ubuntu-24.04`
 - **Permissions:** `contents: write`
 - **Steps:**
     1. **Checkout the repository** (with full history for proper deployment tracking).
