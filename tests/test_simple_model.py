@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-
 import logging
-from typing import Generator, Any, Union
+from typing import Any
+from collections.abc import Generator
 
 import pytest
 import numpy as np
@@ -34,7 +33,7 @@ def test_init(model: SimpleModel) -> None:
     assert isinstance(model.config, ModelConfigPM)
     assert isinstance(model.config, BaseModel)
     assert model.config.models_dir == "./models"
-    assert model.config.modelName == "linear_regression.v0.0.1-240101"
+    assert model.config.modelName == "linear_regression.v0.0.1-250101"
     assert model.config.threshold == 0.5
 
     logger.info("Done: Initialization of 'SimpleModel'.")
@@ -70,7 +69,7 @@ def test_train_predict(
     X_test: NDArray[Any],
     y_test: NDArray[Any],
     r2_score: float,
-    threshold: Union[float, None],
+    threshold: float | None,
     is_similar: bool,
 ) -> None:
     logger.info("Testing training and prediction of 'SimpleModel'...")
@@ -92,11 +91,13 @@ def test_errors(model: SimpleModel) -> None:
     logger.info("Testing exceptions in 'SimpleModel'...")
 
     with pytest.raises(TypeError):
-        model.model = "Model"
-        model.config = None
+        model.model = "Model"  # pyright: ignore[reportAttributeAccessIssue]
+        model.config = None  # pyright: ignore[reportAttributeAccessIssue]
 
     with pytest.raises(ValidationError):
         model.config = {"models_dir": 123, "modelName": "Model"}
-        model.config = ModelConfigPM(models_dir=123, modelName="Model")
+        model.config = ModelConfigPM(
+            models_dir=123, modelName="Model"  # pyright: ignore[reportCallIssue]
+        )
 
     logger.info("Done: Exceptions in 'SimpleModel'.")

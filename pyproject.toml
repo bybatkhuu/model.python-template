@@ -44,9 +44,13 @@ optional-dependencies.extra = { file = [
 ] }
 # optional-dependencies.gpu = { file = ["./requirements/requirements.gpu.txt"] }
 
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
 [project.urls]
 Homepage = "https://github.com/bybatkhuu/model.python-template"
-Documentation = "https://bybatkhuu.github.io/model.python-template"
+Documentation = "https://pymodel-docs.bybatkhuu.dev"
 Repository = "https://github.com/bybatkhuu/model.python-template.git"
 Issues = "https://github.com/bybatkhuu/model.python-template/issues"
 Changelog = "https://github.com/bybatkhuu/model.python-template/blob/main/CHANGELOG.md"

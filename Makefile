@@ -1,4 +1,4 @@
-.PHONY: help clean get-version test bump-version build docs changelog diagrams run-example all
+.PHONY: help clean get-version test bump-version build release changelog diagrams docs run-example all
 
 help:
 	@echo "make help         -- show this help"
@@ -7,9 +7,10 @@ help:
 	@echo "make test         -- run tests"
 	@echo "make bump-version -- bump version"
 	@echo "make build        -- build python package"
-	@echo "make docs         -- build documentation"
+	@echo "make release      -- create github release"
 	@echo "make changelog    -- update changelog"
 	@echo "make diagrams     -- generate diagrams"
+	@echo "make docs         -- build documentation"
 	@echo "make run-example  -- run example script"
 	@echo "make all          -- clean, get-version, test, build"
 
@@ -28,14 +29,17 @@ bump-version:
 build:
 	./scripts/build.sh $(MAKEFLAGS)
 
-docs:
-	./scripts/docs.sh $(MAKEFLAGS)
+release:
+	./scripts/release.sh $(MAKEFLAGS)
 
 changelog:
 	./scripts/changelog.sh $(MAKEFLAGS)
 
 diagrams:
 	./scripts/diagrams.sh $(MAKEFLAGS)
+
+docs:
+	./scripts/docs.sh $(MAKEFLAGS)
 
 run-example:
 	python ./examples/simple/main.py

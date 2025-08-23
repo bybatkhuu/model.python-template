@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import os
 import logging
 from unittest.mock import MagicMock, patch

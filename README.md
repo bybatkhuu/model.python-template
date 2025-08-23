@@ -151,18 +151,18 @@ cp -r ./src/simple_model /some/path/project/
 [**`examples/simple/main.py`**](https://github.com/bybatkhuu/model.python-template/blob/main/examples/simple/main.py):
 
 ```python
-## Standard libraries
+# Standard libraries
 import os
 import sys
 import logging
 import pathlib
 from typing import Any
 
-## Third-party libraries
+# Third-party libraries
 import numpy as np
 from numpy.typing import NDArray
 
-## Internal modules
+# Internal modules
 from simple_model import SimpleModel
 
 
@@ -177,7 +177,7 @@ def main() -> None:
         format="[%(asctime)s | %(levelname)s | %(filename)s:%(lineno)d]: %(message)s",
     )
 
-    ## Pre-defined variables (for customizing and testing)
+    # Pre-defined variables (for customizing and testing)
     _parent_dir = pathlib.Path(__file__).parent.resolve()
     _models_dir = str(_parent_dir.parent.parent / "models")
 
@@ -192,36 +192,35 @@ def main() -> None:
     _X_test = np.array([[6], [7], [8]])
     _y_test = np.array([10, 14, 16])
 
-    ## Main example ##
+    # Main example
     logger.info("Creating and training a simple model...")
 
-    ## Create the model instance
+    # Create the model instance
     _config = {"models_dir": _models_dir, "model_name": _model_name}
     _model = SimpleModel(config=_config)
 
-    ## Train or load the model
+    # Train or load the model
     if not SimpleModel.is_model_files_exist(**_config):
         _model.train(X=_X_train, y=_y_train)
     else:
         _model.load()
 
-    ## Predict the target values
+    # Predict the target values
     _y_pred: NDArray[Any] = _model.predict(X=_X_test)
     logger.info(f"Predicted values for {_X_test.flatten()}: {_y_pred.flatten()}")
 
-    ## Evaluate the model
+    # Evaluate the model
     _r2_score: float = _model.score(y_true=_y_test, y_pred=_y_pred)
     logger.info(f"R^2 score: {_r2_score}")
 
     _is_similar: bool = _model.is_similar(X=_X_test, y=_y_test)
     logger.info(f"Is similar: {_is_similar}")
 
-    ## Save the model
+    # Save the model
     if _model.is_trained() and (not SimpleModel.is_model_files_exist(**_config)):
         _model.save()
 
     logger.info("Done!\n")
-    ## Main example ##
     return
 
 
@@ -240,7 +239,7 @@ if __name__ == "__main__":
 ```yaml
 simple_model:                                       # Just an example to group the configs (Not necessary)
   models_dir: "./models"                            # Directory where the models are saved
-  model_name: "linear_regression.v0.0.1-240101"     # Name of the model as sub-directory
+  model_name: "linear_regression.v0.0.1-250101"     # Name of the model as sub-directory
   threshold: 0.5                                    # Threshold for similarity check
 ```
 
@@ -249,8 +248,10 @@ simple_model:                                       # Just an example to group t
 [**`.env.example`**](https://github.com/bybatkhuu/model.python-template/blob/main/.env.example):
 
 ```sh
-# ENV=development
-# DEBUG=true
+# ENV=LOCAL
+# DEBUG=false
+# TZ=UTC
+# PYTHONDONTWRITEBYTECODE=0
 ```
 
 ---
@@ -292,7 +293,7 @@ To build the documentation, run the following command:
 pip install -r ./requirements/requirements.docs.txt
 
 # Serve documentation locally (for development):
-mkdocs serve
+mkdocs serve -a 0.0.0.0:8000
 # Or use the docs script:
 ./scripts/docs.sh
 
@@ -305,46 +306,6 @@ mkdocs build
 ## 📚 Documentation
 
 - [Docs](https://github.com/bybatkhuu/model.python-template/blob/main/docs)
-- [Home](https://github.com/bybatkhuu/model.python-template/blob/main/docs/README.md)
-
-### Getting Started
-
-- [Prerequisites](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/getting-started/prerequisites.md)
-- [Installation](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/getting-started/installation.md)
-- [Configuration](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/getting-started/configuration.md)
-- [Examples](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/getting-started/examples.md)
-- [Error Codes](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/getting-started/error-codes.md)
-
-### [API Documentation](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/api-docs/README.md)
-
-### Development
-
-- [Test](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/test.md)
-- [Build](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/build.md)
-- [Docs](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/docs.md)
-- [Scripts](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/scripts/README.md)
-- [CI/CD](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/cicd/README.md)
-- [File Structure](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/file-structure.md)
-- [Sitemap](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/sitemap.md)
-- [Contributing](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/contributing.md)
-- [Roadmap](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/dev/roadmap.md)
-
-### Research
-
-- [Reports](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/research/reports.md)
-- [Benchmarks](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/research/benchmarks.md)
-- [References](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/research/references.md)
-
-### [Release Notes](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/release-notes.md)
-
-### [Blog](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/blog/index.md)
-
-### About
-
-- [FAQ](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/about/faq.md)
-- [Authors](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/about/authors.md)
-- [Contact](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/about/contact.md)
-- [License](https://github.com/bybatkhuu/model.python-template/blob/main/docs/pages/about/license.md)
 
 ---
 

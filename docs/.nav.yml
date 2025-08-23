@@ -1,0 +1,10 @@
+nav:
+  - Home: README.md
+  - Getting Started: getting-started/
+  - API Documentation: api-docs/
+  - Development: dev/
+  - Research: research/
+  # - "*"
+  - Blog: blog/
+  - Release notes: release-notes.md
+  - About: about/
