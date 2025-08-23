@@ -6,6 +6,17 @@ hide:
 
 # 📌 Release Notes
 
+## v3.0.7 (2025-08-23)
+
+<!-- Release notes generated using configuration in .github/release.yml at v3.0.7 -->
+
+## What's Changed
+### 🐛 Fixes
+* :broom: Remove version check step from build workflow by @bybatkhuu in https://github.com/bybatkhuu/model.python-template/pull/25
+
+
+**Full Changelog**: https://github.com/bybatkhuu/model.python-template/compare/v3.0.6...v3.0.7
+
 ## v3.0.6 (2025-08-23)
 
 <!-- Release notes generated using configuration in .github/release.yml at v3.0.6 -->
