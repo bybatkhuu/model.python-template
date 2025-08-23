@@ -1,4 +1,4 @@
-.PHONY: help clean get-version test bump-version build docs changelog all
+.PHONY: help clean get-version test bump-version build docs all
 
 help:
 	@echo "make help         -- show this help"
@@ -8,7 +8,6 @@ help:
 	@echo "make bump-version -- bump version"
 	@echo "make build        -- generate cookiecutter project"
 	@echo "make docs         -- build documentation"
-	@echo "make changelog    -- update changelog"
 	@echo "make all          -- clean, get-version, test, build"
 
 clean:
@@ -25,11 +24,5 @@ bump-version:
 
 build:
 	./scripts/build.sh $(MAKEFLAGS)
-
-docs:
-	./scripts/docs.sh $(MAKEFLAGS)
-
-changelog:
-	./scripts/changelog.sh $(MAKEFLAGS)
 
 all: clean get-version test build

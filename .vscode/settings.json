@@ -32,6 +32,7 @@
 		"editor.formatOnSave": false
 	},
 	"files.eol": "\n",
+	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
 	"files.associations": {
 		"*.env": "dotenv",

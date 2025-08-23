@@ -2,8 +2,9 @@
 	"project_name": "Model Python Template",
 	"project_slug": "model.python-template",
 	"project_description": "This is a short description of the project.",
-	"module_name": "module_name",
+	"module_name": "model_name",
 	"domain": "example.com",
+	"docs_domain": "docs.{{cookiecutter.domain}}",
 	"author_username": "username",
 	"author_fullname": "Full Name",
 	"author_email": "user@{{cookiecutter.domain}}",
@@ -21,5 +22,8 @@
 		"ISC License",
 		"Proprietary License",
 		"No License"
+	],
+	"_copy_without_render": [
+		"*.js"
 	]
 }

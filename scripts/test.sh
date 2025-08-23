@@ -10,12 +10,12 @@ cd "${_PROJECT_DIR}" || exit 2
 
 
 if [ -z "$(which python)" ]; then
-	echo "[ERROR]: 'python' not found or not installed."
+	echo "[ERROR]: 'python' not found or not installed!"
 	exit 1
 fi
 
 if [ -z "$(which pytest)" ]; then
-	echo "[ERROR]: 'pytest' not found or not installed."
+	echo "[ERROR]: 'pytest' not found or not installed!"
 	exit 1
 fi
 ## --- Base --- ##
@@ -46,7 +46,7 @@ main()
 					_IS_VERBOSE=true
 					shift;;
 				*)
-					echo "[ERROR]: Failed to parsing input -> ${_input}"
+					echo "[ERROR]: Failed to parsing input -> ${_input}!"
 					echo "[INFO]: USAGE: ${0}  -l, --log | -c, --cov | -v, --verbose"
 					exit 1;;
 			esac
@@ -57,7 +57,7 @@ main()
 
 	if [ "${_IS_COVERAGE}" == true ]; then
 		if ! python -c "import pytest_cov" &> /dev/null; then
-			echo "[ERROR]: 'pytest-cov' python package is not installed."
+			echo "[ERROR]: 'pytest-cov' python package is not installed!"
 			exit 1
 		fi
 	fi

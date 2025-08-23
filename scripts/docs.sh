@@ -10,7 +10,7 @@ cd "${_PROJECT_DIR}" || exit 2
 
 
 if [ -z "$(which mkdocs)" ]; then
-	echo "[ERROR]: 'mkdocs' not found or not installed."
+	echo "[ERROR]: 'mkdocs' not found or not installed!"
 	exit 1
 fi
 ## --- Base --- ##
@@ -37,7 +37,7 @@ main()
 					_IS_PUBLISH=true
 					shift;;
 				*)
-					echo "[ERROR]: Failed to parsing input -> ${_input}"
+					echo "[ERROR]: Failed to parsing input -> ${_input}!"
 					echo "[INFO]: USAGE: ${0}  -b, --build | -p, --publish"
 					exit 1;;
 			esac

@@ -27,7 +27,7 @@ main()
 					_IS_ALL=true
 					shift;;
 				*)
-					echo "[ERROR]: Failed to parsing input -> ${_input}"
+					echo "[ERROR]: Failed to parsing input -> ${_input}!"
 					echo "[INFO]: USAGE: ${0}  -a, --all"
 					exit 1;;
 			esac

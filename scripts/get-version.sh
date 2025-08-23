@@ -11,7 +11,7 @@ cd "${_PROJECT_DIR}" || exit 2
 
 # Checking 'jq' is installed or not:
 if [ -z "$(which jq)" ]; then
-	echo "[ERROR]: 'jq' not found or not installed."
+	echo "[ERROR]: 'jq' not found or not installed!"
 	exit 1
 fi
 
