@@ -24,7 +24,7 @@ class SimpleModel:
     """A simple wrapper around a Linear Regression model for demonstration.
 
     Attributes:
-        _MODEL_ARTIFACTS_DICT (Dict[str, str]): Dictionary containing the model artifacts.
+        _MODEL_ARTIFACTS_DICT (dict[str, str]): Dictionary containing the model artifacts.
 
         config (ModelConfigPM   ): Configuration for the model. Defaults to 'ModelConfigPM()'.
         model  (LinearRegression): Linear Regression model. Defaults to 'LinearRegression()'.
