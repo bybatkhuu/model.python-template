@@ -1,5 +1,13 @@
 # Changelog
 
+## v3.0.11 (2025-08-23)
+
+<!-- Release notes generated using configuration in .github/release.yml at v3.0.11 -->
+
+
+
+**Full Changelog**: https://github.com/bybatkhuu/model.python-template/compare/v3.0.10...v3.0.11
+
 ## v3.0.10 (2025-08-23)
 
 <!-- Release notes generated using configuration in .github/release.yml at v3.0.10 -->
