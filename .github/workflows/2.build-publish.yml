@@ -18,6 +18,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      - name: Check version
+        run: |
+          echo "$(./scripts/get-version.sh)"
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
