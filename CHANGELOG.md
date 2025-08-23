@@ -1,5 +1,16 @@
 # Changelog
 
+## v3.0.9 (2025-08-23)
+
+<!-- Release notes generated using configuration in .github/release.yml at v3.0.9 -->
+
+## What's Changed
+### 👷 CI/CD
+* Dev by @bybatkhuu in https://github.com/bybatkhuu/model.python-template/pull/27
+
+
+**Full Changelog**: https://github.com/bybatkhuu/model.python-template/compare/v3.0.8...v3.0.9
+
 ## v3.0.7 (2025-08-23)
 
 <!-- Release notes generated using configuration in .github/release.yml at v3.0.7 -->
