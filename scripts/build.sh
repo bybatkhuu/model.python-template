@@ -10,12 +10,12 @@ cd "${_PROJECT_DIR}" || exit 2
 
 
 if [ -z "$(which python)" ]; then
-	echo "[ERROR]: 'python' not found or not installed."
+	echo "[ERROR]: 'python' not found or not installed!"
 	exit 1
 fi
 
 if ! python -c "import build" &> /dev/null; then
-	echo "[ERROR]: 'build' python package is not installed."
+	echo "[ERROR]: 'build' python package is not installed!"
 	exit 1
 fi
 ## --- Base --- ##
@@ -50,7 +50,7 @@ main()
 					_IS_STAGING=false
 					shift;;
 				*)
-					echo "[ERROR]: Failed to parsing input -> ${_input}"
+					echo "[ERROR]: Failed to parsing input -> ${_input}!"
 					echo "[INFO]: USAGE: ${0}  -c, --disable-clean | -t, --test | -u, --upload | -p, --production"
 					exit 1;;
 			esac
@@ -61,7 +61,7 @@ main()
 
 	if [ "${_IS_UPLOAD}" == true ]; then
 		if [ -z "$(which twine)" ]; then
-			echo "[ERROR]: 'twine' not found or not installed."
+			echo "[ERROR]: 'twine' not found or not installed!"
 			exit 1
 		fi
 	fi

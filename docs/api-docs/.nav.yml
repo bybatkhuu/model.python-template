@@ -1,0 +1,4 @@
+nav:
+  - SimpleModel: SimpleModel.md
+  - ModelConfigPM: ModelConfigPM.md
+  # - "*"
