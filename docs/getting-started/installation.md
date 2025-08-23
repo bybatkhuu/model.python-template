@@ -54,6 +54,7 @@ pip install git+https://github.com/bybatkhuu/model.python-template.git
 ```sh
 # Install directly from the source code:
 pip install .
+
 # Or install with editable mode:
 pip install -e .
 ```
@@ -72,6 +73,7 @@ pip install -r ./requirements/requirements.dev.txt
 ```sh
 # Install from .whl file:
 pip install ./simple_model-[VERSION]-py3-none-any.whl
+
 # Or install from .tar.gz file:
 pip install ./simple_model-[VERSION].tar.gz
 ```
