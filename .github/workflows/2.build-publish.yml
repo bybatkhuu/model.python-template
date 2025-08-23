@@ -1,10 +1,10 @@
 name: 2. Build and Publish
 
 on:
-  # workflow_run:
-  #   workflows: ["1. Bump Version"]
-  #   types:
-  #     - completed
+  workflow_run:
+    workflows: ["1. Bump Version"]
+    types:
+      - completed
   push:
     tags:
       - "v*.*.*"
@@ -12,12 +12,16 @@ on:
 jobs:
   build_publish:
     name: Build and Publish
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      - name: Check current version
+        run: |
+          git pull origin main
+          echo "Current version - v$(./scripts/get-version.sh)"
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
