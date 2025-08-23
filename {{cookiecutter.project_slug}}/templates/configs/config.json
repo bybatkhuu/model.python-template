@@ -1,7 +1,7 @@
 {
 	"{{cookiecutter.module_name}}": {
 		"models_dir": "./models",
-		"model_name": "linear_regression.v0.0.1-240101",
+		"model_name": "linear_regression.v0.0.1-250101",
 		"threshold": 0.5
 	}
 }

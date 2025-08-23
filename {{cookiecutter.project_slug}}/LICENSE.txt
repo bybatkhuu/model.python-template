@@ -1,4 +1,5 @@
-{% if cookiecutter.license == "MIT License" %}MIT License
+{% if cookiecutter.license == "MIT License" -%}
+MIT License
 
 Copyright (c) {{cookiecutter.copyright_year}} {{cookiecutter.author_fullname}}
 
@@ -19,7 +20,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-{% elif cookiecutter.license == "Apache License 2.0" %}Apache License
+{% elif cookiecutter.license == "Apache License 2.0" -%}
+Apache License
 Version 2.0, January 2004
 http://www.apache.org/licenses/
 
@@ -38,7 +40,8 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-{% elif cookiecutter.license == "GNU GPLv3" %}GNU GENERAL PUBLIC LICENSE
+{% elif cookiecutter.license == "GNU GPLv3" -%}
+GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
 Copyright (C) {{cookiecutter.author_fullname}}
@@ -55,7 +58,8 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
-{% elif cookiecutter.license == "BSD License" %}BSD 3-Clause License
+{% elif cookiecutter.license == "BSD License" -%}
+BSD 3-Clause License
 
 Copyright (c) {{cookiecutter.author_fullname}}, {{cookiecutter.project_name}}
 All rights reserved.
@@ -82,7 +86,8 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-{% elif cookiecutter.license == "ISC License" %}ISC License
+{% elif cookiecutter.license == "ISC License" -%}
+ISC License
 
 Copyright (c) {{cookiecutter.author_fullname}}
 
@@ -97,8 +102,11 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA, OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE,
 OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
-{% elif cookiecutter.license == "Proprietary License" %}Not open source, proprietary license.
+{% elif cookiecutter.license == "Proprietary License" -%}
+Not open source, proprietary license.
 Mostly used for commercial software.
 
 Need custom implementation.
-{% else %}No license selected yet.{% endif %}
+{% else -%}
+No license selected yet.
+{% endif -%}

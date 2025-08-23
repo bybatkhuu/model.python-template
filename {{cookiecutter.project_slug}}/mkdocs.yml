@@ -1,6 +1,6 @@
 site_name: {{cookiecutter.project_name}}
 site_description: "{{cookiecutter.project_description}}"
-site_url: https://{{cookiecutter.repo_owner}}.github.io/{{cookiecutter.repo_name}}
+site_url: https://{{cookiecutter.docs_domain}}
 repo_name: {{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}
 repo_url: https://github.com/{{cookiecutter.repo_owner}}/{{cookiecutter.repo_name}}
 theme:
@@ -24,6 +24,7 @@ theme:
     # - navigation.tabs.sticky
     # - navigation.sections
     # - navigation.expand
+    # - navigation.instant
     - toc.follow
     # - toc.integrate
     - search.suggest
@@ -52,81 +53,63 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - footnotes
+  - tables
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.blocks.caption
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
+extra_javascript:
+  - assets/js/mathjax.js
+  - assets/js/tex-mml-chtml.js
 plugins:
+  - meta
+  - tags
   - search
+  - awesome-nav
   - mkdocstrings
   - blog:
-      blog_dir: pages/blog
+      # post_excerpt: required
+      post_excerpt_max_authors: 3
       post_date_format: medium
       archive_date_format: yyyy/MM
       archive_url_date_format: yyyy/MM
       blog_toc: true
-nav:
-  - Home:
-      - README.md
-  - Getting Started:
-      # - pages/getting-started/README.md
-      - Prerequisites: pages/getting-started/prerequisites.md
-      - Installation: pages/getting-started/installation.md
-      - Configuration: pages/getting-started/configuration.md
-      - Examples: pages/getting-started/examples.md
-      - Error codes: pages/getting-started/error-codes.md
-  - API Documentation:
-      # - pages/api-docs/README.md
-      - SimpleModel: pages/api-docs/SimpleModel.md
-      - ModelConfigPM: pages/api-docs/ModelConfigPM.md
-  - Development:
-      # - pages/dev/README.md
-      - Test: pages/dev/test.md
-      - Build: pages/dev/build.md
-      - Docs: pages/dev/docs.md
-      - Scripts:
-          - pages/dev/scripts/README.md
-          - clean.sh: pages/dev/scripts/2.clean.md
-          - get-version.sh: pages/dev/scripts/3.get-version.md
-          - test.sh: pages/dev/scripts/4.test.md
-          - bump-version.sh: pages/dev/scripts/5.bump-version.md
-          - build.sh: pages/dev/scripts/6.build.md
-          - changelog.sh: pages/dev/scripts/7.changelog.md
-          - docs.sh: pages/dev/scripts/8.docs.md
-          - diagrams.sh: pages/dev/scripts/9.diagrams.md
-      - CI/CD:
-          - pages/dev/cicd/README.md
-          - 1.bump-version.yml: pages/dev/cicd/1.bump-version.md
-          - 2.build-publish.yml: pages/dev/cicd/2.build-publish.md
-          - 3.update-changelog.yml: pages/dev/cicd/3.update-changelog.md
-          - publish-docs.yml: pages/dev/cicd/publish-docs.md
-      - Diagrams: pages/dev/diagrams.md
-      - File stucture: pages/dev/file-structure.md
-      - Sitemap: pages/dev/sitemap.md
-      - Related projects: pages/dev/related-projects.md
-      - Contributing: pages/dev/contributing.md
-      - Roadmap: pages/dev/roadmap.md
-  - Research:
-      # - pages/research/README.md
-      - Reports: pages/research/reports.md
-      - Benchmarks: pages/research/benchmarks.md
-      - References: pages/research/references.md
-  - Release notes: pages/release-notes.md
-  - Blog:
-      - pages/blog/index.md
-  - About:
-      # - pages/about/README.md
-      - FAQ: pages/about/faq.md
-      - Authors: pages/about/authors.md
-      - Contact: pages/about/contact.md
-      - License: pages/about/license.md
+      draft: true
+      draft_if_future_date: true
+      pagination_format: "$link_first $link_previous ~2~ $link_next $link_last"
+      # categories_allowed:
+      #   - Category 1
+      #   - Category 2
+      #   - Others
+extra:
+  version:
+    provider: mike

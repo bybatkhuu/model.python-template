@@ -1,19 +1,17 @@
-# -*- coding: utf-8 -*-
-
-## Standard libraries
+# Standard libraries
 import logging
 import os
-import pickle
+import pickle  # nosec
 import pprint
-from typing import Any, Dict, Union
+from typing import Any
 
-## Third-party libraries
+# Third-party libraries
 from numpy.typing import NDArray
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from pydantic import validate_call
 
-## Internal modules
+# Internal modules
 from .__version__ import __version__
 from . import _utils as utils
 from .config import ModelConfigPM
@@ -26,7 +24,7 @@ class SimpleModel:
     """A simple wrapper around a Linear Regression model for demonstration.
 
     Attributes:
-        _MODEL_ARTIFACTS_DICT (Dict[str, str]): Dictionary containing the model artifacts.
+        _MODEL_ARTIFACTS_DICT (dict[str, str]): Dictionary containing the model artifacts.
 
         config (ModelConfigPM   ): Configuration for the model. Defaults to 'ModelConfigPM()'.
         model  (LinearRegression): Linear Regression model. Defaults to 'LinearRegression()'.
@@ -51,16 +49,17 @@ class SimpleModel:
     @validate_call
     def __init__(
         self,
-        config: Union[ModelConfigPM, Dict[str, Any], None] = None,
+        config: ModelConfigPM | dict[str, Any] | None = None,
         auto_load: bool = False,
         **kwargs: Any,
     ) -> None:
         """Initializer for the SimpleModel class.
 
         Args:
-            config    (Union[ModelConfigPM, Dict[str, Any], None], optional): Configuration for the model. Defaults to None.
-            auto_load (bool                                      , optional): Indicates whether to load the model from the files. Defaults to False.
-            **kwargs  (Any                                       , optional): Keyword arguments to update the configuration.
+            config    (ModelConfigPM | dict[str, Any] | None, optional): Configuration for the model. Defaults to None.
+            auto_load (bool                                 , optional):
+                Indicates whether to load the model from the files. Defaults to False.
+            **kwargs  (Any                                  , optional): Keyword arguments to update the configuration.
         """
 
         logger.debug(f"Initializing <{self.__class__.__name__}> model...")
@@ -84,7 +83,7 @@ class SimpleModel:
             f"Initalized <{self.__class__.__name__}> model with version: '{__version__}'."
         )
 
-    ### STATIC METHODS ###
+    # STATIC METHODS
     @staticmethod
     @validate_call
     def is_model_files_exist(models_dir: str, model_name: str) -> bool:
@@ -110,10 +109,10 @@ class SimpleModel:
 
         return True
 
-    ### STATIC METHODS ###
+    # STATIC METHODS
 
     @validate_call(config={"arbitrary_types_allowed": True})
-    def run(self, X: NDArray[Any], y: Union[NDArray[Any], None] = None) -> NDArray[Any]:
+    def run(self, X: NDArray[Any], y: NDArray[Any] | None = None) -> NDArray[Any]:
         """Runs the Linear Regression model to train/predict values.
         (This method is a wrapper around the 'train' and 'predict' methods.)
 
@@ -121,11 +120,19 @@ class SimpleModel:
             X (NDArray[Any]             , required): Input features of shape (n_samples, n_features).
             y (Union[NDArray[Any], None], optional): Target values of shape (n_samples,). Defaults to None.
 
+        Raises:
+            RuntimeError: If the model is not trained and target values are not provided.
+
         Returns:
             NDArray[Any]: Predicted target values of shape (n_samples,).
         """
 
-        if (not self.is_trained()) and (not y):
+        if not self.is_trained():
+            if y is None:
+                raise RuntimeError(
+                    f"'{self.config.modelName}' model is not trained, can not run model without target values!"
+                )
+
             self.train(X=X, y=y)
 
         return self.predict(X=X)
@@ -180,14 +187,14 @@ class SimpleModel:
 
     @validate_call(config={"arbitrary_types_allowed": True})
     def is_similar(
-        self, X: NDArray[Any], y: NDArray[Any], threshold: Union[float, None] = None
+        self, X: NDArray[Any], y: NDArray[Any], threshold: float | None = None
     ) -> bool:
         """Checks similarity between input features and target values.
 
         Args:
-            X         (NDArray[Any]      , required): Input features of shape (n_samples, n_features).
-            y         (NDArray[Any]      , required): Target values of shape (n_samples,).
-            threshold (Union[float, None], optional): Threshold value for the similarity score. Defaults to None.
+            X         (NDArray[Any], required): Input features of shape (n_samples, n_features).
+            y         (NDArray[Any], required): Target values of shape (n_samples,).
+            threshold (float | None, optional): Threshold value for the similarity score. Defaults to None.
 
         Returns:
             bool: True if the similarity score is greater than or equal to the threshold, False otherwise.
@@ -272,15 +279,15 @@ class SimpleModel:
             _model_filename = SimpleModel._MODEL_ARTIFACTS_DICT["model_filename"]
             _model_path = os.path.join(_model_dir, _model_filename)
             with open(_model_path, "rb") as _model_file:
-                self.model = pickle.load(_model_file)
+                self.model = pickle.load(_model_file)  # nosec
 
         except Exception:
             logger.error(f"Failed to load '{self.config.modelName}' model files.")
             raise
         logger.info(f"Successfully loaded '{self.config.modelName}' model files.")
 
-    ### ATTRIBUTES ###
-    ## config ##
+    # ATTRIBUTES
+    # config
     @property
     def config(self) -> ModelConfigPM:
         try:
@@ -291,7 +298,7 @@ class SimpleModel:
         return self.__config
 
     @config.setter
-    def config(self, config: Union[ModelConfigPM, Dict[str, Any]]) -> None:
+    def config(self, config: ModelConfigPM | dict[str, Any]) -> None:
         if (not isinstance(config, ModelConfigPM)) and (not isinstance(config, dict)):
             raise TypeError(
                 f"`config` attribute type {type(config)} is invalid, must be a <class 'ModelConfigPM'> or <dict>"
@@ -304,9 +311,9 @@ class SimpleModel:
 
         self.__config = config
 
-    ## config ##
+    # config
 
-    ## model ##
+    # model
     @property
     def model(self) -> LinearRegression:
         try:
@@ -323,10 +330,10 @@ class SimpleModel:
 
         self.__model = model
 
-    ## model ##
-    ### ATTRIBUTES ###
+    # model
+    # ATTRIBUTES
 
-    ## METHOD OVERRIDING ##
+    # METHOD OVERRIDING
     def __str__(self):
         _self_dict = utils.clean_obj_dict(self.__dict__, self.__class__.__name__)
         _self_str = f"{self.__class__.__name__}: {pprint.pformat(_self_dict)}"
@@ -336,7 +343,7 @@ class SimpleModel:
         _self_repr = utils.obj_to_repr(self)
         return _self_repr
 
-    ## METHOD OVERRIDING ##
+    # METHOD OVERRIDING
 
 
 __all__ = ["SimpleModel"]

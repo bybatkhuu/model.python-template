@@ -10,22 +10,22 @@ cd "${_PROJECT_DIR}" || exit 2
 
 
 if [ -z "$(which dot)" ]; then
-	echo "[ERROR]: 'graphiz' not found or not installed."
+	echo "[ERROR]: 'graphiz' not found or not installed!"
 	exit 1
 fi
 
 if [ -z "$(which python)" ]; then
-	echo "[ERROR]: 'python' not found or not installed."
+	echo "[ERROR]: 'python' not found or not installed!"
 	exit 1
 fi
 
 if [ -z "$(which pyreverse)" ]; then
-	echo "[ERROR]: 'pylint' not found or not installed."
+	echo "[ERROR]: 'pylint' not found or not installed!"
 	exit 1
 fi
 
 if [ -z "$(which code2flow)" ]; then
-	echo "[ERROR]: 'code2flow' not found or not installed."
+	echo "[ERROR]: 'code2flow' not found or not installed!"
 	exit 1
 fi
 
@@ -68,7 +68,7 @@ main()
 					_OUTPUT_DIR="${_input#*=}"
 					shift;;
 				*)
-					echo "[ERROR]: Failed to parsing input -> ${_input}"
+					echo "[ERROR]: Failed to parsing input -> ${_input}!"
 					echo "[INFO]: USAGE: ${0}  -m=*, --module-name=* [my_module01] | -d=*, --module-dir=* [./src/my_module01] | -o=*, --output-dir=* [./docs/diagrams]"
 					exit 1;;
 			esac

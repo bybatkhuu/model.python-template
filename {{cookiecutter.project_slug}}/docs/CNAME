@@ -1,1 +1,1 @@
-docs.{{cookiecutter.domain}}
+{{cookiecutter.docs_domain}}

@@ -502,7 +502,6 @@ results/
 output/
 outputs/
 .benchmarks/
-{{cookiecutter.project_slug}}/
 
 # Files:
 log
@@ -520,7 +519,6 @@ results
 output
 outputs
 .benchmarks
-{{cookiecutter.project_slug}}
 *.bak
 version.py
 sample.py
