@@ -12,24 +12,23 @@ project/
 ├── .vscode/                # VSCode specific files
 |   ├── extensions.json         # Recommended extensions for the workspace
 |   └── settings.json           # Common VSCode settings for the workspace (e.g. formatting, linting, etc...)
-├── data/                   # Data used for this project (SHOULD NOT BE INCLUDED IN THE REPOSITORY)
+├── datasets/                   # Data used for this project (SHOULD NOT BE INCLUDED IN THE REPOSITORY)
 |   ├── external/               # Data from third party sources
 |   ├── processed/              # The final datasets for modeling
 |   └── raw/                    # The original raw data
 ├── docs/                   # Documentation of this project
 |   ├── assets/                 # Any assets (images, audios, videos, js, css, html, etc...) used for the documentation
 |   ├── diagrams/               # Diagrams related to this project
-|   ├── pages/                  # MkDocs pages - markdown files
-|   ├── references/             # References related to this project (papers, articles, manuals, etc...)
-|   └── reports/                # Reports based on results of this project
+|   ├── blog/                   # Blog posts related to this project
+|   └── .../                    # MkDocs pages - markdown files
 ├── examples/               # Example source codes of this project
 ├── models/                 # Directory for storing multiple models (SHOULD NOT BE INCLUDED IN THE REPOSITORY)
 |   ├── model.v1/               # AI/ML model files, weights, artifacts, checkpoints, metadata, and configs
 |   ├── model.v2/
 |   └── .../
 ├── notebooks/              # Jupyter notebooks for exploratory data analysis, data preprocessing, model training, etc...
+├── outputs/                # Outputs of the model (SHOULD NOT BE INCLUDED IN THE REPOSITORY)
 ├── requirements/           # Python dependency requirements for different environments
-├── results/                # Results of this model (SHOULD NOT BE INCLUDED IN THE REPOSITORY)
 ├── scripts/                # Helpful scripts to automate tasks or assist in the development process
 ├── simple_model/           # Main CODEBASE of this project as a python module
 |   ├── modules/                # External modules for this project

@@ -41,7 +41,7 @@ def main() -> None:
     _X_test = np.array([[6], [7], [8]])
     _y_test = np.array([10, 14, 16])
 
-    # Main example ##
+    # Main example
     logger.info("Creating and training a simple model...")
 
     # Create the model instance
@@ -70,7 +70,6 @@ def main() -> None:
         _model.save()
 
     logger.info("Done!\n")
-    # Main example ##
     return
 
 

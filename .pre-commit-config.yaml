@@ -22,6 +22,8 @@ exclude: |
     | data/
     | datasets/
     | models/
+    | output/
+    | outputs/
   )$
 
 repos:

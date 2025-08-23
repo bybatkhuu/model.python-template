@@ -18,6 +18,8 @@ simple_model:                                       # Just an example to group t
 [**`.env.example`**](https://github.com/bybatkhuu/model.python-template/blob/main/.env.example):
 
 ```sh
-# ENV=development
-# DEBUG=true
+# ENV=LOCAL
+# DEBUG=false
+# TZ=UTC
+# PYTHONDONTWRITEBYTECODE=0
 ```
