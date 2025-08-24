@@ -151,7 +151,8 @@
 		"**/*.bak": true,
 		"**/.coverage*": true,
 		"**/.DS_Store": true,
-		"**/Thumbs.db": true
+		"**/Thumbs.db": true,
+		"**/docs/assets/js/*.js": true
 	},
 	"python.languageServer": "Pylance",
 	"python.analysis.extraPaths": [
