@@ -24,6 +24,6 @@
 		"No License"
 	],
 	"_copy_without_render": [
-		"*.js"
+		"docs/assets/js/*.js"
 	]
 }
