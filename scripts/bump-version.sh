@@ -66,7 +66,7 @@ main()
 	fi
 
 	if [ "${_BUMP_TYPE}" != "major" ] && [ "${_BUMP_TYPE}" != "minor" ] && [ "${_BUMP_TYPE}" != "patch" ]; then
-		echo "Bump type '${_BUMP_TYPE}' is invalid, should be: 'major', 'minor' or 'patch'!"
+		echo "[ERROR]: Bump type '${_BUMP_TYPE}' is invalid, should be: 'major', 'minor' or 'patch'!"
 		exit 1
 	fi
 
