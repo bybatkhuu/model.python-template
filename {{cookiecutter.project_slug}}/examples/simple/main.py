@@ -33,7 +33,7 @@ def main() -> None:
     if not os.path.isdir(_models_dir):
         os.makedirs(_models_dir, exist_ok=True)
 
-    _model_name = "linear_regression.v0.0.1-24"
+    _model_name = "linear_regression.v0.0.1-250101"
 
     _X_train = np.array([[1], [2], [3], [4], [5]])
     _y_train = np.array([2, 4, 6, 8, 10])
