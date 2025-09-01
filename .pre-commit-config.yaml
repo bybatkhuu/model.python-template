@@ -5,12 +5,8 @@ exclude: |
   (?x)^(
       \.git/
     | .*\{\{.*\}\}.*
-    | \.benchmarks/
-    | \.pytest_cache/
-    | \.coverage
     | \.venv/
     | \.env/
-    | \*.egg-info/
     | __pycache__/
     | venv/
     | env/
@@ -83,10 +79,6 @@ repos:
       - id: check-builtin-literals
         name: "🐍 check-builtin-literals - Check for usage of builtin literals"
         files: \.pyi?$
-      - id: name-tests-test
-        name: "🐍 name-tests-test - Ensure test files are named correctly"
-        files: ^tests/.*\.pyi?$
-        args: ["--pytest-test-first"]
 
   # --- Security checks ---
   - repo: https://github.com/gitleaks/gitleaks
