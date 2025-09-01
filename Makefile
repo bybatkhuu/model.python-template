@@ -8,6 +8,7 @@ help:
 	@echo "make build        -- generate cookiecutter project"
 	@echo "make all          -- clean, get-version, build"
 
+
 clean:
 	./scripts/clean.sh $(MAKEFLAGS)
 
