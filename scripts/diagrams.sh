@@ -9,6 +9,13 @@ _PROJECT_DIR="$(cd "${_SCRIPT_DIR}/.." >/dev/null 2>&1 && pwd)"
 cd "${_PROJECT_DIR}" || exit 2
 
 
+# Loading .env file (if exists):
+if [ -f ".env" ]; then
+	# shellcheck disable=SC1091
+	source .env
+fi
+
+
 if [ -z "$(which dot)" ]; then
 	echo "[ERROR]: 'graphiz' not found or not installed!"
 	exit 1
@@ -27,13 +34,6 @@ fi
 if [ -z "$(which code2flow)" ]; then
 	echo "[ERROR]: 'code2flow' not found or not installed!"
 	exit 1
-fi
-
-
-# Loading .env file (if exists):
-if [ -f ".env" ]; then
-	# shellcheck disable=SC1091
-	source .env
 fi
 ## --- Base --- ##
 
