@@ -108,7 +108,6 @@ main()
 			echo "[OK]: Done."
 		fi
 	fi
-
 }
 
 main "${@:-}"
