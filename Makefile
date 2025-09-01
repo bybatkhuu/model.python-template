@@ -14,6 +14,7 @@ help:
 	@echo "make run-example  -- run example script"
 	@echo "make all          -- clean, get-version, test, build"
 
+
 clean:
 	./scripts/clean.sh $(MAKEFLAGS)
 
