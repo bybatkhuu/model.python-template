@@ -148,7 +148,7 @@ cp -r ./src/simple_model /some/path/project/
 
 ### Simple
 
-[**`examples/simple/main.py`**](https://github.com/bybatkhuu/model.python-template/blob/main/examples/simple/main.py):
+[**`examples/simple/main.py`**](./examples/simple/main.py):
 
 ```python
 # Standard libraries
@@ -234,7 +234,7 @@ if __name__ == "__main__":
 
 ## ⚙️ Configuration
 
-[**`templates/configs/config.yml`**](https://github.com/bybatkhuu/model.python-template/blob/main/templates/configs/config.yml):
+[**`templates/configs/config.yml`**](./templates/configs/config.yml):
 
 ```yaml
 simple_model:                                       # Just an example to group the configs (Not necessary)
@@ -245,7 +245,7 @@ simple_model:                                       # Just an example to group t
 
 ### 🌎 Environment Variables
 
-[**`.env.example`**](https://github.com/bybatkhuu/model.python-template/blob/main/.env.example):
+[**`.env.example`**](./.env.example):
 
 ```sh
 # ENV=LOCAL
@@ -305,7 +305,7 @@ mkdocs build
 
 ## 📚 Documentation
 
-- [Docs](https://github.com/bybatkhuu/model.python-template/blob/main/docs)
+- [Docs](./docs)
 
 ---
 
