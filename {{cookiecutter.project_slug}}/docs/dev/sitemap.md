@@ -13,7 +13,6 @@ title: Sitemap
     - [Error Codes](../getting-started/error-codes.md)
 - API Documentation
     - [SimpleModel](../api-docs/SimpleModel.md)
-    - [ModelConfigPM](../api-docs/ModelConfigPM.md)
 - Development
     - [Test](../dev/test.md)
     - [Build](../dev/build.md)

@@ -10,8 +10,11 @@
 	"author_email": "user@{{cookiecutter.domain}}",
 	"repo_owner": "{{cookiecutter.author_username}}",
 	"repo_name": "{{cookiecutter.project_slug}}",
+	"docker_registry": "{{cookiecutter.repo_owner}}",
+	"docker_repo_name": "{{cookiecutter.repo_name}}",
 	"python_version": "3.10",
 	"version": "0.0.0",
+	"timezone": "UTC",
 	"language": "en",
 	"copyright_year": "2025",
 	"license": [

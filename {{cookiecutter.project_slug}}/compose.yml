@@ -1,0 +1,18 @@
+services:
+  model:
+    image: {{cookiecutter.docker_registry}}/{{cookiecutter.docker_repo_name}}:latest
+    build:
+      context: .
+    restart: unless-stopped
+    environment:
+      TERM: ${TERM:-xterm}
+      TZ: ${TZ:-{{cookiecutter.timezone}}}
+      SSH_PORT: ${SSH_PORT:-22}
+      JUPYTERLAB_PORT: ${JUPYTERLAB_PORT:-8888}
+    env_file:
+      - path: .env
+        required: false
+    ports:
+      - "${SSH_PORT:-22}:${SSH_PORT:-22}"
+      - "${JUPYTERLAB_PORT:-8888}:${JUPYTERLAB_PORT:-8888}"
+    tty: true
