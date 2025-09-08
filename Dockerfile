@@ -22,17 +22,17 @@ COPY ./ ./
 RUN	--mount=type=cache,target=/root/.cache,sharing=locked \
 	_BUILD_TARGET_ARCH=$(uname -m) && \
 	echo "BUILDING TARGET ARCHITECTURE: ${_BUILD_TARGET_ARCH}" && \
-	python3 -m pip install --timeout 60 -U pip && \
-	python3 -m venv .venv && \
+	python -m pip install --timeout 60 -U pip && \
+	python -m venv .venv && \
 	source .venv/bin/activate && \
-	python3 -m pip install --timeout 60 -U pip && \
-	python3 -m pip install --timeout 60 -r ./requirements/requirements.build.txt && \
-	python3 -m build -w && \
+	python -m pip install --timeout 60 -U pip && \
+	python -m pip install --timeout 60 -r ./requirements/requirements.build.txt && \
+	python -m build -w && \
 	deactivate && \
-	python3 -m pip install --prefix=/install --timeout 60 -r ./requirements/requirements.test.txt && \
-	python3 -m pip install --prefix=/install --timeout 60 -r ./requirements/requirements.build.txt && \
-	python3 -m pip install --prefix=/install --timeout 60 jupyterlab jupyterlab-lsp "python-lsp-server[all]" && \
-	python3 -m pip install --prefix=/install --timeout 60 ./dist/*.whl
+	python -m pip install --prefix=/install --timeout 60 -r ./requirements/requirements.test.txt && \
+	python -m pip install --prefix=/install --timeout 60 -r ./requirements/requirements.build.txt && \
+	python -m pip install --prefix=/install --timeout 60 jupyterlab jupyterlab-lsp "python-lsp-server[all]" && \
+	python -m pip install --prefix=/install --timeout 60 ./dist/*.whl
 
 
 FROM ${BASE_IMAGE} AS base
@@ -63,10 +63,10 @@ ENV UID=${UID} \
 	WORKSPACES_DIR=${WORKSPACES_DIR} \
 	PROJECTS_DIR=${PROJECTS_DIR} \
 	PROJECT_DIR=${PROJECT_DIR} \
-	PYTHONIOENCODING=utf-8 \
-	PYTHONUNBUFFERED=1 \
 	SSH_PORT=${SSH_PORT} \
-	JUPYTERLAB_PORT=${JUPYTERLAB_PORT}
+	JUPYTERLAB_PORT=${JUPYTERLAB_PORT} \
+	PYTHONIOENCODING=utf-8 \
+	PYTHONUNBUFFERED=1
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -87,17 +87,16 @@ RUN rm -vrf /var/lib/apt/lists/* /var/cache/apt/archives/* /tmp/* /root/.cache/*
 		curl \
 		rsync \
 		git \
-		zsh \
 		htop \
-		duf \
 		ncdu \
+		duf \
 		fastfetch \
+		# zsh \
 		vim \
 		nano && \
 	apt-get clean -y && \
-	python3 -m pip install --timeout 60 -U --no-cache-dir pip && \
-	# python3 -m pip install --timeout 60 --no-cache-dir jupyterlab jupyterlab-lsp "python-lsp-server[all]" && \
-	python3 -m pip cache purge && \
+	python -m pip install --timeout 60 -U --no-cache-dir pip && \
+	python -m pip cache purge && \
 	sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 	sed -i -e 's/# en_AU.UTF-8 UTF-8/en_AU.UTF-8 UTF-8/' /etc/locale.gen && \
 	sed -i -e 's/# ko_KR.UTF-8 UTF-8/ko_KR.UTF-8 UTF-8/' /etc/locale.gen && \
