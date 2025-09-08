@@ -26,30 +26,30 @@ main()
 		-type d -name "volumes" \
 		\) -prune -o -print0 | sudo xargs -0 chown -c "${USER}:${GROUP}" || exit 2
 
-	find "${PROJECT_DIR}" \( \
-		-type d -name ".git" -o \
-		-type d -name ".venv" -o \
-		-type d -name "scripts" -o \
-		-type d -name "modules" -o \
-		-type d -name "volumes" \
-		\) -prune -o -type d -exec sudo chmod -c 770 {} + || exit 2
+	# find "${PROJECT_DIR}" \( \
+	# 	-type d -name ".git" -o \
+	# 	-type d -name ".venv" -o \
+	# 	-type d -name "scripts" -o \
+	# 	-type d -name "modules" -o \
+	# 	-type d -name "volumes" \
+	# 	\) -prune -o -type d -exec sudo chmod -c 775 {} + || exit 2
 
-	find "${PROJECT_DIR}" \( \
-		-type d -name ".git" -o \
-		-type d -name ".venv" -o \
-		-type d -name "scripts" -o \
-		-type d -name "modules" -o \
-		-type d -name "volumes" -o \
-		-type d -name "examples" \
-		\) -prune -o -type f -exec sudo chmod -c 660 {} + || exit 2
+	# find "${PROJECT_DIR}" \( \
+	# 	-type d -name ".git" -o \
+	# 	-type d -name ".venv" -o \
+	# 	-type d -name "scripts" -o \
+	# 	-type d -name "modules" -o \
+	# 	-type d -name "volumes" -o \
+	# 	-type d -name "examples" \
+	# 	\) -prune -o -type f -exec sudo chmod -c 664 {} + || exit 2
 
-	find "${PROJECT_DIR}" \( \
-		-type d -name ".git" -o \
-		-type d -name ".venv" -o \
-		-type d -name "scripts" -o \
-		-type d -name "modules" -o \
-		-type d -name "volumes" \
-		\) -prune -o -type d -exec sudo chmod -c ug+s {} + || exit 2
+	# find "${PROJECT_DIR}" \( \
+	# 	-type d -name ".git" -o \
+	# 	-type d -name ".venv" -o \
+	# 	-type d -name "scripts" -o \
+	# 	-type d -name "modules" -o \
+	# 	-type d -name "volumes" \
+	# 	\) -prune -o -type d -exec sudo chmod -c ug+s {} + || exit 2
 
 	sudo /usr/sbin/sshd -p "${SSH_PORT:-22}" || exit 2
 	jupyter labextension disable "@jupyterlab/apputils-extension:announcements" || exit 2
