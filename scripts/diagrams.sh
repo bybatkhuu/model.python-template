@@ -30,11 +30,6 @@ if [ -z "$(which pyreverse)" ]; then
 	echo "[ERROR]: 'pylint' not found or not installed!"
 	exit 1
 fi
-
-if [ -z "$(which code2flow)" ]; then
-	echo "[ERROR]: 'code2flow' not found or not installed!"
-	exit 1
-fi
 ## --- Base --- ##
 
 
@@ -93,7 +88,6 @@ main()
 
 	_classes_dir="${_OUTPUT_DIR}/classes"
 	_packages_dir="${_OUTPUT_DIR}/packages"
-	_cgraphs_dir="${_OUTPUT_DIR}/call-graphs"
 
 	if [ ! -d "${_classes_dir}" ]; then
 		mkdir -vp "${_classes_dir}"
@@ -101,10 +95,6 @@ main()
 
 	if [ ! -d "${_packages_dir}" ]; then
 		mkdir -vp "${_packages_dir}"
-	fi
-
-	if [ ! -d "${_cgraphs_dir}" ]; then
-		mkdir -vp "${_cgraphs_dir}"
 	fi
 
 
@@ -118,15 +108,6 @@ main()
 		pyreverse -d "${_OUTPUT_DIR}" -o "${_cp_format}" -p "${_MODULE_NAME}" "${_MODULE_DIR}" || exit 2
 		mv -vf "${_tmp_class_path}" "${_classes_dir}/" || exit 2
 		mv -vf "${_tmp_package_path}" "${_packages_dir}/" || exit 2
-		echo "[OK]: Done."
-	done
-
-	_cgraph_formats=("png" "svg")
-	for _cgraph_format in "${_cgraph_formats[@]}"; do
-		_cgraph_path="${_cgraphs_dir}/cgraph_${_MODULE_NAME}.${_cgraph_format}"
-
-		echo "[INFO]: Generating '${_cgraph_path}' file..."
-		code2flow -o "${_cgraph_path}" "${_MODULE_DIR}" || exit 2
 		echo "[OK]: Done."
 	done
 	echo "[OK]: Done."
