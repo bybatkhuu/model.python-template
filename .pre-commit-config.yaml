@@ -3,24 +3,30 @@ default_language_version:
   python: python3.10
 exclude: |
   (?x)^(
-      \.git/
+      \.git/.*
     | .*\{\{.*\}\}.*
-    | \.venv/
-    | \.env/
-    | __pycache__/
-    | venv/
-    | env/
-    | build/
-    | dist/
-    | site/
-    | site-packages/
-    | node_modules/
-    | logs/
-    | data/
-    | datasets/
-    | models/
-    | output/
-    | outputs/
+    | \.benchmarks/.*
+    | \.pytest_cache/.*
+    | \.coverage
+    | \.venv/.*
+    | \.env/.*
+    | .*\.egg-info(/.*)?
+    | __pycache__/.*
+    | venv/.*
+    | env/.*
+    | build/.*
+    | dist/.*
+    | site/.*
+    | site-packages/.*
+    | node_modules/.*
+    | docs/diagrams/.*
+    | logs/.*
+    | data/.*
+    | datasets/.*
+    | models/.*
+    | output/.*
+    | outputs/.*
+    | volumes/.*
   )$
 
 repos:

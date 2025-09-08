@@ -631,6 +631,5 @@ outputs
 model.python-template
 *.bak
 version.py
-sample.py
 example.py
 test.py
