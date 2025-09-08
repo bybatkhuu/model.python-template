@@ -1,0 +1,53 @@
+#!/bin/bash
+set -euo pipefail
+
+
+echo "[INFO]: Running '${PROJECT_SLUG}' docker-entrypoint.sh..."
+
+_doStart()
+{
+	if [ -n "${JUPYTERLAB_TOKEN:-}" ]; then
+		echo -e "c.IdentityProvider.token = '${JUPYTERLAB_TOKEN}'" >> "/home/${USER}/.jupyter/jupyter_server_config.py" || exit 2
+	fi
+
+	echo "[INFO]: Starting Jupyter Lab..."
+	exec jupyter lab --port="${JUPYTERLAB_PORT:-8888}" || exit 2
+	exit 0
+}
+
+
+main()
+{
+	umask 0002 || exit 2
+	find "${WORKSPACES_DIR}" \( -type d -name ".git" -o -type d -name ".venv" -o -type d -name "modules" \) -prune -o -print0 | sudo xargs -0 chown -c "${USER}:${GROUP}" || exit 2
+	# find "${PROJECT_DIR}" -type d -not -path "*/.git/*" -not -path "*/.venv/*" -not -path "*/scripts/*" -not -path "*/modules/*" -exec sudo chmod 770 {} + || exit 2
+	# find "${PROJECT_DIR}" -type f -not -path "*/.git/*" -not -path "*/.venv/*" -not -path "*/scripts/*" -not -path "*/modules/*" -not -path "*/examples/*" -exec sudo chmod 660 {} + || exit 2
+	# find "${PROJECT_DIR}" -type d -not -path "*/.git/*" -not -path "*/.venv/*" -not -path "*/scripts/*" -not -path "*/modules/*" -exec sudo chmod ug+s {} + || exit 2
+	sudo /usr/sbin/sshd -p "${SSH_PORT:-22}" || exit 2
+	sudo jupyter labextension disable "@jupyterlab/apputils-extension:announcements" || exit 2
+	echo "${USER} ALL=(ALL) ALL" | sudo tee -a "/etc/sudoers.d/${USER}" > /dev/null || exit 2
+	echo ""
+
+	## Parsing input:
+	case ${1:-} in
+		"" | -s | --start | start | --run | run)
+			_doStart;;
+			# shift;;
+		-b | --bash | bash | /bin/bash)
+			shift
+			if [ -z "${*:-}" ]; then
+				echo "[INFO]: Starting bash..."
+				exec /bin/bash
+			else
+				echo "[INFO]: Executing command -> ${*}"
+				exec /bin/bash -c "${@}" || exit 2
+			fi
+			exit 0;;
+		*)
+			echo "[ERROR]: Failed to parsing input -> ${*}"
+			echo "[INFO]: USAGE: ${0}  -s, --start, start | -b, --bash, bash, /bin/bash"
+			exit 1;;
+	esac
+}
+
+main "${@:-}"

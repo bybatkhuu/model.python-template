@@ -1,0 +1,13 @@
+services:
+  model:
+    volumes:
+      - "./:${PROJECT_DIR:-/home/user/workspaces/projects/model.python-template}"
+      - "./scripts/docker/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh"
+      - "./volumes/.vscode-server:/home/user/.vscode-server"
+    # deploy:
+    #   replicas: 0
+    #   resources:
+    #     limits:
+    #       cpus: "0.5"
+    #       memory: 512M
+    # command: ["/bin/bash"]

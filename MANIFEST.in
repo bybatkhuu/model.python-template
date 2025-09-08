@@ -3,6 +3,7 @@ exclude __pycache__/**
 exclude .benchmarks/**
 exclude .git/**
 exclude .github/**
+exclude .venv/**
 exclude .pytest_cache/**
 exclude .vscode/**
 exclude .history/**
@@ -13,6 +14,7 @@ exclude scripts/**
 exclude src/modules/**
 exclude templates/**
 exclude tests/**
+exclude volumes/**
 exclude data/**
 exclude dataset/**
 exclude datasets/**
@@ -34,6 +36,16 @@ exclude .markdownlint.json
 exclude .pre-commit-config.yaml
 exclude .DS_Store
 exclude CHANGELOG.md
+exclude docker-compose.override.yml
+exclude docker-compose.override.yaml
+exclude compose.override.yml
+exclude compose.override.yaml
+exclude docker-compose.yml
+exclude docker-compose.yaml
+exclude compose.yml
+exclude compose.yaml
+exclude Dockerfile
+exclude Dockerfile.gpu
 exclude environment.yml
 exclude Makefile
 exclude MANIFEST.in
