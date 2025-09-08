@@ -52,7 +52,6 @@ exclude MANIFEST.in
 exclude mkdocs.yml
 exclude pytest.ini
 exclude Thumbs.db
-exclude sample.py
 exclude example.py
 exclude test.py
 exclude *.bak

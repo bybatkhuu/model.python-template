@@ -526,7 +526,6 @@ docker-compose.yaml
 compose.override.yml
 compose.override.yaml
 version.py
-sample.py
 example.py
 test.py
 
