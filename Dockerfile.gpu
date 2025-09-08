@@ -62,9 +62,9 @@ COPY ./ ./
 RUN	--mount=type=cache,target=/root/.cache,sharing=locked \
 	/opt/conda/bin/pip install --timeout 60 -r ./requirements/requirements.test.txt && \
 	/opt/conda/bin/pip install --timeout 60 -r ./requirements/requirements.build.txt && \
-	/opt/conda/bin/python -m build -w && \
-	/opt/conda/bin/pip install --timeout 60 jupyterlab jupyterlab-lsp "python-lsp-server[all]" nvitop && \
-	/opt/conda/bin/pip install --timeout 60 ./dist/*.whl
+	# /opt/conda/bin/python -m build -w && \
+	# /opt/conda/bin/pip install --timeout 60 ./dist/*.whl && \
+	/opt/conda/bin/pip install --timeout 60 jupyterlab jupyterlab-lsp "python-lsp-server[all]" nvitop
 
 
 FROM ${BASE_IMAGE} AS base
