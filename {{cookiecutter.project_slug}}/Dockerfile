@@ -23,16 +23,16 @@ RUN	--mount=type=cache,target=/root/.cache,sharing=locked \
 	_BUILD_TARGET_ARCH=$(uname -m) && \
 	echo "BUILDING TARGET ARCHITECTURE: ${_BUILD_TARGET_ARCH}" && \
 	python -m pip install --timeout 60 -U pip && \
-	python -m venv .venv && \
-	source .venv/bin/activate && \
-	python -m pip install --timeout 60 -U pip && \
-	python -m pip install --timeout 60 -r ./requirements/requirements.build.txt && \
-	python -m build -w && \
-	deactivate && \
+	# python -m venv .venv && \
+	# source .venv/bin/activate && \
+	# python -m pip install --timeout 60 -U pip && \
+	# python -m pip install --timeout 60 -r ./requirements/requirements.build.txt && \
+	# python -m build -w && \
+	# deactivate && \
+	# python -m pip install --prefix=/install --timeout 60 ./dist/*.whl && \
 	python -m pip install --prefix=/install --timeout 60 -r ./requirements/requirements.test.txt && \
 	python -m pip install --prefix=/install --timeout 60 -r ./requirements/requirements.build.txt && \
-	python -m pip install --prefix=/install --timeout 60 jupyterlab jupyterlab-lsp "python-lsp-server[all]" && \
-	python -m pip install --prefix=/install --timeout 60 ./dist/*.whl
+	python -m pip install --prefix=/install --timeout 60 jupyterlab jupyterlab-lsp "python-lsp-server[all]"
 
 
 FROM ${BASE_IMAGE} AS base

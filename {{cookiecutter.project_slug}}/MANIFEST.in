@@ -44,6 +44,7 @@ exclude docker-compose.yml
 exclude docker-compose.yaml
 exclude compose.yml
 exclude compose.yaml
+exclude compose.sh
 exclude Dockerfile
 exclude Dockerfile.gpu
 exclude environment.yml

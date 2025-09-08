@@ -533,16 +533,17 @@ zsdoc/data
 **/secrets.dev.yaml
 **/values.dev.yaml
 
+# **/examples
+# **/notebooks
+# **/scripts
+# **/tests
+# **/pytest.ini
 **/.github
 **/build
 **/dist
 **/docs
-# **/examples
-# **/notebooks
-**/scripts
 **/site
 **/templates
-**/tests
 **/venv
 **/volumes
 **/*.egg-info
@@ -552,12 +553,12 @@ zsdoc/data
 **/.markdownlint.json
 **/.pre-commit-config.yaml
 **/CHANGELOG.md
+**/compose.sh
 **/compose.override.y*ml
 **/Dockerfile*
 **/environment.y*ml
 **/Makefile
 **/mkdocs.yml
-**/pytest.ini
 __init__.py
 
-!**/scripts/docker/docker-entrypoint.sh
+# !**/scripts/docker/docker-entrypoint.sh
