@@ -1,0 +1,17 @@
+services:
+  model:
+    image: {{cookiecutter.docker_registry}}/{{cookiecutter.docker_repo_name}}:latest-gpu
+    runtime: nvidia
+    build:
+      context: .
+      dockerfile: Dockerfile.gpu
+    environment:
+      NVIDIA_VISIBLE_DEVICES: ${NVIDIA_VISIBLE_DEVICES:-all}
+      CUDA_VISIBLE_DEVICES: ${CUDA_VISIBLE_DEVICES:-all}
+    # deploy:
+    #   replicas: 0
+    #   resources:
+    #     limits:
+    #       cpus: "0.5"
+    #       memory: 512M
+    # command: ["/bin/bash"]
