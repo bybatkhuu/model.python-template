@@ -537,6 +537,7 @@ zsdoc/data
 # **/notebooks
 # **/scripts
 # **/tests
+# **/pytest.ini
 **/.github
 **/build
 **/dist
@@ -558,7 +559,6 @@ zsdoc/data
 **/environment.y*ml
 **/Makefile
 **/mkdocs.yml
-# **/pytest.ini
 __init__.py
 
 # !**/scripts/docker/docker-entrypoint.sh
