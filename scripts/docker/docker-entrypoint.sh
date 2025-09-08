@@ -51,8 +51,8 @@ main()
 	# 	-type d -name "volumes" \
 	# 	\) -prune -o -type d -exec sudo chmod -c ug+s {} + || exit 2
 
-	sudo /usr/sbin/sshd -p "${SSH_PORT:-22}" || exit 2
 	jupyter labextension disable "@jupyterlab/apputils-extension:announcements" || exit 2
+	sudo /usr/sbin/sshd -p "${SSH_PORT:-22}" || exit 2
 	echo "${USER} ALL=(ALL) ALL" | sudo tee -a "/etc/sudoers.d/${USER}" > /dev/null || exit 2
 	echo ""
 
