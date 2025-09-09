@@ -486,25 +486,6 @@ zsdoc/data
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
-**/log
-**/logs
-**/backup
-**/backups
-**/tmp
-**/data
-**/dataset
-**/datasets
-**/model
-**/models
-**/result
-**/results
-**/output
-**/outputs
-**/.benchmarks
-**/*.bak
-**/version.py
-**/example.py
-**/test.py
 
 **/.DS_Store
 **/__pycache__
@@ -533,23 +514,43 @@ zsdoc/data
 **/secrets.dev.yaml
 **/values.dev.yaml
 
+**/log
+**/logs
+**/backup
+**/backups
+**/tmp
+**/data
+**/dataset
+**/datasets
+**/model
+**/models
+**/result
+**/results
+**/output
+**/outputs
+
 # **/examples
 # **/notebooks
 # **/scripts
 # **/tests
 # **/pytest.ini
 **/.github
+**/.benchmarks
 **/build
 **/dist
 **/docs
 **/site
 **/templates
 **/venv
+**/env
+**/modules
 **/volumes
 **/*.egg-info
 **/.dockerignore
 **/.editorconfig
 **/.env.example
+**/.gitkeep
+**/.gitmodules
 **/.markdownlint.json
 **/.pre-commit-config.yaml
 **/CHANGELOG.md
@@ -560,5 +561,10 @@ zsdoc/data
 **/Makefile
 **/mkdocs.yml
 __init__.py
+
+**/*.lock
+**/*.bak
+**/example.py
+**/test.py
 
 # !**/scripts/docker/docker-entrypoint.sh
