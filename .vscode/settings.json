@@ -141,6 +141,8 @@
 		"**/data": true,
 		"**/dataset": true,
 		"**/datasets": true,
+		"**/model": true,
+		"**/models": true,
 		"**/result": true,
 		"**/results": true,
 		"**/output": true,
