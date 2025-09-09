@@ -65,7 +65,7 @@ main()
 			shift
 			if [ -z "${*:-}" ]; then
 				echo "[INFO]: Starting bash..."
-				exec /bin/bash
+				/bin/bash
 			else
 				echo "[INFO]: Executing command -> ${*}"
 				exec /bin/bash -c "${@}" || exit 2
