@@ -556,7 +556,6 @@ zsdoc/data
 **/compose.sh
 **/compose.override.y*ml
 **/Dockerfile*
-**/environment.y*ml
 **/Makefile
 **/mkdocs.yml
 __init__.py
