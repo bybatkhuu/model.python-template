@@ -535,6 +535,7 @@ zsdoc/data
 # **/pytest.ini
 **/.github
 **/.benchmarks
+**/Thumbs.db
 **/build
 **/dist
 **/docs
