@@ -19,13 +19,21 @@ exclude: |
     | site-packages/.*
     | node_modules/.*
     | docs/diagrams/.*
+    | log/.*
     | logs/.*
+    | backup/.*
+    | backups/.*
     | data/.*
+    | dataset/.*
     | datasets/.*
+    | model/.*
     | models/.*
+    | result/.*
+    | results/.*
     | output/.*
     | outputs/.*
     | volumes/.*
+    | tmp/.*
   )$
 
 repos:
