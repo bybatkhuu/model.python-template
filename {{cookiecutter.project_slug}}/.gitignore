@@ -502,7 +502,6 @@ results/
 output/
 outputs/
 .benchmarks/
-volumes/*
 
 # Files:
 log
@@ -529,5 +528,7 @@ version.py
 example.py
 test.py
 
+# Keeps:
+volumes/*
 !volumes/**/
 !volumes/*.gitkeep
