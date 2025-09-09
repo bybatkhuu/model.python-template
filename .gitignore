@@ -630,6 +630,5 @@ outputs
 .benchmarks
 model.python-template
 *.bak
-version.py
 example.py
 test.py
