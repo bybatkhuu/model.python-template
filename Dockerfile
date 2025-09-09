@@ -35,6 +35,7 @@ RUN	--mount=type=cache,target=/root/.cache,sharing=locked \
 	python -m pip install --prefix=/install --timeout 60 jupyterlab jupyterlab-lsp "python-lsp-server[all]"
 
 
+## Here is the base image:
 FROM ${BASE_IMAGE} AS base
 
 ARG DEBIAN_FRONTEND
@@ -135,11 +136,12 @@ ENV	LANG=en_US.UTF-8 \
 COPY --from=builder --chown=${UID}:${GID} /install /usr/local
 
 
+## Here is the final image:
 FROM base AS app
 
 WORKDIR "${PROJECT_DIR}"
 COPY --chown=${UID}:${GID} ./ ${PROJECT_DIR}
-COPY --chown=${UID}:${GID} ./scripts/docker/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+COPY --chown=${UID}:${GID} --chmod=770 ./scripts/docker/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 # EXPOSE ${SSH_PORT} ${JUPYTERLAB_PORT}
 USER ${UID}:${GID}
