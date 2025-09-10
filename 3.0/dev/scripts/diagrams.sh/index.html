@@ -2158,7 +2158,7 @@
 
 
 <h1 id="diagramssh">🖼️ diagrams.sh</h1>
-<p>This script generates UML diagrams for a specified Python module using <code>pyreverse</code> and <code>code2flow</code>. It checks for dependencies, loads environment variables, sets directories, and processes command-line arguments for customization of module names, directories, and output locations.</p>
+<p>This script generates UML diagrams for a specified Python module using <code>pyreverse</code>. It checks for dependencies, loads environment variables, sets directories, and processes command-line arguments for customization of module names, directories, and output locations.</p>
 <h2 id="overview">Overview</h2>
 <p>The script performs the following operations:</p>
 <ul>
@@ -2168,7 +2168,6 @@
 <li><code>graphviz</code> for <code>.dot</code> file handling.</li>
 <li><code>python</code> for running Python-based commands.</li>
 <li><code>pylint</code> (with <code>pyreverse</code>) for generating UML diagrams.</li>
-<li><code>code2flow</code> for creating flowcharts.</li>
 </ul>
 </li>
 <li>
@@ -2187,11 +2186,10 @@
 <ul>
 <li><code>classes</code> for class diagrams.</li>
 <li><code>packages</code> for package diagrams.</li>
-<li><code>flowcharts</code> for code flowcharts.</li>
 </ul>
 </li>
 <li>
-<p><strong>Diagram Generation</strong>: Runs <code>pyreverse</code> to create UML diagrams in multiple formats (<code>html</code>, <code>pdf</code>, <code>png</code>, and <code>svg</code>) and organizes them into respective directories. It also generates flowcharts with <code>code2flow</code>.</p>
+<p><strong>Diagram Generation</strong>: Runs <code>pyreverse</code> to create UML diagrams in multiple formats (<code>html</code>, <code>pdf</code>, <code>png</code>, and <code>svg</code>) and organizes them into respective directories.</p>
 </li>
 <li>
 <p><strong>Completion Message</strong>: Displays a message confirming successful generation of diagrams.</p>
