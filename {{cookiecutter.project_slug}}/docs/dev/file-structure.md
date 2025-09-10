@@ -12,10 +12,12 @@ project/
 ├── .vscode/                # VSCode specific files
 |   ├── extensions.json         # Recommended extensions for the workspace
 |   └── settings.json           # Common VSCode settings for the workspace (e.g. formatting, linting, etc...)
+├── build/                  # Build files and directories (SHOULD NOT BE COMMITTED TO REPOSITORY)
 ├── datasets/                   # Data used for this project (SHOULD NOT BE COMMITTED TO REPOSITORY)
 |   ├── external/               # Data from third party sources
 |   ├── processed/              # The final datasets for modeling
 |   └── raw/                    # The original raw data
+├── dist/                   # Built distributions of this project (SHOULD NOT BE COMMITTED TO REPOSITORY)
 ├── docs/                   # Documentation of this project
 |   ├── assets/                 # Any assets (images, audios, videos, js, css, html, etc...) used for the documentation
 |   ├── diagrams/               # Diagrams related to this project
@@ -30,6 +32,7 @@ project/
 ├── outputs/                # Outputs of the model (SHOULD NOT BE COMMITTED TO REPOSITORY)
 ├── requirements/           # Python dependency requirements for different environments
 ├── scripts/                # Helpful scripts to automate tasks or assist in the development process
+├── site/                   # Built static site of the documentation (SHOULD NOT BE COMMITTED TO REPOSITORY)
 ├── src/                    # Source codes of this project
 |   ├── modules/                # External modules for this project
 |   |   ├── module_1/
