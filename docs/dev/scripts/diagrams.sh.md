@@ -4,7 +4,7 @@ title: diagrams.sh
 
 # 🖼️ diagrams.sh
 
-This script generates UML diagrams for a specified Python module using `pyreverse` and `code2flow`. It checks for dependencies, loads environment variables, sets directories, and processes command-line arguments for customization of module names, directories, and output locations.
+This script generates UML diagrams for a specified Python module using `pyreverse`. It checks for dependencies, loads environment variables, sets directories, and processes command-line arguments for customization of module names, directories, and output locations.
 
 ## Overview
 
@@ -14,7 +14,6 @@ The script performs the following operations:
     - `graphviz` for `.dot` file handling.
     - `python` for running Python-based commands.
     - `pylint` (with `pyreverse`) for generating UML diagrams.
-    - `code2flow` for creating flowcharts.
 
 - **Environment Variable Setup**: Sets default values for module name, module directory, and output directory (`MODULE_NAME`, `MODULE_DIR`, `OUTPUT_DIR`). These can be customized via environment variables or command-line arguments.
 
@@ -26,9 +25,8 @@ The script performs the following operations:
 - **Directory Creation**: Creates subdirectories within the output directory for organizing different types of UML and flowchart outputs:
     - `classes` for class diagrams.
     - `packages` for package diagrams.
-    - `flowcharts` for code flowcharts.
 
-- **Diagram Generation**: Runs `pyreverse` to create UML diagrams in multiple formats (`html`, `pdf`, `png`, and `svg`) and organizes them into respective directories. It also generates flowcharts with `code2flow`.
+- **Diagram Generation**: Runs `pyreverse` to create UML diagrams in multiple formats (`html`, `pdf`, `png`, and `svg`) and organizes them into respective directories.
 
 - **Completion Message**: Displays a message confirming successful generation of diagrams.
 
