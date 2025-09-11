@@ -13,8 +13,8 @@ This document provides an overview and usage instructions for the following scri
 - [**`build.sh`**](./build.sh.md)
 - [**`release.sh`**](./release.sh.md)
 - [**`changelog.sh`**](./changelog.sh.md)
-- [**`docs.sh`**](./docs.sh.md)
 - [**`diagrams.sh`**](./diagrams.sh.md)
+- [**`docs.sh`**](./docs.sh.md)
 
 All the scripts are located in the **`scripts`** directory:
 
@@ -27,6 +27,7 @@ scripts/
 ├── diagrams.sh
 ├── docs.sh
 ├── get-version.sh
+├── release.sh
 └── test.sh
 ```
 
