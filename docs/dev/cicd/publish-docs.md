@@ -32,9 +32,8 @@ This job builds and deploys the documentation using MkDocs.
 - **Permissions:** `contents: write`
 - **Steps:**
     1. **Checkout the repository** (with full history for proper deployment tracking).
-    2. **Set up Python 3.10**
-    3. **Install dependencies** from `requirements/requirements.docs.txt`
-    4. **Publish the documentation** using `mkdocs gh-deploy --force`
+    2. **Install dependencies** from `requirements/requirements.docs.txt`
+    3. **Publish the documentation** using `mkdocs gh-deploy --force`
 
 ## Usage
 
