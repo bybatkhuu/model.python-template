@@ -7,6 +7,6 @@ nav:
   - build.sh: build.sh.md
   - release.sh: release.sh.md
   - changelog.sh: changelog.sh.md
-  - docs.sh: docs.sh.md
   - diagrams.sh: diagrams.sh.md
+  - docs.sh: docs.sh.md
   # - "*"
