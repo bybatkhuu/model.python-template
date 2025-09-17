@@ -1,5 +1,18 @@
 # Changelog
 
+## v3.0.12 (2025-09-17)
+
+<!-- Release notes generated using configuration in .github/release.yml at v3.0.12 -->
+
+## What's Changed
+### 📝 Documentation
+* :technologist: Refactor installation instructions: update pip install… by @bybatkhuu in https://github.com/bybatkhuu/model.python-template/pull/29
+### 📦 Dependencies
+* ⬆️ Update pytest-cov requirement from <7.0.0,>=5.0.0 to >=5.0.0,<8.0.0 by @dependabot[bot] in https://github.com/bybatkhuu/model.python-template/pull/28
+
+
+**Full Changelog**: https://github.com/bybatkhuu/model.python-template/compare/v3.0.11...v3.0.12
+
 ## v3.0.11 (2025-08-23)
 
 <!-- Release notes generated using configuration in .github/release.yml at v3.0.11 -->
