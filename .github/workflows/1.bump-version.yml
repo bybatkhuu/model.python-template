@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install -U pip
-          python -m pip install -r ./requirements/requirements.test.txt
+          python -m pip install .[test]
       - name: Test with pytest
         run: ./scripts/test.sh -l
 
