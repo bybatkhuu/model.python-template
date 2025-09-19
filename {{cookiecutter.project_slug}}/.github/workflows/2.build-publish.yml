@@ -11,7 +11,7 @@ on:
 
 jobs:
   test:
-    name: 1.1. Test
+    name: 2.1. Test
     runs-on: ubuntu-24.04
     permissions:
       contents: read
@@ -31,7 +31,7 @@ jobs:
 
   build_publish:
     needs: test
-    name: 1.2. Build and Publish
+    name: 2.2. Build and Publish
     runs-on: ubuntu-24.04
     permissions:
       contents: write
