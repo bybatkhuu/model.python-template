@@ -36,7 +36,7 @@ main()
 	# 		-type d -name "modules" -o \
 	# 		-type d -name "volumes" \
 	# 	\) -prune -o -type d -exec \
-	# 		sudo chmod -c 775 {} + || exit 2
+	# 		sudo chmod 775 {} + || exit 2
 
 	# find "${PROJECT_DIR}" \
 	# 	\( \
@@ -47,7 +47,7 @@ main()
 	# 		-type d -name "volumes" -o \
 	# 		-type d -name "examples" \
 	# 	\) -prune -o -type f -exec \
-	# 		sudo chmod -c 664 {} + || exit 2
+	# 		sudo chmod 664 {} + || exit 2
 
 	# find "${PROJECT_DIR}" \
 	# 	\( \
@@ -57,7 +57,7 @@ main()
 	# 		-type d -name "modules" -o \
 	# 		-type d -name "volumes" \
 	# 	\) -prune -o -type d -exec \
-	# 		sudo chmod -c ug+s {} + || exit 2
+	# 		sudo chmod ug+s {} + || exit 2
 
 	jupyter labextension disable "@jupyterlab/apputils-extension:announcements" || exit 2
 	sudo /usr/sbin/sshd -p "${SSH_PORT:-22}" || exit 2
