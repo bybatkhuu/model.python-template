@@ -97,20 +97,6 @@ plugins:
   - search
   - awesome-nav
   - mkdocstrings
-  - blog:
-      # post_excerpt: required
-      post_excerpt_max_authors: 3
-      post_date_format: medium
-      archive_date_format: yyyy/MM
-      archive_url_date_format: yyyy/MM
-      blog_toc: true
-      draft: true
-      draft_if_future_date: true
-      pagination_format: "$link_first $link_previous ~2~ $link_next $link_last"
-      # categories_allowed:
-      #   - Category 1
-      #   - Category 2
-      #   - Others
 extra:
   version:
     provider: mike

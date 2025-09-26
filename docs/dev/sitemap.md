@@ -43,7 +43,6 @@ title: Sitemap
     - [Benchmarks](../research/benchmarks.md)
     - [References](../research/references.md)
 - [Release Notes](../release-notes.md)
-- [Blog](../blog/index.md)
 - About
     - [FAQ](../about/faq.md)
     - [Authors](../about/authors.md)

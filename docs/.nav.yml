@@ -5,6 +5,5 @@ nav:
   - Development: dev/
   - Research: research/
   # - "*"
-  - Blog: blog/
   - Release Notes: release-notes.md
   - About: about/
