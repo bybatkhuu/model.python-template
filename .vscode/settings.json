@@ -7,6 +7,9 @@
 	"diffEditor.ignoreTrimWhitespace": false,
 	"editor.fontWeight": "500",
 	"editor.renderWhitespace": "all",
+	"editor.rulers": [
+		120
+	],
 	"editor.smoothScrolling": true,
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
